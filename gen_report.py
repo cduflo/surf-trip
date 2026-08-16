@@ -63,13 +63,12 @@ MODE_COPY = {
   <strong>advanced floor</strong> ({gate_desc}) replacing the beginner gate. The experts-first trips the
   family division flags ✗ — Salina Cruz, Mentawai, Nihi, P-Pass — are exactly what surfaces here.""",
         "caveat": """<div class="flagbox"><strong>Boys-mode caveats (from the panel's defender).</strong>
-  The scores — and the trip universe itself — were built through a family lens, so read three things with
-  care: <strong>Nihi Sumba's</strong> rank is partly a luxury artifact (you'd be paying $$$$ for an infinity
-  pool this mode says you don't need); <strong>Taghazout's</strong> turnkey 9 encodes a learner-camp industry
-  an advanced crew uses less of; and <strong>Puerto Escondido</strong> is scored as a La Punta family base —
-  a Zicatela-proper row would score differently. Missing rows a boys-first universe would include: a North
-  Shore Oahu base, a Mentawai <em>boat charter</em> (the archetype — would contest #1), and G-Land. Cost and
-  min-days filter harder than the weights here: the top of this division skews $$$$ and 10+ days.</div>""",
+  The family-lens gaps the defender flagged were closed in v6 — the universe now includes the boys-first rows
+  (Mentawai boat charter, a North Shore Oahu base, G-Land, Zicatela-proper, Nias, Krui). Two reading notes
+  remain: <strong>Nihi Sumba's</strong> rank is partly a luxury artifact (you'd be paying $$$$ for an infinity
+  pool this mode says you don't need), and <strong>Taghazout's</strong> turnkey 9 encodes a learner-camp
+  industry an advanced crew uses less of. Cost and min-days filter harder than the weights here: the top of
+  this division skews $$$$ and 10+ days — Salina Cruz ($$) and Chicama ($) are the value line.</div>""",
         "playbook": """
     <article class="card"><h3>The boat-and-boards program</h3>
       <p><strong>Mentawai, Telos, Banyaks, Namotu.</strong> A charter or island camp where the program IS the

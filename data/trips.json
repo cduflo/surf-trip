@@ -488,7 +488,8 @@
    "guide_v1": 8.5,
    "cost_band": "$$$",
    "min_days": 5,
-   "booking": "Resorts easy; on-site surf clubs"
+   "booking": "Resorts easy; on-site surf clubs",
+   "cluster": "Punta Mita pair"
   },
   {
    "name": "La Saladita + Troncones",
@@ -581,7 +582,8 @@
    "guide_v1": 7,
    "cost_band": "$",
    "min_days": 6,
-   "booking": "Easy"
+   "booking": "Easy",
+   "cluster": "Puerto Escondido pair"
   },
   {
    "name": "Los Cerritos / Todos Santos (Baja)",
@@ -1660,7 +1662,8 @@
    },
    "cost_band": "$$$$",
    "min_days": 10,
-   "booking": "Resorts 9–12mo; fixed transfers; some exclude under-12s"
+   "booking": "Resorts 9–12mo; fixed transfers; some exclude under-12s",
+   "cluster": "Mentawai zone"
   },
   {
    "name": "Telo Islands (Resort Latitude Zero)",
@@ -2018,7 +2021,8 @@
     "quality": 8.5,
     "consistency": 9,
     "advanced": 6
-   }
+   },
+   "cluster": "Oahu trio"
   },
   {
    "name": "Hanalei Bay (Kauai)",
@@ -2048,7 +2052,8 @@
    "guide_v1": 7,
    "cost_band": "$$$",
    "min_days": 6,
-   "booking": "Easy; winter lodging pricey"
+   "booking": "Easy; winter lodging pricey",
+   "cluster": "Kauai pair"
   },
   {
    "name": "Papara + Moorea (Tahiti)",
@@ -2469,7 +2474,8 @@
    "cost_band": "$$$",
    "min_days": 5,
    "booking": "Easy; no passport",
-   "note": "The better family window the winter row obscured: south-shore swell season, Queens and Canoes at their most consistent, and a flat, snorkel-safe North Shore. Beach-boy turnkey at its purest; the crowd is the whole tax."
+   "note": "The better family window the winter row obscured: south-shore swell season, Queens and Canoes at their most consistent, and a flat, snorkel-safe North Shore. Beach-boy turnkey at its purest; the crowd is the whole tax.",
+   "cluster": "Oahu trio"
   },
   {
    "name": "Tamarindo + Playa Grande — green season",
@@ -2647,6 +2653,736 @@
    "booking": "Book sessions online; private hire available",
    "note": "Not a surf trip — a calibration row. Perfect scheduled waves, lifeguards, on-site casitas and a lazy river. It outscores every ocean trip, which is the point: it shows what the weights literally optimize for, and why 'it's actually the sea' is the one dimension the model doesn't price. Flagged benchmark; excluded from tiers and the calendar.",
    "benchmark": true
+  },
+  {
+   "name": "Mentawai boat charter",
+   "country": "Indonesia",
+   "region": "Indo-Pacific",
+   "window": "Apr–Oct",
+   "months": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "travel_note": "BOS→PDG ~28h + liveaboard",
+   "scores": {
+    "consistency": 10,
+    "crowd": 9,
+    "quality": 10,
+    "beginner": 3,
+    "advanced": 10,
+    "safety": 5.5,
+    "turnkey": 9.5,
+    "lodging": 7,
+    "travel": 1.5
+   },
+   "cost_band": "$$$$",
+   "min_days": 11,
+   "booking": "Full-boat charters ex-Padang 9–12mo out",
+   "note": "The boys-trip archetype the family lens excluded: a liveaboard chasing the best wave in the archipelago every single day. Wave count no land base can match; cabins, not villas; malaria belt and half-day medevac.",
+   "cluster": "Mentawai zone"
+  },
+  {
+   "name": "G-Land (Grajagan)",
+   "country": "Indonesia",
+   "region": "Indo-Pacific",
+   "window": "May–Sep",
+   "months": [
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "travel_note": "BOS→DPS + 4h drive/boat",
+   "scores": {
+    "consistency": 9,
+    "crowd": 6.5,
+    "quality": 9.5,
+    "beginner": 1.5,
+    "advanced": 10,
+    "safety": 6.5,
+    "turnkey": 7,
+    "lodging": 5,
+    "travel": 1.5
+   },
+   "cost_band": "$$",
+   "min_days": 8,
+   "booking": "Jungle camps (Joyo's, Bobby's) 3–6mo",
+   "note": "Seven-mile jungle left with all-inclusive camps at the wave. Canonical advanced trip; zero learner terrain — added for universe completeness after being excluded on family grounds."
+  },
+  {
+   "name": "Krui (Ujung Bocur, South Sumatra)",
+   "country": "Indonesia",
+   "region": "Indo-Pacific",
+   "window": "Apr–Oct",
+   "months": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "travel_note": "BOS→Jakarta→Lampung + 6h drive",
+   "scores": {
+    "consistency": 9,
+    "crowd": 7,
+    "quality": 9,
+    "beginner": 5.5,
+    "advanced": 9.5,
+    "safety": 6.5,
+    "turnkey": 7,
+    "lodging": 5.5,
+    "travel": 1.5
+   },
+   "cost_band": "$",
+   "min_days": 10,
+   "booking": "Losmen and small camps; near walk-in",
+   "note": "Sumatra's mainland conveyor: a dozen quality lefts and rights around a sleepy town at backpacker prices. Long overland haul; thin medical."
+  },
+  {
+   "name": "West Sumbawa (Scar Reef / Yoyo's)",
+   "country": "Indonesia",
+   "region": "Indo-Pacific",
+   "window": "May–Sep",
+   "months": [
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "travel_note": "BOS→LOP + ferry/drive ~30h",
+   "scores": {
+    "consistency": 8.5,
+    "crowd": 7,
+    "quality": 9,
+    "beginner": 5.5,
+    "advanced": 9,
+    "safety": 6.5,
+    "turnkey": 7,
+    "lodging": 6.5,
+    "travel": 1.5
+   },
+   "cost_band": "$$",
+   "min_days": 10,
+   "booking": "Camps ~6mo",
+   "note": "The other, better-served half of Sumbawa the list had skipped: Scar Reef and Supersuck for the chargers, Jelenga inside for the rusty."
+  },
+  {
+   "name": "Nias (Lagundri Bay)",
+   "country": "Indonesia",
+   "region": "Indo-Pacific",
+   "window": "May–Sep",
+   "months": [
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "travel_note": "BOS→Medan→Gunungsitoli ~30h",
+   "scores": {
+    "consistency": 9,
+    "crowd": 4,
+    "quality": 10,
+    "beginner": 5.5,
+    "advanced": 10,
+    "safety": 6.5,
+    "turnkey": 6.5,
+    "lodging": 5.5,
+    "travel": 1.5
+   },
+   "cost_band": "$",
+   "min_days": 10,
+   "booking": "Losmen walk-in; flights via Medan",
+   "note": "One of the world's great rights, machine-consistent — and a 60-head circus on every swell since the seabed uplift. The famous wave does not fix waves-per-person."
+  },
+  {
+   "name": "Beran Island (Ailinglaplap)",
+   "country": "Marshall Islands",
+   "region": "Indo-Pacific",
+   "window": "Oct–Apr",
+   "months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3,
+    4
+   ],
+   "travel_note": "BOS→HNL→MAJ island-hopper + charter ~35h",
+   "scores": {
+    "consistency": 7.5,
+    "crowd": 10,
+    "quality": 8.5,
+    "beginner": 4,
+    "advanced": 9,
+    "safety": 6.5,
+    "turnkey": 9,
+    "lodging": 7,
+    "travel": 0.5
+   },
+   "cost_band": "$$$$",
+   "min_days": 10,
+   "booking": "Tiny capacity; 9–12mo; fragile itinerary",
+   "note": "The third member of the capped remote NW-Pacific class (with Kavieng and P-Pass): private-atoll operation, guest-capped, boats and boards provided, empty reef passes. The hardest journey on the list."
+  },
+  {
+   "name": "North Shore (Oahu) — winter base",
+   "country": "USA (Hawaii)",
+   "region": "Pacific/USA",
+   "window": "Nov–Mar",
+   "months": [
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "travel_note": "BOS→HNL ~11-12h + 1h drive, no passport",
+   "scores": {
+    "consistency": 9.5,
+    "crowd": 2,
+    "quality": 10,
+    "beginner": 3,
+    "advanced": 8.5,
+    "safety": 9,
+    "turnkey": 6,
+    "lodging": 7.5,
+    "travel": 5
+   },
+   "cost_band": "$$$",
+   "min_days": 6,
+   "booking": "Vacation rentals; winter books early",
+   "note": "The boys-mode Oahu row the family lens excluded: based at the Seven Mile Miracle, dawn-patrolling Haleiwa and Chun's with the world's best out at Pipe. Realized wave count is honest — the deepest pecking order on earth caps it.",
+   "cluster": "Oahu trio"
+  },
+  {
+   "name": "Zicatela (Puerto Escondido proper)",
+   "country": "Mexico",
+   "region": "Mexico",
+   "window": "Apr–Sep",
+   "months": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "travel_note": "Two-leg to PXM",
+   "scores": {
+    "consistency": 9,
+    "crowd": 4.5,
+    "quality": 10,
+    "beginner": 2,
+    "advanced": 10,
+    "safety": 7,
+    "turnkey": 6,
+    "lodging": 7,
+    "travel": 5.5
+   },
+   "cost_band": "$",
+   "min_days": 6,
+   "booking": "Easy; hotels on the strip",
+   "note": "The Mexican Pipeline as a base, not a spectacle: the existing row is La Punta-configured for families; this is the row for a crew that came to ride Zicatela itself.",
+   "cluster": "Puerto Escondido pair"
+  },
+  {
+   "name": "Cocoa Beach (Space Coast)",
+   "country": "USA (Florida)",
+   "region": "Pacific/USA",
+   "window": "May–Sep",
+   "months": [
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "travel_note": "BOS→MCO ~3h + 1h drive, no passport",
+   "scores": {
+    "consistency": 5.5,
+    "crowd": 4,
+    "quality": 4.5,
+    "beginner": 9,
+    "advanced": 4,
+    "safety": 8,
+    "turnkey": 7.5,
+    "lodging": 7.5,
+    "travel": 8.5
+   },
+   "cost_band": "$",
+   "min_days": 4,
+   "booking": "Easy; drive-up",
+   "note": "The shortest warm-water learner trip from New England — small, mushy, crowded, and shark-nippy, but 3 hours door to airport and surf schools everywhere. Shown, as the audit demanded, rather than silently absent."
+  },
+  {
+   "name": "Outer Banks (Cape Hatteras)",
+   "country": "USA (N. Carolina)",
+   "region": "Pacific/USA",
+   "window": "Aug–Oct",
+   "months": [
+    8,
+    9,
+    10
+   ],
+   "travel_note": "Drive ~11h or BOS→ORF + 2h",
+   "scores": {
+    "consistency": 6.5,
+    "crowd": 5.5,
+    "quality": 7,
+    "beginner": 7.5,
+    "advanced": 7,
+    "safety": 9,
+    "turnkey": 5.5,
+    "lodging": 8,
+    "travel": 8.5
+   },
+   "cost_band": "$$",
+   "min_days": 5,
+   "booking": "House rentals easy",
+   "note": "The East Coast's best sandbars, drivable, with hurricane-season swell — and the two things the brief punishes: a week can skunk, and chasing the right bank IS the OBX game."
+  },
+  {
+   "name": "La Jolla Shores + San Diego",
+   "country": "USA (California)",
+   "region": "Pacific/USA",
+   "window": "Aug–Sep",
+   "months": [
+    8,
+    9
+   ],
+   "travel_note": "BOS→SAN ~7h door-to-door, no passport",
+   "scores": {
+    "consistency": 7.5,
+    "crowd": 3,
+    "quality": 6,
+    "beginner": 9.5,
+    "advanced": 6.5,
+    "safety": 9.5,
+    "turnkey": 7,
+    "lodging": 7.5,
+    "travel": 7.5
+   },
+   "cost_band": "$$",
+   "min_days": 4,
+   "booking": "Easy",
+   "note": "The mainland's gentlest learner beach plus reef options up the coast. US-easy everything; the crowd is the price."
+  },
+  {
+   "name": "Nova Scotia (Lawrencetown)",
+   "country": "Canada",
+   "region": "Europe/Atlantic",
+   "window": "Aug–Oct",
+   "months": [
+    8,
+    9,
+    10
+   ],
+   "travel_note": "BOS→YHZ 1.5h or drive ~12h",
+   "scores": {
+    "consistency": 5.5,
+    "crowd": 7.5,
+    "quality": 6.5,
+    "beginner": 6,
+    "advanced": 7,
+    "safety": 9.5,
+    "turnkey": 5.5,
+    "lodging": 7,
+    "travel": 8.5
+   },
+   "cost_band": "$",
+   "min_days": 4,
+   "booking": "Easy",
+   "note": "Hurricane-groomed points 90 minutes' flight from Boston, nearly empty, in 4/3 water. The cold-water short-haul row the bias audit said was missing."
+  },
+  {
+   "name": "Cornwall (Newquay–St Ives)",
+   "country": "United Kingdom",
+   "region": "Europe/Atlantic",
+   "window": "Jun–Sep",
+   "months": [
+    6,
+    7,
+    8,
+    9
+   ],
+   "travel_note": "BOS→LHR + 5h train/drive",
+   "scores": {
+    "consistency": 6.5,
+    "crowd": 3.5,
+    "quality": 6,
+    "beginner": 8,
+    "advanced": 6,
+    "safety": 9.5,
+    "turnkey": 7.5,
+    "lodging": 7.5,
+    "travel": 7
+   },
+   "cost_band": "$$",
+   "min_days": 5,
+   "booking": "Schools and camps plentiful; school-holiday crowds",
+   "note": "The densest wetsuits-included family-surf-school industry on earth, in a lovely holiday coast — with UK summer crowds and UK summer swell."
+  },
+  {
+   "name": "Poipu (Kauai south shore)",
+   "country": "USA (Hawaii)",
+   "region": "Pacific/USA",
+   "window": "Apr–Sep",
+   "months": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "travel_note": "BOS→LIH ~13h, no passport",
+   "scores": {
+    "consistency": 8,
+    "crowd": 4.5,
+    "quality": 6.5,
+    "beginner": 8.5,
+    "advanced": 6,
+    "safety": 9.5,
+    "turnkey": 7.5,
+    "lodging": 8.5,
+    "travel": 5
+   },
+   "cost_band": "$$$",
+   "min_days": 6,
+   "booking": "Easy; resort-dense",
+   "note": "The summer-Hawaii family trip, distinct from winter Hanalei: reliable south swell rollers, resort infrastructure, learner-perfect inside.",
+   "cluster": "Kauai pair"
+  },
+  {
+   "name": "Maui west side (Lahaina–Launiupoko)",
+   "country": "USA (Hawaii)",
+   "region": "Pacific/USA",
+   "window": "Nov–Mar",
+   "months": [
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "travel_note": "BOS→OGG ~12-13h, no passport",
+   "scores": {
+    "consistency": 7.5,
+    "crowd": 4,
+    "quality": 7.5,
+    "beginner": 8.5,
+    "advanced": 7,
+    "safety": 9.5,
+    "turnkey": 7.5,
+    "lodging": 8.5,
+    "travel": 4.5
+   },
+   "cost_band": "$$$",
+   "min_days": 6,
+   "booking": "Easy",
+   "note": "Gentle winter rollers at Launiupoko and Puamana for the family, Honolua Bay's world-class right up the road when the north swell lands."
+  },
+  {
+   "name": "Madeira (Jardim do Mar)",
+   "country": "Portugal (Madeira)",
+   "region": "Europe/Atlantic",
+   "window": "Oct–Mar",
+   "months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "travel_note": "Nonstop BOS→LIS + hop",
+   "scores": {
+    "consistency": 7.5,
+    "crowd": 8,
+    "quality": 8.5,
+    "beginner": 2.5,
+    "advanced": 8.5,
+    "safety": 9.5,
+    "turnkey": 4,
+    "lodging": 8,
+    "travel": 7
+   },
+   "cost_band": "$$",
+   "min_days": 6,
+   "booking": "Easy; village lodging",
+   "note": "World-class empty points on a safe, easy-to-reach island — with boulder entries and no sand anywhere. An experts-first row, same treatment as J-Bay."
+  },
+  {
+   "name": "Galicia (Pantín / Razo)",
+   "country": "Spain",
+   "region": "Europe/Atlantic",
+   "window": "Sep–Oct",
+   "months": [
+    9,
+    10
+   ],
+   "travel_note": "BOS→Madrid + hop/drive",
+   "scores": {
+    "consistency": 7.5,
+    "crowd": 7,
+    "quality": 7,
+    "beginner": 7,
+    "advanced": 7,
+    "safety": 9.5,
+    "turnkey": 5,
+    "lodging": 6.5,
+    "travel": 5.5
+   },
+   "cost_band": "$",
+   "min_days": 6,
+   "booking": "Self-assemble; easy",
+   "note": "Genuinely uncrowded, consistent Atlantic beach breaks with European safety — and no camp ecosystem, so you assemble the trip yourself, which this index prices."
+  },
+  {
+   "name": "Guadeloupe + Martinique",
+   "country": "France (Caribbean)",
+   "region": "Caribbean",
+   "window": "Nov–Mar",
+   "months": [
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "travel_note": "BOS via SJU/MIA → PTP ~8h",
+   "scores": {
+    "consistency": 6.5,
+    "crowd": 6.5,
+    "quality": 6,
+    "beginner": 6.5,
+    "advanced": 6.5,
+    "safety": 7.5,
+    "turnkey": 5.5,
+    "lodging": 7,
+    "travel": 7.5
+   },
+   "cost_band": "$$",
+   "min_days": 6,
+   "booking": "Easy; French carriers",
+   "note": "Steady trade windswell reefs and a proper French-island family holiday. Quality ceiling and turnkey are the caps — the near-nonstop Caribbean depth row."
+  },
+  {
+   "name": "Dominical + Uvita",
+   "country": "Costa Rica",
+   "region": "Central America",
+   "window": "Apr–Sep",
+   "months": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "travel_note": "BOS→SJO + 3.5h drive",
+   "scores": {
+    "consistency": 9,
+    "crowd": 5,
+    "quality": 7.5,
+    "beginner": 6,
+    "advanced": 7.5,
+    "safety": 7.5,
+    "turnkey": 6,
+    "lodging": 7.5,
+    "travel": 6.5
+   },
+   "cost_band": "$$",
+   "min_days": 6,
+   "booking": "Easy",
+   "note": "The consistent central-Pacific window the CR coverage was missing. Punchy beach break with real rips — beginner score capped accordingly."
+  },
+  {
+   "name": "Puerto Viejo (Playa Cocles)",
+   "country": "Costa Rica",
+   "region": "Central America",
+   "window": "Jan–Mar",
+   "months": [
+    1,
+    2,
+    3
+   ],
+   "travel_note": "BOS→SJO + 4.5h drive",
+   "scores": {
+    "consistency": 7,
+    "crowd": 6,
+    "quality": 8,
+    "beginner": 7.5,
+    "advanced": 8,
+    "safety": 6,
+    "turnkey": 7,
+    "lodging": 7,
+    "travel": 6.5
+   },
+   "cost_band": "$",
+   "min_days": 6,
+   "booking": "Easy",
+   "note": "The Caribbean side the 100%-Pacific CR coverage skipped: Salsa Brava for the chargers, Cocles sand for learners, a 3-month window and Limón-province edge."
+  },
+  {
+   "name": "Morro Negrito (Chiriquí islands)",
+   "country": "Panama",
+   "region": "Central America",
+   "window": "Apr–Oct",
+   "months": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "travel_note": "BOS→PTY + hop + boat",
+   "scores": {
+    "consistency": 8,
+    "crowd": 9,
+    "quality": 7.5,
+    "beginner": 5.5,
+    "advanced": 8,
+    "safety": 7,
+    "turnkey": 7.5,
+    "lodging": 5,
+    "travel": 4.5
+   },
+   "cost_band": "$$",
+   "min_days": 7,
+   "booking": "One island camp; ~6mo",
+   "note": "Private-island boat camp with near-empty waves — rustic, experts-leaning, the budget Pacific-Panama answer to the island-camp class."
+  },
+  {
+   "name": "Miyazaki (Kyushu)",
+   "country": "Japan",
+   "region": "Indo-Pacific",
+   "window": "Aug–Oct",
+   "months": [
+    8,
+    9,
+    10
+   ],
+   "travel_note": "BOS→HND→KMI ~20h",
+   "scores": {
+    "consistency": 6,
+    "crowd": 5,
+    "quality": 6.5,
+    "beginner": 7,
+    "advanced": 6.5,
+    "safety": 9.5,
+    "turnkey": 6,
+    "lodging": 7,
+    "travel": 2
+   },
+   "cost_band": "$$$",
+   "min_days": 8,
+   "booking": "Easy; typhoon roulette",
+   "note": "Japan's most consistent coast in typhoon season: fun beach breaks, immaculate logistics, onsen recovery — and a swell lottery the consistency weight rightly punishes."
+  },
+  {
+   "name": "Taitung / Dulan",
+   "country": "Taiwan",
+   "region": "Indo-Pacific",
+   "window": "Oct–Mar",
+   "months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "travel_note": "BOS→TPE + train/drive ~22h",
+   "scores": {
+    "consistency": 6.5,
+    "crowd": 6.5,
+    "quality": 6,
+    "beginner": 7,
+    "advanced": 6,
+    "safety": 9,
+    "turnkey": 6,
+    "lodging": 6.5,
+    "travel": 2
+   },
+   "cost_band": "$$",
+   "min_days": 8,
+   "booking": "Easy",
+   "note": "NE-monsoon windswell points on a friendly, cheap, safe coast. A pleasant B-trip shown for completeness — the audit's verdict stands."
+  },
+  {
+   "name": "Punta Mita — summer",
+   "country": "Mexico",
+   "region": "Mexico",
+   "window": "Apr–Oct",
+   "months": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "travel_note": "One-stop to PVR + 45min",
+   "scores": {
+    "consistency": 8,
+    "crowd": 4.5,
+    "quality": 7,
+    "beginner": 8.5,
+    "advanced": 6,
+    "safety": 7.5,
+    "turnkey": 9,
+    "lodging": 9,
+    "travel": 7.5
+   },
+   "cost_band": "$$$",
+   "min_days": 5,
+   "booking": "Resorts easy; on-site surf clubs",
+   "note": "The listed winter row's consistency 7 was the small-season number: summer S-swell is Mita's real season, with the same panga-and-resort turnkey.",
+   "cluster": "Punta Mita pair"
+  },
+  {
+   "name": "Popoyo — dry season",
+   "country": "Nicaragua",
+   "region": "Central America",
+   "window": "Dec–Mar",
+   "months": [
+    12,
+    1,
+    2,
+    3
+   ],
+   "travel_note": "One-stop to MGA + 2.5h drive",
+   "scores": {
+    "consistency": 7.5,
+    "crowd": 6.5,
+    "quality": 7.5,
+    "beginner": 7.5,
+    "advanced": 8,
+    "safety": 6.5,
+    "turnkey": 8,
+    "lodging": 7.5,
+    "travel": 6
+   },
+   "cost_band": "$",
+   "min_days": 6,
+   "booking": "Lodges easy",
+   "note": "The offshore machine runs all year; Dec–Mar trades size for friendliness — smaller, cleaner, more learnable, and the calendar's thin months get a $ option.",
+   "cluster": "SW Nicaragua corridor"
   }
  ],
  "modes": {
