@@ -1,0 +1,48 @@
+# Family Surf Trip Scoring Methodology
+
+**Objective.** Rank surf trips (destination + specific season window) departing from New England for a family group with mixed ability, optimizing for *near-guaranteed, high-quality, uncrowded waves* with beginner-safe options, easy guided logistics, and family-grade lodging.
+
+A **trip** = destination + time-of-year window. The same destination can appear twice with different windows (e.g., Nosara dry season vs. green season) because consistency, crowds, and conditions change materially by season.
+
+## Dimensions and weights
+
+Nine dimensions, each scored 0–10 against written anchors. Composite = Σ (weight × score) / 10 → **0–100 scale**.
+
+| # | Dimension | Weight | What it measures |
+|---|-----------|--------|------------------|
+| 1 | **Swell consistency** (in window) | **20** | Probability of scoring good-or-better surf on any given day of the stated window. The "near-guarantee" criterion — highest weight by design. |
+| 2 | **Turnkey factor** | **15** | The zero-thought test: quality boards/quiver on-site (no sourcing, no bag fees), a resident program or guide that decides where/when you surf each day, coaching on tap, and no forecast-checking required — either because a program handles it or a single always-on wave sits out front. A zone where you must pick the right bank/tide daily scores low unless guided. |
+| 3 | **Crowd factor** | **13** | Waves per person. Lineup density relative to wave supply, incl. access gating (boat-only, resort-managed, remote). |
+| 4 | **Wave quality** | **11** | Ceiling of the best waves in range on a good day (shape, length, walls) — not just the beginner break. |
+| 5 | **Beginner suitability** | **10** | Safe, mellow, sand-bottom or forgiving waves; warm water helps; hazards (rip intensity, reef, marine life) hurt. |
+| 6 | **Family safety** | **10** | Country/area security, medical access, food/water, drive risk — the "bring the kids without thinking twice" test. |
+| 7 | **Advanced options** | **8** | Genuinely exciting waves for the experienced surfers within guided range of the same base. |
+| 8 | **Family lodging** | **7** | Quality family accommodation at the surf; explicit bonus for a pool overlooking a break. |
+| 9 | **Travel ease from NE** | **6** | Door-to-door from Boston/Providence: nonstop options, total hours, passport/visa friction, arrival-day transfer. |
+
+**Weight rationale.** The brief says "optimize for near guarantee great waves" and "not think at all — no sourcing boards, no sourcing guides, no checking Surfline" → consistency dominates (20) and the turnkey factor is second (15). "Tons of uncrowded, very high quality waves" → crowd (13) + quality (11) next. Family constraints (beginner 10, safety 10) outweigh convenience (lodging 7, travel 6): a hard trip to perfect empty waves should beat an easy trip to mediocre crowded ones, but not by so much that a 30-hour haul with kids is free.
+
+**v3 (2026-08-16) — seven-persona panel review.** Seven personas (surf instructor, beginner, advanced surfer, family-travel expert, industry operator, trip CFO, status-quo defender) reviewed weights and scores; every persona's proposed weight vector was run against the dataset. Outcomes: (1) **weights unchanged** — all seven vectors correlated 0.88–0.99 with the current ranking and six trips topped every vector, so the consensus reweight was rejected as decision-irrelevant (defender's stability argument); (2) **beginner floor added** — beginner ≥ 6 gates the headline "mixed-ability division" (the additive model otherwise lets consistency/crowd buy off a failing beginner score, violating "waves for everyone"); experts-first trips stay in the open table, flagged ✗; (3) **nine trips rescored** on converging multi-seat evidence (Mentawai beginner 3 + safety 5.5, Samoa beginner 3.5, North Malé beginner 4, Hacienda Iguana turnkey 5, Guiones dry crowd 6, Guiones green advanced 4.5, Waikiki advanced 6, Rote turnkey 8.5 + beginner 7, Las Flores travel 8 — v2 values preserved per-trip as `v2_scores`); (4) **three unweighted decision columns** added: `cost_band` ($ <2.5k → $$$$ >6.5k pp/week all-in from BOS), `min_days` (minimum viable trip length after two-way transit/jet lag), `booking` (lead-time/capacity/age constraints). Cost deliberately stays out of the composite: budget is a filter, not a preference. Rejected panel proposals (recorded to prevent relitigating): travel weight increase beyond 6 without user input; quality/advanced increases (worsens the "for everyone" failure); turnkey changes (v2 prior art); cost as a weighted dimension. Proposed-but-unscored dimensions parked for a future pass: simultaneity (family surfs one session together), bookability score, itinerary fragility, big-day refuge.
+
+**v2 (2026-08-16).** Replaced v1's "guided logistics" (weight 8) with the broader, freshly-scored **turnkey factor** (weight 15), funded by −1 crowd, −1 quality, −2 beginner, −2 advanced, −1 travel. Rationale: "painless" is a distinct construct from "guided" — v1 gave no credit for boards-on-site, program-decides-the-day, or forecast-free surfing, which let DIY forecast-chasing trips (Rincón) rank above their real-world cognitive load and undercredited turnkey machines (Nosara, Taghazout, Lombok). Each trip's v1 guide score is preserved in `trips.json` as `guide_v1`; v1 rankings snapshotted in `rankings_v1.csv`.
+
+## Scoring anchors (calibration examples)
+
+- **Consistency 10** ≈ 90%+ of days in window deliver good surf (Mentawai Apr–Oct, Nicaragua offshore corridor Apr–Sep). **7** ≈ most weeks score but flat/blown spells happen (Portugal Sep–Oct). **4** ≈ genuinely swell-dependent; a week can skunk (Caribbean north coasts outside pulse).
+- **Crowd 10** ≈ surfer-count formally capped or effectively private (PNG surf-management plan, private-island resorts). **7** ≈ light, mostly your group + a few (guided Salina Cruz, Telos). **3** ≈ busy but manageable dawn/shoulder. **1** ≈ combat surfing (Canggu, Snapper).
+- **Beginner 10** ≈ waist-high forgiving rollers over sand, warm water, surf-school culture (Guiones, Waikiki, Imsouane bay). **5** ≈ learnable but needs a guide and the right tide. **≤3** ≈ not a place to learn.
+- **Travel 10** ≈ ≤5 h nonstop, no passport (Rincón, PR). **7–8** ≈ one nonstop + short transfer (Costa Rica, Portugal). **4–5** ≈ ~12–16 h, one connection. **≤2** ≈ 24 h+, multi-leg + boat/ferry.
+- **Turnkey 10** ≈ arrive with a toothbrush: quiver, coaching, boats, and the daily call all provided (Tavarua/Namotu, Telos, Pasta Point). **8–9** ≈ camp/surf-club model handles everything if you book it (Taghazout packages, Lombok boat camps, Nosara's school-and-rental ecosystem on an always-on wave). **5** ≈ rentals and schools exist but you assemble the trip and read forecasts (Rincón, Florianópolis). **≤3** ≈ bring boards, self-guide, chase swell (Scorpion Bay).
+
+## Data provenance & honest caveats
+
+- Scores are **structured expert priors** (surf-travel literature, seasonal swell climatology, guide/camp market structure as of early 2026), not live measurements. Treat the composite as an ordinal ranking tool: a 3-point gap is meaningful, a 1-point gap is noise.
+- **Null check.** A scoring model that "always likes famous places" is broken. Sanity test: famous-but-crowded spots (Bali, Noosa, Waikiki) must NOT top the table despite fame; remote consistency machines with crowd control should. Verified in output — see RANKINGS.md.
+- **Sensitivity.** Each weight is perturbed ±25% one-at-a-time and ranks recomputed; each trip reports its min–max rank across perturbations. Trips whose rank band stays tight are robust picks; wide bands mean the rank is an artifact of the weights.
+- Crowd scores decay fastest in real life (a spot can blow up in 2 years). Safety scores reflect early-2026 conditions (e.g., El Salvador's post-2022 security turnaround) — re-check State Dept advisories before booking.
+
+## Outputs
+
+- `data/trips.json` — the dataset (one object per trip, all 9 scores + notes).
+- `score.py` — computes composites, tiers, sensitivity bands, month-by-month calendar.
+- `RANKINGS.md` / `rankings.csv` — generated tables. Re-run with `python3 score.py`.
