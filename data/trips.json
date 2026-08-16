@@ -2648,5 +2648,51 @@
    "note": "Not a surf trip — a calibration row. Perfect scheduled waves, lifeguards, on-site casitas and a lazy river. It outscores every ocean trip, which is the point: it shows what the weights literally optimize for, and why 'it's actually the sea' is the one dimension the model doesn't price. Flagged benchmark; excluded from tiers and the calendar.",
    "benchmark": true
   }
- ]
+ ],
+ "modes": {
+  "family": {
+   "label": "Family trip",
+   "weights": {
+    "consistency": 20,
+    "turnkey": 15,
+    "crowd": 13,
+    "quality": 11,
+    "beginner": 10,
+    "safety": 10,
+    "advanced": 8,
+    "lodging": 7,
+    "travel": 6
+   },
+   "gates": [
+    [
+     "beginner",
+     6
+    ]
+   ]
+  },
+  "boys": {
+   "label": "Solo / boys trip",
+   "weights": {
+    "consistency": 21,
+    "crowd": 17,
+    "quality": 15,
+    "advanced": 15,
+    "turnkey": 11,
+    "safety": 7,
+    "travel": 6,
+    "lodging": 4,
+    "beginner": 4
+   },
+   "gates": [
+    [
+     "advanced",
+     7
+    ],
+    [
+     "quality",
+     7
+    ]
+   ]
+  }
+ }
 }

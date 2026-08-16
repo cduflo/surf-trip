@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
-"""Generate the HTML report (report.html) from data/trips.json. Run score.py logic inline."""
+"""Generate the HTML report (report.html) from data/trips.json.
+
+Renders one block per mode (family / boys) from data['modes']; a masthead
+dropdown toggles which block is visible. Weights and gates live in the JSON;
+prose lives in MODE_COPY below.
+"""
 import html
 import json
 from pathlib import Path
 
-from score import BEGINNER_FLOOR, composite, family_ok, sensitivity_bands, tier
+from score import composite, sensitivity_bands, tier
 
 ROOT = Path(__file__).parent
 MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
@@ -20,6 +25,65 @@ DIM_LABELS = {
     "lodging": ("Lodging", "Family digs at the surf; pool-over-break bonus"),
     "travel": ("Travel ease", "Door-to-door from Boston/Providence"),
 }
+
+MODE_COPY = {
+    "family": {
+        "division": "mixed-ability division",
+        "gate_col": "Fam",
+        "gate_ok_title": "Mixed-ability verified",
+        "gate_no_title": "Experts-first: true beginner under-served",
+        "cards_h2": "The top ten — mixed-ability division",
+        "cards_intro": """These ten pass the <strong>beginner floor</strong> ({gate_desc}): the whole
+  family gets real waves, not just the strongest surfer. The pattern is unmistakable:
+  <strong>access-controlled, guide-driven operations win</strong> — boat-resort models and gated point-break
+  setups buy the two things money usually can't: empty lineups and daily wave certainty. Experts-first trips
+  (marked ✗ below) still appear in the full table with their scores intact.""",
+        "caveat": "",
+        "playbook": """
+    <article class="card"><h3>The full-service boat resort</h3>
+      <p><strong>Namotu/Tavarua, Telos, Maldives, Las Flores.</strong> One booking buys guides, boats, kids'
+      programs and the pool over the break. Highest floor, highest cost, longest flights. Book 9–12 months out —
+      family weeks sell out first.</p></article>
+    <article class="card"><h3>The gated point-break villa</h3>
+      <p><strong>Rancho Santana, Popoyo, El Zonte, Mizata.</strong> A house or small resort inside a surf
+      community, a local guide with a panga or truck. Near-resort wave access at a third of the price,
+      6–7h door to door.</p></article>
+    <article class="card"><h3>The easy strike</h3>
+      <p><strong>Rincón, Barbados, Azores, Canaries.</strong> Nonstop flights, book two weeks out when the
+      seasonal forecast firms up. Lower guarantee, minimal commitment — the repeatable school-vacation play.</p></article>""",
+    },
+    "boys": {
+        "division": "charger division",
+        "gate_col": "Crew",
+        "gate_ok_title": "Charger-verified: real waves for an advanced crew",
+        "gate_no_title": "Below the advanced floor: the crew outgrows it",
+        "cards_h2": "The top ten — charger division",
+        "cards_intro": """Same 86 trips, same scores — reweighted for a crew of advanced surfers with no
+  beginners to protect: wave count and wave ceiling first, lodging demoted to "a bed near the break," and an
+  <strong>advanced floor</strong> ({gate_desc}) replacing the beginner gate. The experts-first trips the
+  family division flags ✗ — Salina Cruz, Mentawai, Nihi, P-Pass — are exactly what surfaces here.""",
+        "caveat": """<div class="flagbox"><strong>Boys-mode caveats (from the panel's defender).</strong>
+  The scores — and the trip universe itself — were built through a family lens, so read three things with
+  care: <strong>Nihi Sumba's</strong> rank is partly a luxury artifact (you'd be paying $$$$ for an infinity
+  pool this mode says you don't need); <strong>Taghazout's</strong> turnkey 9 encodes a learner-camp industry
+  an advanced crew uses less of; and <strong>Puerto Escondido</strong> is scored as a La Punta family base —
+  a Zicatela-proper row would score differently. Missing rows a boys-first universe would include: a North
+  Shore Oahu base, a Mentawai <em>boat charter</em> (the archetype — would contest #1), and G-Land. Cost and
+  min-days filter harder than the weights here: the top of this division skews $$$$ and 10+ days.</div>""",
+        "playbook": """
+    <article class="card"><h3>The boat-and-boards program</h3>
+      <p><strong>Mentawai, Telos, Banyaks, Namotu.</strong> A charter or island camp where the program IS the
+      trip: dawn call, boat to whichever reef is firing, repeat. Maximum waves per day money can buy; book
+      6–12 months out.</p></article>
+    <article class="card"><h3>The guided strike camp</h3>
+      <p><strong>Salina Cruz, Las Flores, Kavieng.</strong> A guide with a truck or panga and gated access to
+      sand-bottom points. Near-private lineups without charter prices.</p></article>
+    <article class="card"><h3>The mileage basecamp</h3>
+      <p><strong>Chicama, Popoyo, Cabo Ledo, Puerto Escondido.</strong> Cheap, consistent, uncrowded — park the
+      crew for 10 days, surf three sessions a day, spend the savings on the next trip.</p></article>""",
+    },
+}
+
 
 CSS = """
 :root{
@@ -64,19 +128,29 @@ header.masthead{padding:72px 0 0}
   text-transform:uppercase;margin:.2em 0 .15em}
 .masthead h1 em{font-style:normal;color:var(--accent)}
 .dek{font-size:1.12rem;color:var(--ink-2);max-width:62ch}
+.modebar{display:flex;align-items:center;gap:12px;margin-top:28px}
+.modebar label{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);font-weight:700}
+.modebar select{font:inherit;font-weight:600;color:var(--ink);background:var(--surface);
+  border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:6px;
+  padding:8px 14px;cursor:pointer}
+.modebar select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.mode{display:none}
+.mode.active{display:block}
 .statrow{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
 .stat{background:var(--surface);border:1px solid var(--line);border-radius:6px;
   padding:14px 20px;min-width:150px;flex:0 1 auto}
 .stat .n{font-size:1.7rem;font-weight:700;line-height:1.2}
 .stat .l{font-size:.75rem;color:var(--ink-2);letter-spacing:.06em;text-transform:uppercase}
 
-.wtable{display:grid;grid-template-columns:auto 1fr;gap:0 18px;margin-top:20px}
+.wtable{display:grid;grid-template-columns:auto 1fr 1fr;gap:0 18px;margin-top:20px}
 .wrow{display:contents}
+.whead{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);
+  font-weight:700;padding:4px 0;border-bottom:2px solid var(--line)}
 .wname{padding:7px 0;border-bottom:1px solid var(--line);font-weight:600;font-size:.92rem;white-space:nowrap}
-.wcell{padding:7px 0;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px}
+.wcell{padding:7px 0;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px}
 .wbar{height:10px;border-radius:0 3px 3px 0;background:var(--accent);flex:0 0 auto}
+.wcell.alt .wbar{background:var(--sand)}
 .wnum{font-weight:700;min-width:2ch}
-.wdesc{color:var(--ink-2);font-size:.88rem}
 .callout{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);
   border-radius:4px;padding:16px 20px;margin-top:24px;font-size:.94rem;color:var(--ink-2)}
 .callout strong{color:var(--ink)}
@@ -144,6 +218,28 @@ footer{margin-top:80px;padding-top:20px;border-top:1px solid var(--line);
   font-size:.8rem;color:var(--ink-3)}
 """
 
+JS = """
+<script>
+(function(){
+  var sel = document.getElementById('modesel');
+  if (!sel) return;
+  function apply(m){
+    document.querySelectorAll('.mode').forEach(function(el){
+      el.classList.toggle('active', el.getAttribute('data-mode') === m);
+    });
+    sel.value = m;
+    try { localStorage.setItem('fwi-mode', m); } catch (e) {}
+  }
+  sel.addEventListener('change', function(){ apply(sel.value); });
+  var saved = null;
+  try { saved = localStorage.getItem('fwi-mode'); } catch (e) {}
+  apply(saved && document.querySelector('.mode[data-mode="' + saved + '"]') ? saved : 'family');
+})();
+</script>
+"""
+
+e = html.escape
+
 
 def bar(v, w=1.0):
     return f'<span class="cbar" style="width:{int(64*w)}px"><i style="width:{v*10:.0f}%"></i></span>'
@@ -159,147 +255,90 @@ def dim_rows(scores):
     return "".join(out)
 
 
-def main():
-    data = json.loads((ROOT / "data" / "trips.json").read_text())
-    weights, trips = data["weights"], data["trips"]
-    for t in trips:
-        t["composite"] = round(composite(t["scores"], weights), 1)
-    trips.sort(key=lambda t: -t["composite"])
+def render_mode(key, mode, trips, dims):
+    """One full division block: stats, top-10 cards, table, calendar, playbook."""
+    weights = mode["weights"]
+    gates = mode["gates"]
+    copy = MODE_COPY[key]
+    gate = lambda t: all(t["scores"][d] >= m for d, m in gates)
+    gate_desc = " and ".join(f'{DIM_LABELS[d][0].lower()} score ≥ {m:g}' for d, m in gates)
+
+    ranked = sorted(trips, key=lambda t: -composite(t["scores"], weights))
+    comp = {t["name"]: round(composite(t["scores"], weights), 1) for t in trips}
     bands = sensitivity_bands(trips, weights)
-    n = len(trips)
-    tiers = {k: sum(1 for t in trips if tier(t["composite"]) == k and not t.get("benchmark"))
-             for k in "SABC"}
-    ranks = {t["name"]: i + 1 for i, t in enumerate(trips)}
-    top10_dev = max(max(ranks[t["name"]] - bands[t["name"]][0],
-                        bands[t["name"]][1] - ranks[t["name"]]) for t in trips[:10])
-    mid_dev = max(max(ranks[t["name"]] - bands[t["name"]][0],
-                      bands[t["name"]][1] - ranks[t["name"]]) for t in trips[24:55])
-    wk_rank = ranks["Waikiki (Oahu) — winter"]
-    waco = next(t["composite"] for t in trips if t.get("benchmark"))
+    eligible = [t for t in ranked if gate(t) and not t.get("benchmark")]
+    n = len(ranked)
+    s_count = sum(1 for t in ranked if tier(comp[t["name"]]) == "S" and not t.get("benchmark"))
+    top = eligible[0]
 
-    e = html.escape
+    stats = f"""<div class="statrow">
+    <div class="stat"><div class="n mono">{n}</div><div class="l">Trips scored</div></div>
+    <div class="stat"><div class="n mono">{len(eligible)}</div><div class="l">Pass {copy["gate_col"].lower()} gate</div></div>
+    <div class="stat"><div class="n mono">{s_count}</div><div class="l">S-tier (80+)</div></div>
+    <div class="stat"><div class="n">{e(top["name"].split("(")[0].split("—")[0].strip())}</div><div class="l">No. 1 · {comp[top["name"]]}</div></div>
+  </div>"""
 
-    # --- weights section ---
-    wrows = []
-    for d, w in sorted(weights.items(), key=lambda kv: -kv[1]):
-        label, desc = DIM_LABELS[d]
-        wrows.append(
-            f'<div class="wrow"><div class="wname">{label}</div>'
-            f'<div class="wcell"><span class="wbar" style="width:{w*10}px"></span>'
-            f'<span class="wnum mono">{w}</span><span class="wdesc">{desc}</span></div></div>')
-
-    # --- top 10 cards: mixed-ability division (beginner floor applied) ---
     cards = []
-    for i, t in enumerate([t for t in trips if family_ok(t) and not t.get("benchmark")][:10], 1):
+    for i, t in enumerate(eligible[:10], 1):
         cards.append(f"""<article class="card">
-<div class="top"><span class="rk mono">{i}</span><h3>{e(t["name"])}</h3><span class="score mono">{t["composite"]}</span></div>
+<div class="top"><span class="rk mono">{i}</span><h3>{e(t["name"])}</h3><span class="score mono">{comp[t["name"]]}</span></div>
 <div class="meta"><span>{e(t["country"])}</span><span>·</span><span>{e(t["window"])}</span><span>·</span><span>{e(t["cost_band"])}</span><span>·</span><span>min {t["min_days"]}d</span><span>·</span><span>{e(t["travel_note"])}</span></div>
 <div class="dims">{dim_rows(t["scores"])}</div>
 <p class="note">{e(t["note"])} <em>Booking: {e(t["booking"])}.</em></p>
 </article>""")
 
-    # --- full table ---
-    dims = data["dimensions"]
     thead = ("<tr><th>#</th><th>Trip</th><th>Window</th><th>Tier</th>"
-             f'<th title="Mixed-ability gate: beginner score ≥ {BEGINNER_FLOOR}">Fam</th>'
+             f'<th title="{e(copy["gate_ok_title"])} ({gate_desc})">{copy["gate_col"]}</th>'
              '<th title="All-in $/person/week incl. BOS flights: $ &lt;2.5k · $$ 2.5–4k · $$$ 4–6.5k · $$$$ &gt;6.5k">Cost</th>'
              '<th class=num title="Minimum viable trip length after two-way transit and jet lag">Min d</th>'
              "<th>Booking</th><th class=num>Score</th><th class=num>Band</th>"
              + "".join(f'<th class=num title="{e(DIM_LABELS[d][1])}">{DIM_LABELS[d][0]}</th>' for d in dims)
              + "</tr>")
     rows = []
-    for i, t in enumerate(trips, 1):
+    for i, t in enumerate(ranked, 1):
+        c = comp[t["name"]]
         lo, hi = bands[t["name"]]
-        tr = "BM" if t.get("benchmark") else tier(t["composite"])
-        fam = ('<span class="gate-ok" title="Mixed-ability verified">✓</span>' if family_ok(t)
-               else '<span class="gate-no" title="Experts-first: true beginner under-served">✗</span>')
+        tr = "BM" if t.get("benchmark") else tier(c)
+        g = (f'<span class="gate-ok" title="{e(copy["gate_ok_title"])}">✓</span>' if gate(t)
+             else f'<span class="gate-no" title="{e(copy["gate_no_title"])}">✗</span>')
         cells = "".join(f'<td class="num mono">{t["scores"][d]:g}</td>' for d in dims)
         rows.append(
             f'<tr><td class="mono">{i}</td>'
             f'<td class="trip">{e(t["name"])}<div class="sub">{e(t["country"])} — {e(t["travel_note"])}'
             + (f' · <em>{e(t["cluster"])}</em>' if t.get("cluster") else '') + '</div></td>'
             f'<td>{e(t["window"])}</td><td><span class="chip {tr}">{tr}</span></td>'
-            f'<td>{fam}</td><td class="mono">{e(t["cost_band"])}</td>'
+            f'<td>{g}</td><td class="mono">{e(t["cost_band"])}</td>'
             f'<td class="num mono">{t["min_days"]}</td><td class="book">{e(t["booking"])}</td>'
-            f'<td class="num mono">{t["composite"]}{bar(t["composite"]/10)}</td>'
+            f'<td class="num mono">{c}{bar(c/10)}</td>'
             f'<td class="num mono band">{lo}–{hi}</td>{cells}</tr>')
 
-    # --- month strip: #1 pick per month ---
     mcells = []
     for m in range(1, 13):
-        best = next(t for t in trips if m in t["months"] and not t.get("benchmark"))
+        best = next(t for t in ranked if m in t["months"] and not t.get("benchmark") and gate(t))
         mcells.append(f'<div class="mcell"><div class="m">{MONTHS[m-1]}</div>'
                       f'<div class="p">{e(best["name"])}</div>'
-                      f'<div class="mono" style="color:var(--ink-2)">{best["composite"]}</div></div>')
+                      f'<div class="mono" style="color:var(--ink-2)">{comp[best["name"]]}</div></div>')
 
-    # --- season blocks ---
     def season_list(months_set, k=6, within=False):
         cond = (lambda t: set(t["months"]) <= months_set) if within else (lambda t: set(t["months"]) & months_set)
-        picks = [t for t in trips if cond(t) and not t.get("benchmark")][:k]
-        return "".join(f'<li>{e(t["name"])} <span class="s mono">{t["composite"]} · {e(t["window"])}</span></li>'
+        picks = [t for t in ranked if cond(t) and not t.get("benchmark") and gate(t)][:k]
+        return "".join(f'<li>{e(t["name"])} <span class="s mono">{comp[t["name"]]} · {e(t["window"])}</span></li>'
                        for t in picks)
 
-    html_doc = f"""<title>The Family Wave Index</title>
-<style>{CSS}</style>
-<div class="wrap">
-
-<header class="masthead">
-  <div class="eyebrow">Family surf trips from New England · scored &amp; ranked · Aug 2026</div>
-  <h1>The Family <em>Wave</em> Index</h1>
-  <p class="dek">{n} destination-plus-season trips scored on nine weighted dimensions, built around one brief:
-  everyone in the family — first-timer to charger — gets tons of uncrowded, high-quality waves,
-  with near-guaranteed swell, zero-thought logistics — boards waiting, guides booked, no forecast-checking —
-  and somewhere great to stay.</p>
-  <div class="statrow">
-    <div class="stat"><div class="n mono">{n}</div><div class="l">Trips scored</div></div>
-    <div class="stat"><div class="n mono">9</div><div class="l">Weighted dimensions</div></div>
-    <div class="stat"><div class="n mono">{tiers["S"]}</div><div class="l">S-tier (80+)</div></div>
-    <div class="stat"><div class="n">{e(trips[0]["name"].split("(")[0].strip())}</div><div class="l">No. 1 · {trips[0]["composite"]}</div></div>
-  </div>
-</header>
+    return f"""<div class="mode" data-mode="{key}">
+  {stats}
 
 <section>
-  <h2>How the score works</h2>
-  <p class="prose">Each trip is a <strong>destination + season window</strong> — the same place can appear
-  twice because consistency, crowds and conditions swing hard by month. Nine dimensions, each scored 0–10
-  against written anchors, weighted to match the brief: swell certainty first, then the <strong>turnkey
-  factor</strong> — the zero-thought test: boards waiting, coaching on tap, someone else making the daily
-  call, never opening a forecast — then empty high-quality lineups, then family constraints ahead of
-  convenience. Composite is the weighted sum on a 0–100 scale.</p>
-  <div class="wtable">{"".join(wrows)}</div>
-  <div class="callout"><strong>Provenance, honestly.</strong> Scores are structured expert priors from swell
-  climatology and the surf-travel record as of early 2026 — an ordinal ranking tool, not measurements.
-  A 3-point gap is meaningful; a 1-point gap is noise. Crowd scores decay fastest in real life; safety scores
-  reflect early-2026 conditions — re-check advisories before booking. Full anchors and rationale live in
-  <span class="mono">METHODOLOGY.md</span>; rerun <span class="mono">score.py</span> to regenerate everything here.
-  <strong>v2 change:</strong> "guided logistics" (8 pts) became the freshly-scored turnkey factor (15 pts) —
-  v1 gave no credit for boards-on-site or forecast-free surfing, letting DIY forecast-chasing trips outrank
-  their real cognitive load. v1 rankings preserved in <span class="mono">rankings_v1.csv</span>.
-  <strong>v3 change (seven-persona panel review):</strong> nine trips rescored on multi-seat evidence, a
-  <strong>beginner floor (≥ {BEGINNER_FLOOR})</strong> now gates the headline top ten (weights unchanged —
-  the panel's own vectors agreed on the top of the table, ρ = 0.88–0.99), and three unweighted decision
-  columns were added: cost band, minimum viable days, and booking constraints.
-  <strong>v4 change (adversarial coverage audit):</strong> four auditors hunted for gaps by region and by
-  construction; 17 rows added (7 top-30 contenders led by Nihi Sumba and Rancho Santana, 3 depth-adds,
-  6 season splits, 1 flagged wave-pool benchmark), the Waikiki winter row rescored as Waikiki-only after a
-  base-pairing error, and near-duplicate clusters (Silver Coast, SW Nicaragua corridor, Agadir coast) are
-  now labeled in the table — treat clustered rows as one option, not several.</div>
-</section>
-
-<section>
-  <h2>The top ten — mixed-ability division</h2>
-  <p class="prose">These ten pass the <strong>beginner floor</strong> (beginner ≥ {BEGINNER_FLOOR}): the whole
-  family gets real waves, not just the strongest surfer. The pattern is unmistakable:
-  <strong>access-controlled, guide-driven operations win</strong> — boat-resort models and gated point-break
-  setups buy the two things money usually can't: empty lineups and daily wave certainty. Experts-first trips
-  (marked ✗ below) still appear in the full table with their scores intact.</p>
+  <h2>{copy["cards_h2"]}</h2>
+  <p class="prose">{copy["cards_intro"].format(gate_desc=gate_desc)}</p>
   <div class="cards">{"".join(cards)}</div>
+  {copy["caveat"]}
 </section>
 
 <section>
-  <h2>All {n} trips</h2>
+  <h2>All {n} trips — {mode["label"].lower()} weighting</h2>
   <p class="prose">Band = where the trip's rank lands when any one weight is perturbed ±25% —
-  a tight band means the rank is robust, a wide one means it's sensitive to how much you care about each dimension.</p>
+  a tight band means the rank is robust. {copy["gate_col"]} = this division's gate ({gate_desc}).</p>
   <div class="tablewrap"><table>
     <thead>{thead}</thead>
     <tbody>{"".join(rows)}</tbody>
@@ -308,95 +347,134 @@ def main():
 
 <section>
   <h2>When to go where</h2>
-  <p class="prose">The year splits cleanly in two. <strong>April–October</strong> belongs to the Southern
-  Hemisphere swell machine — Pacific Central America, Fiji, the Maldives, Indonesia. <strong>November–March</strong>
-  belongs to North Atlantic and North Pacific winter — the Caribbean, Canaries, Morocco, Hawaii — with the
-  Portugal/France shoulder peaking September–October.</p>
+  <p class="prose">The year splits cleanly in two: <strong>April–October</strong> belongs to the Southern
+  Hemisphere swell machine, <strong>November–March</strong> to North Atlantic and North Pacific winter, with
+  the Portugal/France shoulder peaking September–October. Gate-passing trips only.</p>
   <div class="seasons">
     <div class="season"><div class="months">Apr – Oct · southern season</div>
       <h3>The guarantee window</h3><ol>{season_list({5,6,7,8})}</ol></div>
     <div class="season"><div class="months">Nov – Mar · northern winter</div>
-      <h3>School-break season</h3><ol>{season_list({12,1,2})}</ol></div>
+      <h3>Winter season</h3><ol>{season_list({12,1,2})}</ol></div>
     <div class="season"><div class="months">Sep – Oct · shoulder</div>
       <h3>The sweet overlap</h3><ol>{season_list({9,10,11}, within=True)}</ol></div>
   </div>
-  <h3 style="margin-top:28px">Best-scoring trip in window, by month</h3>
+  <h3 style="margin-top:28px">Best gate-passing trip in window, by month</h3>
   <div class="monthstrip">{"".join(mcells)}</div>
 </section>
 
 <section>
+  <h2>Three ways to book it</h2>
+  <div class="arche">{copy["playbook"]}
+  </div>
+</section>
+</div>"""
+
+
+def main():
+    data = json.loads((ROOT / "data" / "trips.json").read_text())
+    trips, dims, modes = data["trips"], data["dimensions"], data["modes"]
+    fam_w = modes["family"]["weights"]
+
+    # Family-mode figures for the shared integrity section (the audit record)
+    ranked = sorted(trips, key=lambda t: -composite(t["scores"], fam_w))
+    comp = {t["name"]: round(composite(t["scores"], fam_w), 1) for t in trips}
+    bands = sensitivity_bands(trips, fam_w)
+    ranks = {t["name"]: i + 1 for i, t in enumerate(ranked)}
+    n = len(trips)
+    top10_dev = max(max(ranks[t["name"]] - bands[t["name"]][0],
+                        bands[t["name"]][1] - ranks[t["name"]]) for t in ranked[:10])
+    mid_dev = max(max(ranks[t["name"]] - bands[t["name"]][0],
+                      bands[t["name"]][1] - ranks[t["name"]]) for t in ranked[24:55])
+    wk_rank = ranks["Waikiki (Oahu) — winter"]
+    waco = next(comp[t["name"]] for t in trips if t.get("benchmark"))
+
+    # Dual-column weights grid
+    boys_w = modes["boys"]["weights"]
+    wrows = ['<div class="wrow"><div class="whead">Dimension</div>'
+             '<div class="whead">Family weighting</div><div class="whead">Solo / boys weighting</div></div>']
+    for d, w in sorted(fam_w.items(), key=lambda kv: -kv[1]):
+        label, desc = DIM_LABELS[d]
+        bw = boys_w[d]
+        wrows.append(
+            f'<div class="wrow"><div class="wname" title="{e(desc)}">{label}</div>'
+            f'<div class="wcell"><span class="wbar" style="width:{w*9}px"></span><span class="wnum mono">{w:g}</span></div>'
+            f'<div class="wcell alt"><span class="wbar" style="width:{bw*9}px"></span><span class="wnum mono">{bw:g}</span></div></div>')
+
+    mode_opts = "".join(f'<option value="{k}">{e(m["label"])}</option>' for k, m in modes.items())
+    mode_blocks = "\n".join(render_mode(k, m, trips, dims) for k, m in modes.items())
+
+    html_doc = f"""<title>The Family Wave Index</title>
+<style>{CSS}</style>
+<div class="wrap">
+
+<header class="masthead">
+  <div class="eyebrow">Surf trips from New England · scored &amp; ranked · Aug 2026</div>
+  <h1>The Family <em>Wave</em> Index</h1>
+  <p class="dek">{n} destination-plus-season trips scored on nine dimensions, ranked two ways:
+  a <strong>family division</strong> — everyone from first-timer to charger scores, zero-thought logistics,
+  a beginner floor — and a <strong>solo/boys division</strong> — advanced crews, wave count and wave ceiling
+  first, a bed near the break is enough. Same trips, same scores; only the weights and the gate change.</p>
+  <div class="modebar">
+    <label for="modesel">Optimize for</label>
+    <select id="modesel">{mode_opts}</select>
+  </div>
+</header>
+
+<section>
+  <h2>How the score works</h2>
+  <p class="prose">Each trip is a <strong>destination + season window</strong>, scored 0–10 on nine dimensions
+  against written anchors; a division's composite is its weighted sum on a 0–100 scale. The family weighting
+  puts swell certainty and the turnkey factor first and gates on a beginner floor; the solo/boys weighting —
+  derived from a charger + charter-captain + defender persona panel — promotes crowds, quality, and advanced,
+  demotes lodging and beginner, and gates on an advanced floor instead.</p>
+  <div class="wtable">{"".join(wrows)}</div>
+  <div class="callout"><strong>Provenance, honestly.</strong> Scores are structured expert priors from swell
+  climatology and the surf-travel record as of early 2026 — an ordinal ranking tool, not measurements.
+  A 3-point gap is meaningful; a 1-point gap is noise. Crowd scores decay fastest in real life; safety scores
+  reflect early-2026 conditions — re-check advisories before booking. Full anchors and the v1→v5 changelog
+  (incl. rejected proposals) live in <span class="mono">METHODOLOGY.md</span>; rerun
+  <span class="mono">score.py</span> + <span class="mono">gen_report.py</span> to regenerate everything here.</div>
+</section>
+
+{mode_blocks}
+
+<section>
   <h2>Integrity checks</h2>
-  <p class="prose">A scoring model that just likes famous places is broken, so famous-but-flawed spots serve
-  as null tests — and the weights get stress-tested rather than trusted.</p>
+  <p class="prose">Checks run on the family weighting (the boys division reuses the same scores). A scoring
+  model that just likes famous places is broken, so famous-but-flawed spots serve as null tests — and the
+  weights get stress-tested rather than trusted.</p>
   <ul class="tight prose">
     <li><strong>Uluwatu ranks {ranks["Uluwatu + Bingin (Bukit)"]}/{n}</strong> and
     <strong>Noosa {ranks["Noosa"]}/{n}</strong> despite world fame — crowds and (for Noosa) swell roulette
     cost them exactly as designed. Pass.</li>
     <li><strong>Sensitivity:</strong> the top 10 hold rank within ±{top10_dev} places under every single-weight
-    ±25% perturbation. Mid-table (ranks 25–55) swings up to ±{mid_dev} — treat those as a tier, not an ordering.</li>
+    ±25% perturbation. Mid-table swings up to ±{mid_dev} — treat those as a tier, not an ordering.</li>
   </ul>
-  <div class="flagbox"><strong>Adjudicated — Waikiki, now rank {wk_rank}.</strong> Earlier passes ranked it
-  top-10 on a turnkey score of 9 — a beginner-only number smuggled in as a trip score. Waikiki is genuinely
-  toothbrush-turnkey for a first-timer (boards on the sand, beach-boy pushes, an always-on wave), but wave
-  acquisition in that crowd is a competition, and the bundled North Shore expert side is fully DIY
-  forecast-chasing in the world's most contested lineups. Turnkey rescored to 6.5, and the panel's advanced
-  seat cut the phantom-access advanced score to 6; the null check now passes on its own.</div>
+  <div class="flagbox"><strong>Adjudicated — Waikiki winter, rank {wk_rank}.</strong> Earlier passes ranked it
+  top-10 on a turnkey score of 9 — a beginner-only number smuggled in as a trip score — and on North Shore
+  quality a mixed group can't ride (the base-pairing error caught in the v4 audit). Rescored as Waikiki-only;
+  the null check now passes on its own.</div>
   <h3 style="margin-top:28px">Seven-persona panel review (v3)</h3>
-  <p class="prose">Seven personas — surf instructor, beginner, advanced surfer, family-travel expert, industry
-  operator, trip CFO, and a status-quo defender — independently reviewed the weights and scores, and every
-  persona's own weight vector was run against the dataset. Findings:</p>
   <ul class="tight prose">
-    <li><strong>The weights survived.</strong> All seven vectors produced rank correlations of 0.88–0.99 with
-    the current ranking, and six trips made the top ten under every vector (Fiji ×2, Maldives ×2, Telos,
-    Las Flores). The panel's proposed reweight was rejected as redundant.</li>
-    <li><strong>The structure didn't.</strong> Five of seven seats independently flagged that an additive model
-    lets consistency and crowd scores buy off a failing beginner score — so "waves for everyone" now enforces a
-    beginner floor instead of a weight.</li>
-    <li><strong>Nine trips were rescored</strong> on converging multi-seat evidence — the largest: Mentawai
-    (beginner 4.5→3, safety 7.5→5.5 for pediatric malaria prophylaxis and half-day medevac), Samoa
-    (beginner 5→3.5), North Malé (beginner 6→4), Hacienda Iguana (turnkey 7.5→5 — an HOA you self-assemble,
-    not a resort), and Rote upgraded for true same-session simultaneity.</li>
-    <li><strong>Cost stays out of the composite</strong> (three seats converged): budget is a filter, not a
-    preference — so it's a column. Note the pattern it exposes: the open-division S-tier is, with Las Flores
-    as the lone exception, also the $$$$-tier.</li>
+    <li><strong>The family weights survived:</strong> all seven persona vectors correlated 0.88–0.99 with the
+    ranking, and six trips topped every vector — so the proposed reweight was rejected as redundant.</li>
+    <li><strong>The structure didn't:</strong> five of seven seats flagged that an additive model lets
+    consistency and crowd buy off a failing beginner score — hence the beginner floor instead of a weight.</li>
+    <li><strong>Nine trips rescored</strong> on converging multi-seat evidence (Mentawai, Samoa, North Malé,
+    Hacienda Iguana, Rote, others); <strong>cost stays out of the composite</strong> — budget is a filter,
+    so it's a column. The family S-tier is, Las Flores excepted, also the $$$$-tier.</li>
   </ul>
   <h3 style="margin-top:28px">Adversarial coverage audit (v4)</h3>
-  <p class="prose">Four auditors then attacked the list's completeness — three regional gap-hunters and one
-  construction skeptic. Verdict: the original 69 was ~80–85% comprehensive. What they found:</p>
   <ul class="tight prose">
-    <li><strong>The blind spot was property-level products.</strong> The list scored coastlines but missed
-    resorts sitting on already-validated corridors — Nihi Sumba (a formal ~10-surfer daily cap and an infinity
-    pool over the wave: the crowd-10 and pool-over-break anchors verbatim), Rancho Santana, Mizata. Ironic for
-    a model that weights turnkey at 15; all now added.</li>
-    <li><strong>Season splits were inconsistently applied.</strong> Only Nosara was split; six more windows
-    earned rows, including Waikiki's summer (the better family window) and Fiji's off-season — which, with
-    Papatura, repairs the thin November–March calendar.</li>
-    <li><strong>The Waikiki winter row blended two incompatible bases</strong> — its quality score borrowed a
-    North Shore the family can't ride. Rescored as Waikiki-only; the North Shore is a spectator day.</li>
-    <li><strong>The wave-pool benchmark tells on the model.</strong> Waco Surf scores {waco:g} — above every
-    ocean trip — because "guaranteed, safe, zero-thought waves for everyone" literally describes a pool. It's
-    flagged BM, untiered, and excluded from the calendar: a calibration row that shows the one thing the
-    weights don't price is the ocean itself.</li>
-    <li><strong>Exclusions held.</strong> The auditors confirmed dozens of plausible-sounding destinations
-    (Japan, Taiwan, Eleuthera, Tobago, Australia's points, Réunion, Cape Verde) genuinely fail the
-    brief — recorded so they aren't relitigated.</li>
+    <li><strong>The blind spot was property-level products</strong> — the list scored coastlines and missed
+    resorts on validated corridors (Nihi Sumba, Rancho Santana, Mizata). 17 rows added; original 69 judged
+    ~80–85% comprehensive.</li>
+    <li><strong>The wave-pool benchmark tells on the model:</strong> Waco Surf scores {waco:g} — above every
+    ocean trip — because "guaranteed, safe, zero-thought waves" literally describes a pool. Flagged BM,
+    untiered, excluded from the calendar.</li>
+    <li><strong>Exclusions held:</strong> dozens of plausible destinations (Japan, Taiwan, Eleuthera, Tobago,
+    Australia's points, Réunion) confirmed to fail the brief — recorded so they aren't relitigated.</li>
   </ul>
-</section>
-
-<section>
-  <h2>Three ways to book it</h2>
-  <div class="arche">
-    <article class="card"><h3>The full-service boat resort</h3>
-      <p><strong>Namotu/Tavarua, Telos, Maldives, Las Flores.</strong> One booking buys guides, boats, kids'
-      programs and the pool over the break. Highest floor, highest cost, longest flights. Book 9–12 months out —
-      family weeks sell out first.</p></article>
-    <article class="card"><h3>The gated point-break villa</h3>
-      <p><strong>Hacienda Iguana, Popoyo, El Zonte.</strong> Rent a house with a pool inside a surf community,
-      hire a local guide with a panga or truck. Near-resort wave access at a third of the price, 6–7h door to door.</p></article>
-    <article class="card"><h3>The easy strike</h3>
-      <p><strong>Rincón, Barbados, Azores, Canaries.</strong> Nonstop flights, book two weeks out when the
-      seasonal forecast firms up. Lower guarantee, minimal commitment — the repeatable school-vacation play.</p></article>
-  </div>
 </section>
 
 <footer>The Family Wave Index · methodology, dataset and scoring script in the surf-trip repo
@@ -404,7 +482,7 @@ def main():
 verify advisories, seasons and operators before booking.</footer>
 
 </div>
-"""
+{JS}"""
     out = ROOT / "report.html"
     out.write_text(html_doc)
     print(f"Wrote {out} ({len(html_doc):,} bytes)")

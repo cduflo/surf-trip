@@ -67,18 +67,27 @@ def main():
     trips.sort(key=lambda t: -t["composite"])
     bands = sensitivity_bands(trips, weights)
 
+    boys = data["modes"]["boys"]
+    boys_gate = lambda t: all(t["scores"][d] >= m for d, m in boys["gates"])
+    boys_comp = {t["name"]: round(composite(t["scores"], boys["weights"]), 1) for t in trips}
+    boys_order = sorted(trips, key=lambda t: -boys_comp[t["name"]])
+    boys_rank = {t["name"]: i + 1 for i, t in enumerate(boys_order)}
+
     # CSV
     dims = data["dimensions"]
     with open(ROOT / "rankings.csv", "w", newline="") as f:
         w = csv.writer(f)
         w.writerow(["rank", "trip", "country", "region", "window", "composite", "tier",
-                    "family_ok", "cost_band", "min_days", "booking",
+                    "family_ok", "boys_composite", "boys_rank", "boys_ok",
+                    "cost_band", "min_days", "booking",
                     "rank_lo", "rank_hi"] + dims + ["travel_note", "note"])
         for i, t in enumerate(trips, 1):
             lo, hi = bands[t["name"]]
             w.writerow([i, t["name"], t["country"], t["region"], t["window"],
                         t["composite"], tier(t["composite"]),
                         "yes" if family_ok(t) else "no",
+                        boys_comp[t["name"]], boys_rank[t["name"]],
+                        "yes" if boys_gate(t) else "no",
                         t["cost_band"], t["min_days"], t["booking"], lo, hi]
                        + [t["scores"][d] for d in dims] + [t["travel_note"], t["note"]])
 
@@ -103,6 +112,11 @@ def main():
         lines.append(f"{i}. {t['name']} — {t['composite']} ({t['cost_band']}, {t['window']})")
     excluded = [t["name"] for t in trips if not family_ok(t)]
     lines.append(f"\nExperts-first (gated out): {len(excluded)} trips — {', '.join(excluded)}")
+
+    boys_top = [t for t in boys_order if boys_gate(t) and not t.get("benchmark")]
+    lines += ["", "## Solo/boys division (advanced ≥ 7 and quality ≥ 7) — top 12", ""]
+    for i, t in enumerate(boys_top[:12], 1):
+        lines.append(f"{i}. {t['name']} — {boys_comp[t['name']]} ({t['cost_band']}, {t['window']})")
 
     # Month calendar: top 5 per month
     lines += ["", "## Best trips by month (top 5 in-window)", ""]

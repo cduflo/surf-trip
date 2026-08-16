@@ -111,6 +111,21 @@ Cost = all-in $/person/week incl. BOS flights ($ <2.5k · $$ 2.5–4k · $$$ 4�
 
 Experts-first (gated out): 18 trips — North Malé surf resort (Pasta Point/Sultans), Nihi Sumba (Occy's Left), Salina Cruz guided camps (Oaxaca), Salani / Aganoa (Upolu & Savai'i), Mentawai land resort (Kandui/HT's zone), Nusa Island Retreat (Kavieng), Ha'atafu (Tongatapu), Pohnpei (P-Pass), Papara + Moorea (Tahiti), San Cristóbal (Galápagos), Puerto Escondido (La Punta base), Santa Catalina, Pichilemu / Punta de Lobos, Uluwatu + Bingin (Bukit), Jeffreys Bay, Fernando de Noronha, Lakey Peak (Sumbawa), Pavones
 
+## Solo/boys division (advanced ≥ 7 and quality ≥ 7) — top 12
+
+1. Namotu / Tavarua island resorts — 87.9 ($$$$, Apr–Oct)
+2. Telo Islands (Resort Latitude Zero) — 87.8 ($$$$, Apr–Oct)
+3. Central/South atolls resort (Laamu, Six Senses area) — 85.5 ($$$$, Apr–Oct)
+4. Las Flores + Punta Mango (boat resort) — 85.5 ($$, Apr–Sep)
+5. North Malé surf resort (Pasta Point/Sultans) — 84.5 ($$$, Apr–Oct)
+6. Salina Cruz guided camps (Oaxaca) — 83.7 ($$, Apr–Sep)
+7. Nihi Sumba (Occy's Left) — 83.6 ($$$$, May–Oct)
+8. Mentawai land resort (Kandui/HT's zone) — 82.4 ($$$$, Apr–Oct)
+9. Coral Coast (Matanivusi / Sigatoka) — 81.1 ($$$, Apr–Oct)
+10. Salani / Aganoa (Upolu & Savai'i) — 80.9 ($$$, Apr–Oct)
+11. Chicama + Pacasmayo — 79.9 ($, Apr–Sep)
+12. Nemberala (Rote) — 79.3 ($$, May–Sep)
+
 ## Best trips by month (top 5 in-window)
 
 - **Jan**: Namotu / Tavarua — off-season (79.1); Famara (Lanzarote) (77.2); Hanalei Bay (Kauai) (76.8); Barbados (Freights + Soup Bowl) (76.1); Fuerteventura (76.1)
