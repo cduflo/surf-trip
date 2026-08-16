@@ -112,6 +112,7 @@ td.trip .sub{font-weight:400;font-size:.78rem;color:var(--ink-2)}
 .gate-ok{color:var(--accent-deep);font-weight:700}
 .gate-no{color:var(--flag);font-weight:700}
 td.book{font-size:.78rem;color:var(--ink-2);min-width:150px}
+.chip.BM{background:var(--flag-bg);color:var(--flag);border:1px dashed var(--flag)}
 .chip.S{background:var(--tier-s-bg);color:var(--tier-s-ink)}
 .chip.A{background:var(--tier-a-bg);color:var(--tier-a-ink)}
 .chip.B{background:var(--tier-b-bg);color:var(--tier-b-ink)}
@@ -166,13 +167,15 @@ def main():
     trips.sort(key=lambda t: -t["composite"])
     bands = sensitivity_bands(trips, weights)
     n = len(trips)
-    tiers = {k: sum(1 for t in trips if tier(t["composite"]) == k) for k in "SABC"}
+    tiers = {k: sum(1 for t in trips if tier(t["composite"]) == k and not t.get("benchmark"))
+             for k in "SABC"}
     ranks = {t["name"]: i + 1 for i, t in enumerate(trips)}
     top10_dev = max(max(ranks[t["name"]] - bands[t["name"]][0],
                         bands[t["name"]][1] - ranks[t["name"]]) for t in trips[:10])
     mid_dev = max(max(ranks[t["name"]] - bands[t["name"]][0],
                       bands[t["name"]][1] - ranks[t["name"]]) for t in trips[24:55])
-    wk_rank = ranks["Waikiki + North Shore (Oahu)"]
+    wk_rank = ranks["Waikiki (Oahu) — winter"]
+    waco = next(t["composite"] for t in trips if t.get("benchmark"))
 
     e = html.escape
 
@@ -187,7 +190,7 @@ def main():
 
     # --- top 10 cards: mixed-ability division (beginner floor applied) ---
     cards = []
-    for i, t in enumerate([t for t in trips if family_ok(t)][:10], 1):
+    for i, t in enumerate([t for t in trips if family_ok(t) and not t.get("benchmark")][:10], 1):
         cards.append(f"""<article class="card">
 <div class="top"><span class="rk mono">{i}</span><h3>{e(t["name"])}</h3><span class="score mono">{t["composite"]}</span></div>
 <div class="meta"><span>{e(t["country"])}</span><span>·</span><span>{e(t["window"])}</span><span>·</span><span>{e(t["cost_band"])}</span><span>·</span><span>min {t["min_days"]}d</span><span>·</span><span>{e(t["travel_note"])}</span></div>
@@ -207,13 +210,14 @@ def main():
     rows = []
     for i, t in enumerate(trips, 1):
         lo, hi = bands[t["name"]]
-        tr = tier(t["composite"])
+        tr = "BM" if t.get("benchmark") else tier(t["composite"])
         fam = ('<span class="gate-ok" title="Mixed-ability verified">✓</span>' if family_ok(t)
                else '<span class="gate-no" title="Experts-first: true beginner under-served">✗</span>')
         cells = "".join(f'<td class="num mono">{t["scores"][d]:g}</td>' for d in dims)
         rows.append(
             f'<tr><td class="mono">{i}</td>'
-            f'<td class="trip">{e(t["name"])}<div class="sub">{e(t["country"])} — {e(t["travel_note"])}</div></td>'
+            f'<td class="trip">{e(t["name"])}<div class="sub">{e(t["country"])} — {e(t["travel_note"])}'
+            + (f' · <em>{e(t["cluster"])}</em>' if t.get("cluster") else '') + '</div></td>'
             f'<td>{e(t["window"])}</td><td><span class="chip {tr}">{tr}</span></td>'
             f'<td>{fam}</td><td class="mono">{e(t["cost_band"])}</td>'
             f'<td class="num mono">{t["min_days"]}</td><td class="book">{e(t["booking"])}</td>'
@@ -223,7 +227,7 @@ def main():
     # --- month strip: #1 pick per month ---
     mcells = []
     for m in range(1, 13):
-        best = next(t for t in trips if m in t["months"])
+        best = next(t for t in trips if m in t["months"] and not t.get("benchmark"))
         mcells.append(f'<div class="mcell"><div class="m">{MONTHS[m-1]}</div>'
                       f'<div class="p">{e(best["name"])}</div>'
                       f'<div class="mono" style="color:var(--ink-2)">{best["composite"]}</div></div>')
@@ -231,7 +235,7 @@ def main():
     # --- season blocks ---
     def season_list(months_set, k=6, within=False):
         cond = (lambda t: set(t["months"]) <= months_set) if within else (lambda t: set(t["months"]) & months_set)
-        picks = [t for t in trips if cond(t)][:k]
+        picks = [t for t in trips if cond(t) and not t.get("benchmark")][:k]
         return "".join(f'<li>{e(t["name"])} <span class="s mono">{t["composite"]} · {e(t["window"])}</span></li>'
                        for t in picks)
 
@@ -274,7 +278,12 @@ def main():
   <strong>v3 change (seven-persona panel review):</strong> nine trips rescored on multi-seat evidence, a
   <strong>beginner floor (≥ {BEGINNER_FLOOR})</strong> now gates the headline top ten (weights unchanged —
   the panel's own vectors agreed on the top of the table, ρ = 0.88–0.99), and three unweighted decision
-  columns were added: cost band, minimum viable days, and booking constraints.</div>
+  columns were added: cost band, minimum viable days, and booking constraints.
+  <strong>v4 change (adversarial coverage audit):</strong> four auditors hunted for gaps by region and by
+  construction; 17 rows added (7 top-30 contenders led by Nihi Sumba and Rancho Santana, 3 depth-adds,
+  6 season splits, 1 flagged wave-pool benchmark), the Waikiki winter row rescored as Waikiki-only after a
+  base-pairing error, and near-duplicate clusters (Silver Coast, SW Nicaragua corridor, Agadir coast) are
+  now labeled in the table — treat clustered rows as one option, not several.</div>
 </section>
 
 <section>
@@ -350,6 +359,27 @@ def main():
     <li><strong>Cost stays out of the composite</strong> (three seats converged): budget is a filter, not a
     preference — so it's a column. Note the pattern it exposes: the open-division S-tier is, with Las Flores
     as the lone exception, also the $$$$-tier.</li>
+  </ul>
+  <h3 style="margin-top:28px">Adversarial coverage audit (v4)</h3>
+  <p class="prose">Four auditors then attacked the list's completeness — three regional gap-hunters and one
+  construction skeptic. Verdict: the original 69 was ~80–85% comprehensive. What they found:</p>
+  <ul class="tight prose">
+    <li><strong>The blind spot was property-level products.</strong> The list scored coastlines but missed
+    resorts sitting on already-validated corridors — Nihi Sumba (a formal ~10-surfer daily cap and an infinity
+    pool over the wave: the crowd-10 and pool-over-break anchors verbatim), Rancho Santana, Mizata. Ironic for
+    a model that weights turnkey at 15; all now added.</li>
+    <li><strong>Season splits were inconsistently applied.</strong> Only Nosara was split; six more windows
+    earned rows, including Waikiki's summer (the better family window) and Fiji's off-season — which, with
+    Papatura, repairs the thin November–March calendar.</li>
+    <li><strong>The Waikiki winter row blended two incompatible bases</strong> — its quality score borrowed a
+    North Shore the family can't ride. Rescored as Waikiki-only; the North Shore is a spectator day.</li>
+    <li><strong>The wave-pool benchmark tells on the model.</strong> Waco Surf scores {waco:g} — above every
+    ocean trip — because "guaranteed, safe, zero-thought waves for everyone" literally describes a pool. It's
+    flagged BM, untiered, and excluded from the calendar: a calibration row that shows the one thing the
+    weights don't price is the ocean itself.</li>
+    <li><strong>Exclusions held.</strong> The auditors confirmed dozens of plausible-sounding destinations
+    (Japan, Taiwan, Eleuthera, Tobago, Australia's points, Réunion, Cape Verde) genuinely fail the
+    brief — recorded so they aren't relitigated.</li>
   </ul>
 </section>
 

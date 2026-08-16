@@ -1,6 +1,6 @@
 # surf-trip — The Family Wave Index
 
-Scored ranking of 69 family surf trips (destination + season window) from New England,
+Scored ranking of 86 family surf trips (destination + season window) from New England,
 optimizing for near-guaranteed, uncrowded, high-quality waves with beginner-safe options,
 guided logistics, and family lodging.
 

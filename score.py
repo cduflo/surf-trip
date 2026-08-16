@@ -97,7 +97,7 @@ def main():
                      f"{'✓' if family_ok(t) else '✗'} | {t['cost_band']} | {t['min_days']} | "
                      f"{t['booking']} | {lo}–{hi} |")
 
-    gated = [t for t in trips if family_ok(t)]
+    gated = [t for t in trips if family_ok(t) and not t.get("benchmark")]
     lines += ["", f"## Mixed-ability division (beginner ≥ {BEGINNER_FLOOR}) — top 12", ""]
     for i, t in enumerate(gated[:12], 1):
         lines.append(f"{i}. {t['name']} — {t['composite']} ({t['cost_band']}, {t['window']})")
@@ -107,13 +107,13 @@ def main():
     # Month calendar: top 5 per month
     lines += ["", "## Best trips by month (top 5 in-window)", ""]
     for m in range(1, 13):
-        in_month = [t for t in trips if m in t["months"]][:5]
+        in_month = [t for t in trips if m in t["months"] and not t.get("benchmark")][:5]
         picks = "; ".join(f"{t['name']} ({t['composite']})" for t in in_month)
         lines.append(f"- **{MONTHS[m-1]}**: {picks}")
 
     # Null check: famous crowded spots must not top the table
     lines += ["", "## Null check", ""]
-    fame_traps = ["Uluwatu + Bingin (Bukit)", "Noosa", "Waikiki + North Shore (Oahu)"]
+    fame_traps = ["Uluwatu + Bingin (Bukit)", "Noosa", "Waikiki (Oahu) — winter"]
     ranks = {t["name"]: i + 1 for i, t in enumerate(trips)}
     for name in fame_traps:
         lines.append(f"- {name}: rank {ranks[name]} of {len(trips)} "

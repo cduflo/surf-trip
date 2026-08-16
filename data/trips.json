@@ -361,7 +361,8 @@
    },
    "cost_band": "$$",
    "min_days": 7,
-   "booking": "VRBO via managers 6–12mo; self-assemble guide/panga"
+   "booking": "VRBO via managers 6–12mo; self-assemble guide/panga",
+   "cluster": "SW Nicaragua corridor"
   },
   {
    "name": "Popoyo",
@@ -392,7 +393,8 @@
    "guide_v1": 8,
    "cost_band": "$",
    "min_days": 6,
-   "booking": "Lodges 3–6mo"
+   "booking": "Lodges 3–6mo",
+   "cluster": "SW Nicaragua corridor"
   },
   {
    "name": "Playa Maderas (San Juan del Sur)",
@@ -423,7 +425,8 @@
    "guide_v1": 7.5,
    "cost_band": "$",
    "min_days": 5,
-   "booking": "Easy"
+   "booking": "Easy",
+   "cluster": "SW Nicaragua corridor"
   },
   {
    "name": "El Paredón",
@@ -1026,7 +1029,8 @@
    "guide_v1": 7.5,
    "cost_band": "$$",
    "min_days": 6,
-   "booking": "Easy; Sept ~3mo"
+   "booking": "Easy; Sept ~3mo",
+   "cluster": "Silver Coast pair"
   },
   {
    "name": "Peniche + Baleal",
@@ -1053,7 +1057,8 @@
    "guide_v1": 8,
    "cost_band": "$",
    "min_days": 6,
-   "booking": "Camps plentiful"
+   "booking": "Camps plentiful",
+   "cluster": "Silver Coast pair"
   },
   {
    "name": "Sagres / Algarve",
@@ -1254,7 +1259,8 @@
    "guide_v1": 8.5,
    "cost_band": "$",
    "min_days": 6,
-   "booking": "Camps 1–3mo"
+   "booking": "Camps 1–3mo",
+   "cluster": "Agadir coast pair"
   },
   {
    "name": "Imsouane",
@@ -1285,7 +1291,8 @@
    "guide_v1": 7.5,
    "cost_band": "$",
    "min_days": 6,
-   "booking": "Easy"
+   "booking": "Easy",
+   "cluster": "Agadir coast pair"
   },
   {
    "name": "Bundoran + Sligo",
@@ -1976,7 +1983,7 @@
    "booking": "Small operation; 6–12mo"
   },
   {
-   "name": "Waikiki + North Shore (Oahu)",
+   "name": "Waikiki (Oahu) — winter",
    "country": "USA (Hawaii)",
    "region": "Pacific/USA",
    "window": "Nov–Mar",
@@ -1989,24 +1996,29 @@
    ],
    "travel_note": "BOS→HNL ~11-12h, no passport",
    "scores": {
-    "consistency": 9,
+    "consistency": 8.5,
     "crowd": 2.5,
-    "quality": 8.5,
+    "quality": 6,
     "beginner": 9.5,
-    "advanced": 6,
+    "advanced": 5.5,
     "safety": 9.5,
     "lodging": 8.5,
     "travel": 5,
     "turnkey": 6.5
    },
-   "note": "Waikiki is turnkey perfection for the absolute beginner (boards on the sand, beach-boy pushes, an always-on wave) — but getting waves in that crowd is a competition, and the North Shore side is fully DIY: forecast-chasing, spot-picking, and the world's most competitive lineups. Turnkey score is the honest blend of a 10 and a 3.",
+   "note": "Rescored as Waikiki-only after the audit caught the base-pairing error: the winter row had been charging North Shore quality a mixed family can't ride. Winter south shore is smaller but rideable most days; the North Shore is a spectacular spectator day, not a program. See the summer row for this trip's better family window.",
    "guide_v1": 8,
    "v2_scores": {
     "advanced": 9.5
    },
    "cost_band": "$$$",
    "min_days": 5,
-   "booking": "Easy; no passport"
+   "booking": "Easy; no passport",
+   "v3_scores": {
+    "quality": 8.5,
+    "consistency": 9,
+    "advanced": 6
+   }
   },
   {
    "name": "Hanalei Bay (Kauai)",
@@ -2125,6 +2137,516 @@
    "cost_band": "$$$",
    "min_days": 10,
    "booking": "Easy"
+  },
+  {
+   "name": "Nihi Sumba (Occy's Left)",
+   "country": "Indonesia",
+   "region": "Indo-Pacific",
+   "window": "May–Oct",
+   "months": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "travel_note": "BOS→DPS→Tambolaka + 1.5h drive ~30h",
+   "scores": {
+    "consistency": 8.5,
+    "crowd": 10,
+    "quality": 9,
+    "beginner": 5.5,
+    "advanced": 8.5,
+    "safety": 7,
+    "turnkey": 9.5,
+    "lodging": 10,
+    "travel": 1.5
+   },
+   "cost_band": "$$$$",
+   "min_days": 10,
+   "booking": "Books 6–12mo; wave capped at ~10 surfers/day; from ~$1.5k/night",
+   "note": "The brief's platonic ideal, priced accordingly: a formal daily cap on a world-class left, resort-exclusive access, full surf program, and an infinity pool directly over the wave. Beginner terrain is coaching-dependent — sits just under the family gate."
+  },
+  {
+   "name": "Rancho Santana",
+   "country": "Nicaragua",
+   "region": "Central America",
+   "window": "Apr–Sep",
+   "months": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "travel_note": "One-stop to MGA + 2.5h drive",
+   "scores": {
+    "consistency": 9.5,
+    "crowd": 6.5,
+    "quality": 7.5,
+    "beginner": 7,
+    "advanced": 8.5,
+    "safety": 7,
+    "turnkey": 8.5,
+    "lodging": 9,
+    "travel": 6
+   },
+   "cost_band": "$$$",
+   "min_days": 6,
+   "booking": "Resort easy 3–6mo; on-site Surf Club",
+   "note": "The turnkey answer on the SW Nicaragua corridor the index already loves: five private-access beaches, on-site Surf Club (quiver, coaches, daily program), pools and ranch — beginner sand at Los Perros, Panga Drops/Colorado in guided range.",
+   "cluster": "SW Nicaragua corridor"
+  },
+  {
+   "name": "Mizata Resort (western La Libertad)",
+   "country": "El Salvador",
+   "region": "Central America",
+   "window": "Mar–Oct",
+   "months": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "travel_note": "One-stop to SAL + 1.5h drive",
+   "scores": {
+    "consistency": 9,
+    "crowd": 7.5,
+    "quality": 7.5,
+    "beginner": 6.5,
+    "advanced": 8,
+    "safety": 7.5,
+    "turnkey": 8,
+    "lodging": 8,
+    "travel": 7.5
+   },
+   "cost_band": "$$",
+   "min_days": 5,
+   "booking": "Small resort; 3–6mo",
+   "note": "A near-private cove-and-point 45 min west of the El Tunco crowds, with the pool literally overlooking the break, on-site boards and coaching, and the same 9-consistency S-swell window as the rest of the coast."
+  },
+  {
+   "name": "Miramar / Aserradores (The Boom)",
+   "country": "Nicaragua",
+   "region": "Central America",
+   "window": "Apr–Sep",
+   "months": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "travel_note": "One-stop to MGA + 3h drive",
+   "scores": {
+    "consistency": 9.5,
+    "crowd": 8,
+    "quality": 7.5,
+    "beginner": 6,
+    "advanced": 8.5,
+    "safety": 6.5,
+    "turnkey": 8,
+    "lodging": 6.5,
+    "travel": 5
+   },
+   "cost_band": "$$",
+   "min_days": 6,
+   "booking": "All-inclusive camps 3–6mo",
+   "note": "Same offshore machine as Popoyo, far emptier: The Boom's world-class A-frame for the chargers, mellower inside banks for improvers, and camps that run boards, boats, and the daily call."
+  },
+  {
+   "name": "Banyak Islands (Treasure Island)",
+   "country": "Indonesia",
+   "region": "Indo-Pacific",
+   "window": "Apr–Oct",
+   "months": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "travel_note": "BOS→Medan + hop + boat ~32h",
+   "scores": {
+    "consistency": 8.5,
+    "crowd": 9.5,
+    "quality": 8.5,
+    "beginner": 6,
+    "advanced": 8.5,
+    "safety": 6,
+    "turnkey": 8.5,
+    "lodging": 6.5,
+    "travel": 1
+   },
+   "cost_band": "$$$",
+   "min_days": 10,
+   "booking": "Small resorts 6–9mo",
+   "note": "The budget Telos: tiny island resorts, boat-served zone, near-empty lineups, and Gunturs — a long forgiving right that's one of Sumatra's best learner-to-intermediate waves — on the doorstep."
+  },
+  {
+   "name": "Cabo Ledo",
+   "country": "Angola",
+   "region": "Africa",
+   "window": "May–Oct",
+   "months": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "travel_note": "BOS→LIS→LAD ~18h + 2h drive",
+   "scores": {
+    "consistency": 9,
+    "crowd": 8.5,
+    "quality": 8,
+    "beginner": 8,
+    "advanced": 6.5,
+    "safety": 5.5,
+    "turnkey": 7.5,
+    "lodging": 6.5,
+    "travel": 2.5
+   },
+   "cost_band": "$$",
+   "min_days": 8,
+   "booking": "Surf lodges bookable; Luanda transit; e-visa",
+   "note": "The audit's biggest coastline find: a near-Chicama-consistency 300m mellow left, effectively empty, with all-inclusive surf lodges — one directly fronting the point. Beginner and expert ride the same wave. Luanda logistics and thin medical are the caps."
+  },
+  {
+   "name": "Dakhla",
+   "country": "Western Sahara (Morocco-adm.)",
+   "region": "Africa",
+   "window": "Oct–Apr",
+   "months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3,
+    4
+   ],
+   "travel_note": "BOS→CMN + hop ~15h",
+   "scores": {
+    "consistency": 8,
+    "crowd": 8,
+    "quality": 7,
+    "beginner": 6.5,
+    "advanced": 6.5,
+    "safety": 7.5,
+    "turnkey": 8,
+    "lodging": 8,
+    "travel": 4
+   },
+   "cost_band": "$$",
+   "min_days": 6,
+   "booking": "Purpose-built resorts easy ~3mo",
+   "note": "Desert surf resorts steps from near-empty right points, with a 40km flat lagoon as the built-in kids' guarantee no other Africa trip has. Wind is the tax — mornings work."
+  },
+  {
+   "name": "San Onofre + Doheny (San Clemente)",
+   "country": "USA (California)",
+   "region": "Pacific/USA",
+   "window": "Jun–Sep",
+   "months": [
+    6,
+    7,
+    8,
+    9
+   ],
+   "travel_note": "BOS→SNA/SAN ~7h door-to-door, no passport",
+   "scores": {
+    "consistency": 8.5,
+    "crowd": 2.5,
+    "quality": 8,
+    "beginner": 9.5,
+    "advanced": 7.5,
+    "safety": 9.5,
+    "turnkey": 6.5,
+    "lodging": 7,
+    "travel": 7.5
+   },
+   "cost_band": "$$",
+   "min_days": 4,
+   "booking": "Easy; state-park passes; camps and rentals",
+   "note": "The canonical US family-longboard trip: Old Man's rollers, Doheny for the kids, Trestles in walking range for the chargers. Everything easy, everyone there — the Waikiki crowd logic applies in full."
+  },
+  {
+   "name": "Papatura Island Retreat",
+   "country": "Solomon Islands",
+   "region": "Indo-Pacific",
+   "window": "Oct–Apr",
+   "months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3,
+    4
+   ],
+   "travel_note": "BOS→BNE→HIR + charter hop ~35h",
+   "scores": {
+    "consistency": 7,
+    "crowd": 9.5,
+    "quality": 7.5,
+    "beginner": 6,
+    "advanced": 8,
+    "safety": 6,
+    "turnkey": 8.5,
+    "lodging": 7.5,
+    "travel": 1
+   },
+   "cost_band": "$$$",
+   "min_days": 9,
+   "booking": "Family-run; small capacity; 6–9mo",
+   "note": "Family-run island surf resort with daily boats to uncrowded fun reefs — the only family-gate-passing trip in the entire Nov–Apr remote-Pacific window, which the calendar otherwise cedes to experts-first Kavieng and Pohnpei."
+  },
+  {
+   "name": "Ngor + Yoff (Dakar)",
+   "country": "Senegal",
+   "region": "Africa",
+   "window": "Nov–Mar",
+   "months": [
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "travel_note": "BOS→JFK→DSS ~12h",
+   "scores": {
+    "consistency": 8.5,
+    "crowd": 7,
+    "quality": 7,
+    "beginner": 7,
+    "advanced": 7,
+    "safety": 6.5,
+    "turnkey": 7.5,
+    "lodging": 6,
+    "travel": 5
+   },
+   "cost_band": "$$",
+   "min_days": 6,
+   "booking": "Island surf camps easy",
+   "note": "Two-coast peninsula — swell always hitting one side — with Ngor Right of Endless Summer fame, established island camps doing boards and guiding, and Yoff sand for learners."
+  },
+  {
+   "name": "Waikiki (Oahu) — summer",
+   "country": "USA (Hawaii)",
+   "region": "Pacific/USA",
+   "window": "Apr–Sep",
+   "months": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "travel_note": "BOS→HNL ~11-12h, no passport",
+   "scores": {
+    "consistency": 9,
+    "crowd": 2.5,
+    "quality": 6.5,
+    "beginner": 10,
+    "advanced": 5,
+    "safety": 9.5,
+    "turnkey": 9,
+    "lodging": 8.5,
+    "travel": 5
+   },
+   "cost_band": "$$$",
+   "min_days": 5,
+   "booking": "Easy; no passport",
+   "note": "The better family window the winter row obscured: south-shore swell season, Queens and Canoes at their most consistent, and a flat, snorkel-safe North Shore. Beach-boy turnkey at its purest; the crowd is the whole tax."
+  },
+  {
+   "name": "Tamarindo + Playa Grande — green season",
+   "country": "Costa Rica",
+   "region": "Central America",
+   "window": "May–Aug",
+   "months": [
+    5,
+    6,
+    7,
+    8
+   ],
+   "travel_note": "Nonstop BOS→LIR ~5.5h + 1h drive",
+   "scores": {
+    "consistency": 9,
+    "crowd": 4.5,
+    "quality": 6.5,
+    "beginner": 8.5,
+    "advanced": 6,
+    "safety": 7.5,
+    "turnkey": 8.5,
+    "lodging": 8,
+    "travel": 8
+   },
+   "cost_band": "$$",
+   "min_days": 5,
+   "booking": "Easy; green-season rates",
+   "note": "The Nosara-split logic applied to its neighbor: peak S-swell, thinner crowds, cheaper rooms, school-summer timing. Mornings stay learner-friendly; afternoon rain."
+  },
+  {
+   "name": "Santa Teresa — green season",
+   "country": "Costa Rica",
+   "region": "Central America",
+   "window": "May–Aug",
+   "months": [
+    5,
+    6,
+    7,
+    8
+   ],
+   "travel_note": "BOS→SJO + 5h drive/ferry or air taxi",
+   "scores": {
+    "consistency": 9,
+    "crowd": 5,
+    "quality": 7.5,
+    "beginner": 7,
+    "advanced": 7,
+    "safety": 7.5,
+    "turnkey": 7,
+    "lodging": 8,
+    "travel": 6
+   },
+   "cost_band": "$$",
+   "min_days": 7,
+   "booking": "Easy; green-season rates",
+   "note": "Same beach breaks, more swell, meaningfully fewer people than the listed Dec–Apr window."
+  },
+  {
+   "name": "Namotu / Tavarua — off-season",
+   "country": "Fiji",
+   "region": "Indo-Pacific",
+   "window": "Nov–Mar",
+   "months": [
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "travel_note": "BOS→LAX→NAN ~19h + boat",
+   "scores": {
+    "consistency": 7,
+    "crowd": 8.5,
+    "quality": 8,
+    "beginner": 6,
+    "advanced": 8.5,
+    "safety": 9,
+    "turnkey": 10,
+    "lodging": 9.5,
+    "travel": 3
+   },
+   "cost_band": "$$$$",
+   "min_days": 8,
+   "booking": "Easier availability than peak; cyclone-season risk",
+   "note": "The #1 trip's quiet half: cyclone-season swell roulette trims consistency, but the boats, kids' programs, and Swimming Pools all still run, availability opens up, and prices drop a band. Fills the thin Nov–Mar calendar."
+  },
+  {
+   "name": "El Zonte + Sunzal — small season",
+   "country": "El Salvador",
+   "region": "Central America",
+   "window": "Nov–Feb",
+   "months": [
+    11,
+    12,
+    1,
+    2
+   ],
+   "travel_note": "One-stop to SAL + 45min drive",
+   "scores": {
+    "consistency": 7.5,
+    "crowd": 6.5,
+    "quality": 7,
+    "beginner": 8.5,
+    "advanced": 6.5,
+    "safety": 7.5,
+    "turnkey": 8,
+    "lodging": 7.5,
+    "travel": 7
+   },
+   "cost_band": "$",
+   "min_days": 5,
+   "booking": "Easy; near walk-in",
+   "note": "The beginner-optimal El Salvador window: waist-to-head points, offshore mornings, Sunzal at its most learnable, and the crowds gone with the big swells."
+  },
+  {
+   "name": "Peniche + Baleal — early summer",
+   "country": "Portugal",
+   "region": "Europe/Atlantic",
+   "window": "May–Jun",
+   "months": [
+    5,
+    6
+   ],
+   "travel_note": "Nonstop BOS→LIS 6.5h + 1h drive",
+   "scores": {
+    "consistency": 7,
+    "crowd": 5.5,
+    "quality": 7,
+    "beginner": 8.5,
+    "advanced": 7,
+    "safety": 9.5,
+    "turnkey": 7.5,
+    "lodging": 7.5,
+    "travel": 8
+   },
+   "cost_band": "$",
+   "min_days": 6,
+   "booking": "Camps plentiful; pre-crowd",
+   "note": "Pre-crowd Baleal: small consistent windswell on the learner lagoons, long days, half the September lineup. Lower ceiling than the autumn row — a gentler version of the same trip.",
+   "cluster": "Silver Coast pair"
+  },
+  {
+   "name": "Waco Surf (wave pool) — BENCHMARK",
+   "country": "USA (Texas)",
+   "region": "Pacific/USA",
+   "window": "Year-round",
+   "months": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+   ],
+   "travel_note": "BOS→DFW/AUS + 1.5h drive ~8-9h",
+   "scores": {
+    "consistency": 10,
+    "crowd": 8.5,
+    "quality": 7.5,
+    "beginner": 10,
+    "advanced": 8,
+    "safety": 9.5,
+    "turnkey": 9.5,
+    "lodging": 8,
+    "travel": 7
+   },
+   "cost_band": "$$",
+   "min_days": 3,
+   "booking": "Book sessions online; private hire available",
+   "note": "Not a surf trip — a calibration row. Perfect scheduled waves, lifeguards, on-site casitas and a lazy river. It outscores every ocean trip, which is the point: it shows what the weights literally optimize for, and why 'it's actually the sea' is the one dimension the model doesn't price. Flagged benchmark; excluded from tiers and the calendar.",
+   "benchmark": true
   }
  ]
 }
