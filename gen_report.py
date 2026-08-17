@@ -24,6 +24,7 @@ DIM_LABELS = {
     "turnkey": ("Turnkey", "Boards, coaching & the daily call all handled — zero planning, zero Surfline"),
     "lodging": ("Lodging", "Family digs at the surf; pool-over-break bonus"),
     "travel": ("Travel ease", "Door-to-door from Boston/Providence"),
+    "strikeability": ("Strike", "Forecast visibility × T-72h bookability × launch latency"),
 }
 
 MODE_COPY = {
@@ -58,7 +59,7 @@ MODE_COPY = {
         "gate_ok_title": "Charger-verified: real waves for an advanced crew",
         "gate_no_title": "Below the advanced floor: the crew outgrows it",
         "cards_h2": "The top ten — charger division",
-        "cards_intro": """Same 86 trips, same scores — reweighted for a crew of advanced surfers with no
+        "cards_intro": """Same trips, same scores — reweighted for a crew of advanced surfers with no
   beginners to protect: wave count and wave ceiling first, lodging demoted to "a bed near the break," and an
   <strong>advanced floor</strong> ({gate_desc}) replacing the beginner gate. The experts-first trips the
   family division flags ✗ — Salina Cruz, Mentawai, Nihi, P-Pass — are exactly what surfaces here.""",
@@ -80,6 +81,33 @@ MODE_COPY = {
     <article class="card"><h3>The mileage basecamp</h3>
       <p><strong>Chicama, Popoyo, Cabo Ledo, Puerto Escondido.</strong> Cheap, consistent, uncrowded — park the
       crew for 10 days, surf three sessions a day, spend the savings on the next trip.</p></article>""",
+    },
+    "strike": {
+        "division": "strike division",
+        "gate_col": "Go",
+        "gate_ok_title": "Strike-viable: forecastable, bookable at T-72h, fast to reach",
+        "gate_no_title": "Not strike-viable: book-ahead trip or slow launch",
+        "cards_h2": "The top ten — strike division",
+        "cards_intro": """The inversion of everything above: you don't book dates and hope — you watch the
+  chart and fly when it's already confirmed. Consistency collapses to near-zero weight; what matters is
+  <strong>strikeability</strong> — forecast visibility, T-minus-72-hour bookability, launch latency — plus
+  wave ceiling and crowd. Gate: {gate_desc}. The trips the book-ahead divisions punish hardest
+  (Rincón, Scorpion Bay, the Outer Banks, Skeleton Bay) are exactly what wins here.""",
+        "caveat": """<div class="flagbox"><strong>Strike-mode caveats.</strong> This division assumes a crew
+  that can drop everything on five days' notice — its scores price the trip, not your calendar. Hit rates are
+  priors, not guarantees: a strike that whiffs still costs the flights (cheap for Rincón, painful for
+  Skeleton Bay). And strikeability decays with fame — a forecastable spot everyone can see coming (Hossegor
+  in September) arrives pre-crowded, which the crowd score already prices.</div>""",
+        "playbook": """
+    <article class="card"><h3>The drive-or-hop strike</h3>
+      <p><strong>Rincón, Outer Banks, Nova Scotia, Cocoa Beach.</strong> Watch the tropics; leave within 48
+      hours by car or a sub-5h nonstop. Cheap enough to whiff and try again next swell.</p></article>
+    <article class="card"><h3>The five-day window</h3>
+      <p><strong>Azores, Peniche/Ericeira, Soup Bowl autumn, Zicatela.</strong> Groundswell visible ~5 days
+      out, one nonstop plus a short transfer, walk-in lodging. The highest hit-rate class.</p></article>
+    <article class="card"><h3>The unicorn hunt</h3>
+      <p><strong>Skeleton Bay, Scorpion Bay, Pavones.</strong> Waves that break a handful of days a year.
+      Standing alerts, flexible tickets, and acceptance that some years the phone never rings.</p></article>""",
     },
 }
 
@@ -141,7 +169,7 @@ header.masthead{padding:72px 0 0}
 .stat .n{font-size:1.7rem;font-weight:700;line-height:1.2}
 .stat .l{font-size:.75rem;color:var(--ink-2);letter-spacing:.06em;text-transform:uppercase}
 
-.wtable{display:grid;grid-template-columns:auto 1fr 1fr;gap:0 18px;margin-top:20px}
+.wtable{display:grid;grid-template-columns:auto 1fr 1fr 1fr;gap:0 14px;margin-top:20px}
 .wrow{display:contents}
 .whead{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);
   font-weight:700;padding:4px 0;border-bottom:2px solid var(--line)}
@@ -149,6 +177,7 @@ header.masthead{padding:72px 0 0}
 .wcell{padding:7px 0;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px}
 .wbar{height:10px;border-radius:0 3px 3px 0;background:var(--accent);flex:0 0 auto}
 .wcell.alt .wbar{background:var(--sand)}
+.wcell.alt2 .wbar{background:var(--accent-deep)}
 .wnum{font-weight:700;min-width:2ch}
 .callout{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);
   border-radius:4px;padding:16px 20px;margin-top:24px;font-size:.94rem;color:var(--ink-2)}
@@ -185,7 +214,7 @@ td.trip .sub{font-weight:400;font-size:.78rem;color:var(--ink-2)}
 .gate-ok{color:var(--accent-deep);font-weight:700}
 .gate-no{color:var(--flag);font-weight:700}
 td.book{font-size:.78rem;color:var(--ink-2);min-width:150px}
-.chip.BM{background:var(--flag-bg);color:var(--flag);border:1px dashed var(--flag)}
+.chip.POOL{background:var(--flag-bg);color:var(--flag);border:1px dashed var(--flag)}
 .chip.S{background:var(--tier-s-bg);color:var(--tier-s-ink)}
 .chip.A{background:var(--tier-a-bg);color:var(--tier-a-ink)}
 .chip.B{background:var(--tier-b-bg);color:var(--tier-b-ink)}
@@ -221,18 +250,23 @@ JS = """
 <script>
 (function(){
   var sel = document.getElementById('modesel');
-  if (!sel) return;
-  function apply(m){
+  var chk = document.getElementById('poolchk');
+  if (!sel || !chk) return;
+  function apply(m, p){
+    var ps = p ? 'on' : 'off';
     document.querySelectorAll('.mode').forEach(function(el){
-      el.classList.toggle('active', el.getAttribute('data-mode') === m);
+      el.classList.toggle('active',
+        el.getAttribute('data-mode') === m && el.getAttribute('data-pools') === ps);
     });
-    sel.value = m;
-    try { localStorage.setItem('fwi-mode', m); } catch (e) {}
+    sel.value = m; chk.checked = p;
+    try { localStorage.setItem('fwi-mode', m); localStorage.setItem('fwi-pools', ps); } catch (e) {}
   }
-  sel.addEventListener('change', function(){ apply(sel.value); });
-  var saved = null;
-  try { saved = localStorage.getItem('fwi-mode'); } catch (e) {}
-  apply(saved && document.querySelector('.mode[data-mode="' + saved + '"]') ? saved : 'family');
+  sel.addEventListener('change', function(){ apply(sel.value, chk.checked); });
+  chk.addEventListener('change', function(){ apply(sel.value, chk.checked); });
+  var m = null, p = null;
+  try { m = localStorage.getItem('fwi-mode'); p = localStorage.getItem('fwi-pools'); } catch (e) {}
+  if (!document.querySelector('.mode[data-mode="' + m + '"]')) m = 'family';
+  apply(m, p === 'on');
 })();
 </script>
 """
@@ -254,20 +288,33 @@ def dim_rows(scores):
     return "".join(out)
 
 
-def render_mode(key, mode, trips, dims):
+def render_mode(key, mode, trips, dims, pools_on):
     """One full division block: stats, top-10 cards, table, calendar, playbook."""
     weights = mode["weights"]
     gates = mode["gates"]
     copy = MODE_COPY[key]
-    gate = lambda t: all(t["scores"][d] >= m for d, m in gates)
+
+    def gate(t):
+        if not all(t["scores"][d] >= m for d, m in gates):
+            return False
+        if t.get("pool"):
+            if not pools_on:
+                return False
+            if key == "family" and not t.get("resort_pool"):
+                return False  # family rule: a pool counts only when it's on a resort
+        return True
+
     gate_desc = " and ".join(f'{DIM_LABELS[d][0].lower()} score ≥ {m:g}' for d, m in gates)
+    if key == "family":
+        gate_desc += " (pools: on-site resort required)"
 
     ranked = sorted(trips, key=lambda t: -composite(t["scores"], weights))
     comp = {t["name"]: round(composite(t["scores"], weights), 1) for t in trips}
     bands = sensitivity_bands(trips, weights)
-    eligible = [t for t in ranked if gate(t) and not t.get("benchmark")]
+    eligible = [t for t in ranked if gate(t)]
     n = len(ranked)
-    s_count = sum(1 for t in ranked if tier(comp[t["name"]]) == "S" and not t.get("benchmark"))
+    s_count = sum(1 for t in ranked if tier(comp[t["name"]]) == "S"
+                  and (pools_on or not t.get("pool")))
     top = eligible[0]
 
     stats = f"""<div class="statrow">
@@ -297,9 +344,12 @@ def render_mode(key, mode, trips, dims):
     for i, t in enumerate(ranked, 1):
         c = comp[t["name"]]
         lo, hi = bands[t["name"]]
-        tr = "BM" if t.get("benchmark") else tier(c)
-        g = (f'<span class="gate-ok" title="{e(copy["gate_ok_title"])}">✓</span>' if gate(t)
-             else f'<span class="gate-no" title="{e(copy["gate_no_title"])}">✗</span>')
+        if t.get("pool") and not pools_on:
+            tr, g = "POOL", '<span title="Toggle wave pools on to rank this row">—</span>'
+        else:
+            tr = tier(c)
+            g = (f'<span class="gate-ok" title="{e(copy["gate_ok_title"])}">✓</span>' if gate(t)
+                 else f'<span class="gate-no" title="{e(copy["gate_no_title"])}">✗</span>')
         cells = "".join(f'<td class="num mono">{t["scores"][d]:g}</td>' for d in dims)
         rows.append(
             f'<tr><td class="mono">{i}</td>'
@@ -313,18 +363,18 @@ def render_mode(key, mode, trips, dims):
 
     mcells = []
     for m in range(1, 13):
-        best = next(t for t in ranked if m in t["months"] and not t.get("benchmark") and gate(t))
+        best = next(t for t in ranked if m in t["months"] and not t.get("pool") and gate(t))
         mcells.append(f'<div class="mcell"><div class="m">{MONTHS[m-1]}</div>'
                       f'<div class="p">{e(best["name"])}</div>'
                       f'<div class="mono" style="color:var(--ink-2)">{comp[best["name"]]}</div></div>')
 
     def season_list(months_set, k=6, within=False):
         cond = (lambda t: set(t["months"]) <= months_set) if within else (lambda t: set(t["months"]) & months_set)
-        picks = [t for t in ranked if cond(t) and not t.get("benchmark") and gate(t)][:k]
+        picks = [t for t in ranked if cond(t) and not t.get("pool") and gate(t)][:k]
         return "".join(f'<li>{e(t["name"])} <span class="s mono">{comp[t["name"]]} · {e(t["window"])}</span></li>'
                        for t in picks)
 
-    return f"""<div class="mode" data-mode="{key}">
+    return f"""<div class="mode" data-mode="{key}" data-pools="{'on' if pools_on else 'off'}">
   {stats}
 
 <section>
@@ -385,22 +435,25 @@ def main():
     mid_dev = max(max(ranks[t["name"]] - bands[t["name"]][0],
                       bands[t["name"]][1] - ranks[t["name"]]) for t in ranked[24:55])
     wk_rank = ranks["Waikiki (Oahu) — winter"]
-    waco = next(comp[t["name"]] for t in trips if t.get("benchmark"))
+    waco = max(comp[t["name"]] for t in trips if t.get("pool"))
 
-    # Dual-column weights grid
-    boys_w = modes["boys"]["weights"]
-    wrows = ['<div class="wrow"><div class="whead">Dimension</div>'
-             '<div class="whead">Family weighting</div><div class="whead">Solo / boys weighting</div></div>']
-    for d, w in sorted(fam_w.items(), key=lambda kv: -kv[1]):
+    # Triple-column weights grid (family / boys / strike)
+    boys_w, strike_w = modes["boys"]["weights"], modes["strike"]["weights"]
+    wrows = ['<div class="wrow"><div class="whead">Dimension</div><div class="whead">Family</div>'
+             '<div class="whead">Solo / boys</div><div class="whead">Strike</div></div>']
+    all_dims = sorted(set(fam_w) | set(strike_w), key=lambda d: -(fam_w.get(d, 0)))
+    for d in all_dims:
         label, desc = DIM_LABELS[d]
-        bw = boys_w[d]
+        fw, bw, sw = fam_w.get(d, 0), boys_w.get(d, 0), strike_w.get(d, 0)
         wrows.append(
             f'<div class="wrow"><div class="wname" title="{e(desc)}">{label}</div>'
-            f'<div class="wcell"><span class="wbar" style="width:{w*9}px"></span><span class="wnum mono">{w:g}</span></div>'
-            f'<div class="wcell alt"><span class="wbar" style="width:{bw*9}px"></span><span class="wnum mono">{bw:g}</span></div></div>')
+            f'<div class="wcell"><span class="wbar" style="width:{fw*7}px"></span><span class="wnum mono">{fw:g}</span></div>'
+            f'<div class="wcell alt"><span class="wbar" style="width:{bw*7}px"></span><span class="wnum mono">{bw:g}</span></div>'
+            f'<div class="wcell alt2"><span class="wbar" style="width:{sw*7}px"></span><span class="wnum mono">{sw:g}</span></div></div>')
 
     mode_opts = "".join(f'<option value="{k}">{e(m["label"])}</option>' for k, m in modes.items())
-    mode_blocks = "\n".join(render_mode(k, m, trips, dims) for k, m in modes.items())
+    mode_blocks = "\n".join(render_mode(k, m, trips, dims, pools_on)
+                            for k, m in modes.items() for pools_on in (False, True))
 
     html_doc = f"""<title>The Family Wave Index</title>
 <style>{CSS}</style>
@@ -409,13 +462,17 @@ def main():
 <header class="masthead">
   <div class="eyebrow">Surf trips from New England · scored &amp; ranked · Aug 2026</div>
   <h1>The Family <em>Wave</em> Index</h1>
-  <p class="dek">{n} destination-plus-season trips scored on nine dimensions, ranked two ways:
-  a <strong>family division</strong> — everyone from first-timer to charger scores, zero-thought logistics,
-  a beginner floor — and a <strong>solo/boys division</strong> — advanced crews, wave count and wave ceiling
-  first, a bed near the break is enough. Same trips, same scores; only the weights and the gate change.</p>
+  <p class="dek">{n} destination-plus-season trips scored on ten dimensions, ranked three ways:
+  a <strong>family division</strong> (everyone scores, beginner floor), a <strong>solo/boys division</strong>
+  (advanced crews, wave count first), and a <strong>strike division</strong> (don't book dates — watch the
+  chart and fly when it's confirmed). Same trips, same scores; only the weights and the gate change. Wave
+  pools are a toggle: off, they appear untiered as calibration rows; on, they compete — and in the family
+  division a pool only counts when it's part of a resort.</p>
   <div class="modebar">
     <label for="modesel">Optimize for</label>
     <select id="modesel">{mode_opts}</select>
+    <label style="display:flex;align-items:center;gap:6px;cursor:pointer;text-transform:none;letter-spacing:0">
+      <input type="checkbox" id="poolchk"> include wave pools</label>
   </div>
 </header>
 
@@ -430,7 +487,7 @@ def main():
   <div class="callout"><strong>Provenance, honestly.</strong> Scores are structured expert priors from swell
   climatology and the surf-travel record as of early 2026 — an ordinal ranking tool, not measurements.
   A 3-point gap is meaningful; a 1-point gap is noise. Crowd scores decay fastest in real life; safety scores
-  reflect early-2026 conditions — re-check advisories before booking. Full anchors and the v1→v5 changelog
+  reflect early-2026 conditions — re-check advisories before booking. Full anchors and the v1→v7 changelog
   (incl. rejected proposals) live in <span class="mono">METHODOLOGY.md</span>; rerun
   <span class="mono">score.py</span> + <span class="mono">gen_report.py</span> to regenerate everything here.</div>
 </section>
@@ -468,9 +525,10 @@ def main():
     <li><strong>The blind spot was property-level products</strong> — the list scored coastlines and missed
     resorts on validated corridors (Nihi Sumba, Rancho Santana, Mizata). 17 rows added; original 69 judged
     ~80–85% comprehensive.</li>
-    <li><strong>The wave-pool benchmark tells on the model:</strong> Waco Surf scores {waco:g} — above every
-    ocean trip — because "guaranteed, safe, zero-thought waves" literally describes a pool. Flagged BM,
-    untiered, excluded from the calendar.</li>
+    <li><strong>The wave pools tell on the model:</strong> the best pool scores {waco:g} under family
+    weights — above every ocean trip — because "guaranteed, safe, zero-thought waves" literally describes a
+    pool. With the toggle off they sit untiered as calibration rows; toggled on they compete, and in the
+    family division only resort pools (Waco, Surf Ranch, The Wave Bristol) pass the gate.</li>
     <li><strong>Exclusions held:</strong> dozens of plausible destinations (Japan, Taiwan, Eleuthera, Tobago,
     Australia's points, Réunion) confirmed to fail the brief — recorded so they aren't relitigated.</li>
   </ul>

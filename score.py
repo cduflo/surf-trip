@@ -67,11 +67,16 @@ def main():
     trips.sort(key=lambda t: -t["composite"])
     bands = sensitivity_bands(trips, weights)
 
-    boys = data["modes"]["boys"]
-    boys_gate = lambda t: all(t["scores"][d] >= m for d, m in boys["gates"])
-    boys_comp = {t["name"]: round(composite(t["scores"], boys["weights"]), 1) for t in trips}
-    boys_order = sorted(trips, key=lambda t: -boys_comp[t["name"]])
-    boys_rank = {t["name"]: i + 1 for i, t in enumerate(boys_order)}
+    def mode_view(key):
+        m = data["modes"][key]
+        gate = lambda t: all(t["scores"][d] >= mn for d, mn in m["gates"])
+        comp = {t["name"]: round(composite(t["scores"], m["weights"]), 1) for t in trips}
+        order = sorted(trips, key=lambda t: -comp[t["name"]])
+        rank = {t["name"]: i + 1 for i, t in enumerate(order)}
+        return gate, comp, order, rank
+
+    boys_gate, boys_comp, boys_order, boys_rank = mode_view("boys")
+    strike_gate, strike_comp, strike_order, strike_rank = mode_view("strike")
 
     # CSV
     dims = data["dimensions"]
@@ -79,6 +84,7 @@ def main():
         w = csv.writer(f)
         w.writerow(["rank", "trip", "country", "region", "window", "composite", "tier",
                     "family_ok", "boys_composite", "boys_rank", "boys_ok",
+                    "strike_composite", "strike_rank", "strike_ok", "pool",
                     "cost_band", "min_days", "booking",
                     "rank_lo", "rank_hi"] + dims + ["travel_note", "note"])
         for i, t in enumerate(trips, 1):
@@ -88,6 +94,9 @@ def main():
                         "yes" if family_ok(t) else "no",
                         boys_comp[t["name"]], boys_rank[t["name"]],
                         "yes" if boys_gate(t) else "no",
+                        strike_comp[t["name"]], strike_rank[t["name"]],
+                        "yes" if strike_gate(t) else "no",
+                        "yes" if t.get("pool") else "no",
                         t["cost_band"], t["min_days"], t["booking"], lo, hi]
                        + [t["scores"][d] for d in dims] + [t["travel_note"], t["note"]])
 
@@ -106,22 +115,27 @@ def main():
                      f"{'✓' if family_ok(t) else '✗'} | {t['cost_band']} | {t['min_days']} | "
                      f"{t['booking']} | {lo}–{hi} |")
 
-    gated = [t for t in trips if family_ok(t) and not t.get("benchmark")]
+    gated = [t for t in trips if family_ok(t) and not t.get("pool")]
     lines += ["", f"## Mixed-ability division (beginner ≥ {BEGINNER_FLOOR}) — top 12", ""]
     for i, t in enumerate(gated[:12], 1):
         lines.append(f"{i}. {t['name']} — {t['composite']} ({t['cost_band']}, {t['window']})")
     excluded = [t["name"] for t in trips if not family_ok(t)]
     lines.append(f"\nExperts-first (gated out): {len(excluded)} trips — {', '.join(excluded)}")
 
-    boys_top = [t for t in boys_order if boys_gate(t) and not t.get("benchmark")]
+    boys_top = [t for t in boys_order if boys_gate(t) and not t.get("pool")]
     lines += ["", "## Solo/boys division (advanced ≥ 7 and quality ≥ 7) — top 12", ""]
     for i, t in enumerate(boys_top[:12], 1):
         lines.append(f"{i}. {t['name']} — {boys_comp[t['name']]} ({t['cost_band']}, {t['window']})")
 
+    strike_top = [t for t in strike_order if strike_gate(t) and not t.get("pool")]
+    lines += ["", "## Strike division (advanced ≥ 7 and strikeability ≥ 7) — top 12", ""]
+    for i, t in enumerate(strike_top[:12], 1):
+        lines.append(f"{i}. {t['name']} — {strike_comp[t['name']]} ({t['cost_band']}, {t['window']})")
+
     # Month calendar: top 5 per month
     lines += ["", "## Best trips by month (top 5 in-window)", ""]
     for m in range(1, 13):
-        in_month = [t for t in trips if m in t["months"] and not t.get("benchmark")][:5]
+        in_month = [t for t in trips if m in t["months"] and not t.get("pool")][:5]
         picks = "; ".join(f"{t['name']} ({t['composite']})" for t in in_month)
         lines.append(f"- **{MONTHS[m-1]}**: {picks}")
 
