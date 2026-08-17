@@ -1,6 +1,6 @@
 # Spec: Compare-N Trips
 
-**Status:** spec only (not built). **Scope:** client-side, static-page compatible, no runtime capabilities.
+**Status:** BUILT (v10, 2026-08-17) with the design-review amendments below. **Scope:** client-side, static-page compatible, no runtime capabilities.
 
 ## Goal
 
@@ -11,7 +11,7 @@ composites, and the decision-stage data — without losing the current division/
 
 - New first column in every table row: a checkbox (`.cmp-pick`), keyed by trip **name** (the stable
   identity across all 6 pre-rendered variants — checking a trip in one division checks it everywhere).
-- Cap: **4 trips** (readability on a 1080px content column). Attempting a 5th flashes the count chip.
+- Cap: **4 trips** (readability on a 1080px content column). A 5th pick is refused — the checkbox snaps back.
 - A **compare chip** appears in the filter bar once ≥1 is selected: `Compare (n)` button + per-trip
   mini-chips with an `×` to deselect. Selection persists in `localStorage` (`fwi-compare`) and
   survives division switches, pool toggles, and filtering (a filtered-out row stays selected; its
@@ -56,3 +56,19 @@ Mobile: the overlay's inner container is `overflow-x:auto`; columns are `minmax(
   static page).
 
 **Estimated effort:** ~60 lines Python, ~150 lines JS, ~60 lines CSS. Page grows ~120KB (~1.03MB total).
+
+## Amendments from design review (adopted at build)
+
+1. **Verdict-first columns** — active division's composite/rank/band/gate leads each column; facts follow.
+2. **Winner accents de-noised** — dims sorted by the active division's weights; accent only when the
+   winner's gap over 2nd place is ≥ 1.0 (the methodology's own noise floor).
+3. **Gate marks carry reasons** — ✗ shows why (e.g. "pool without on-site resort", "beginner 4.5 < 6").
+4. **Cluster-sibling banner** — comparing day-trip-range siblings (Ericeira vs Peniche) warns that it's
+   one trip wearing two rows.
+5. **Native `<dialog>.showModal()`** replaces the hand-rolled focus trap; one delegated change listener
+   replaces per-checkbox listeners; in-memory Set is the single source of truth with stale-name pruning
+   and cap enforcement at hydration; JSON blob escapes `</` and U+2028/9.
+6. **Scope cuts** — per-trip chips dropped (Compare (n) + clear picks suffice); no 5th-pick animation.
+7. **Skipped with reason** — cost midpoints (bands are the data's honest resolution); mobile is
+   horizontal-scroll pairwise comparison with self-labeled columns, not a second layout.
+8. **"Window opens in ~N mo"** computed client-side per column.

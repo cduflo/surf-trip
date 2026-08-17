@@ -24,7 +24,8 @@ def rank_map(trips, weights):
 
 def sensitivity_bands(trips, weights):
     """Min/max rank per trip across one-at-a-time +/-25% weight perturbations."""
-    bands = {t["name"]: [rank_map(trips, weights)[t["name"]]] * 2 for t in trips}
+    base = rank_map(trips, weights)
+    bands = {t["name"]: [base[t["name"]]] * 2 for t in trips}
     for dim in weights:
         for sign in (1 + PERTURB, 1 - PERTURB):
             w = dict(weights)

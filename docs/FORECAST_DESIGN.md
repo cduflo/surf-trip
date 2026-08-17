@@ -38,9 +38,10 @@ inside SurfBot's 10-day horizon — the free tier is sufficient.
 
 ## Phased plan
 
-- **Phase 0 (light, index-side, no infra):** add a `surfline` slug/URL per trip in `trips.json`
-  and render a forecast deep-link in the table + compare view. Zero runtime; the human clicks.
-  ~30 min of work; can ship with the compare feature.
+- **Phase 0 — SHIPPED (v10):** every non-pool trip renders a `forecast ↗` link in the table and compare
+  view. Design-review amendment: links are **Surfline search URLs** (query = the trip's primary spot name),
+  not hand-guessed deep links — a search cannot point at the wrong spot, and fabricated slugs rot. Curated
+  spot-IDs arrive with Phase 2's SurfBot mapping. Pools never link.
 - **Phase 1 (SurfBot-side):** a `/strike <place> [minft] [rating]` command — a **standing,
   threshold-driven watch** (unlike `/watch`, which is date-bounded and thresholdless): alert only
   when a qualifying daylight window appears inside the 10-day horizon, with improving/holding

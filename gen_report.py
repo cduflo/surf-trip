@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 """Generate the HTML report (report.html) from data/trips.json.
 
-Renders one block per mode (family / boys) from data['modes']; a masthead
-dropdown toggles which block is visible. Weights and gates live in the JSON;
-prose lives in MODE_COPY below.
+Renders two blocks (pools off/on) per division — family / boys / strike, from
+data['modes'] — toggled by a masthead dropdown + pools checkbox, with client-side
+table filters and a pick-up-to-4 compare dialog fed by an embedded JSON blob.
+Weights and gates live in the JSON; prose lives in MODE_COPY below.
 """
 import html
 import json
 from pathlib import Path
+from urllib.parse import quote
 
 from score import composite, sensitivity_bands, tier
 
@@ -26,6 +28,35 @@ DIM_LABELS = {
     "travel": ("Travel ease", "Door-to-door from Boston/Providence"),
     "strikeability": ("Strike", "Forecast visibility × T-72h bookability × launch latency"),
 }
+
+CMP_CAP = 4  # max trips in the compare dialog — keep in sync with the thead tooltip and JS CMP_CAP
+
+
+def gate_check(key, mode, t):
+    """(ok, why) for a division's gate, ignoring the pools toggle.
+
+    Toggle handling stays in render_mode; the compare dialog handles it in JS
+    by showing "— (pools off)" for pool rows when the active view has pools off.
+    """
+    for d, mn in mode["gates"]:
+        if t["scores"][d] < mn:
+            return False, f'{DIM_LABELS[d][0].lower()} {t["scores"][d]:g} < {mn:g}'
+    if t.get("pool") and key == "family" and not t.get("resort_pool"):
+        return False, "pool without on-site resort"
+    return True, ""
+
+
+def short_name(name):
+    """Primary spot name: strip parenthetical and em-dash qualifiers."""
+    return name.split("(")[0].split("—")[0].strip()
+
+
+def forecast_url(t):
+    """Surfline search link (never a guessed deep link); empty for pools."""
+    if t.get("pool"):
+        return ""
+    return "https://www.surfline.com/search/" + quote(short_name(t["name"]), safe="")
+
 
 MODE_COPY = {
     "family": {
@@ -255,6 +286,34 @@ footer{margin-top:80px;padding-top:20px;border-top:1px solid var(--line);
 .filters .fcount{margin-left:auto;font-size:.8rem;color:var(--ink-2);align-self:flex-end;padding-bottom:6px}
 .filters button{font:inherit;font-size:.8rem;color:var(--accent-deep);background:none;border:none;
   cursor:pointer;text-decoration:underline;align-self:flex-end;padding-bottom:6px}
+.filters button.cmpbtn{font-weight:700;text-decoration:none;background:var(--accent);color:#fff;
+  border-radius:6px;padding:6px 12px;align-self:flex-end}
+th.cmpc,td.cmpc{width:26px;text-align:center;padding-left:6px;padding-right:2px}
+td.cmpc input{cursor:pointer;width:15px;height:15px;accent-color:var(--accent)}
+dialog#cmpdlg{border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);
+  max-width:min(1100px,94vw);padding:0;max-height:88vh}
+.cmpinner{padding:20px 22px}
+dialog#cmpdlg::backdrop{background:rgba(8,18,20,.55)}
+.cmphead{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.cmphead h2{margin:0;font-size:1.3rem}
+#cmp-close{font:inherit;font-size:1.4rem;line-height:1;background:none;border:none;color:var(--ink-2);
+  cursor:pointer;padding:2px 8px}
+#cmp-close:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+#cmpbanner .flagbox{margin:0 0 12px}
+.cmpcols{display:flex;gap:14px;overflow-x:auto;padding-bottom:6px}
+.cmpcol{flex:1;min-width:240px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:14px 16px}
+.cmpcol h3{font-size:1rem;margin:0}
+.cmpverdict{display:flex;align-items:baseline;gap:8px;margin:6px 0 2px;flex-wrap:wrap}
+.cmpverdict .cv{font-size:1.7rem;font-weight:700}
+.cmpverdict .cr{font-size:.78rem;color:var(--ink-2)}
+.cmpfacts{font-size:.78rem;color:var(--ink-2);margin:6px 0;line-height:1.55}
+.cmpdivs{font-size:.78rem;margin:8px 0 0;border-top:1px solid var(--line);padding-top:8px;color:var(--ink-2)}
+.cmpdivs div{display:flex;justify-content:space-between;gap:8px;padding:2px 0}
+.cmpdivs .act{font-weight:700;color:var(--ink)}
+.cdims{margin-top:8px;border-top:1px solid var(--line);padding-top:8px}
+.cdims .dims .db i.win{background:var(--accent-deep)}
+.cdims .dims .dl.win{color:var(--accent-deep);font-weight:700}
+.cmpnote{font-size:.78rem;color:var(--ink-2);border-top:1px solid var(--line);padding-top:8px;margin-top:8px}
 """
 
 JS = """
@@ -302,10 +361,120 @@ JS = """
     F.forEach(function(el){ if (el.type === 'checkbox') el.checked = false; else el.value = el.options[0].value; });
     applyFilters();
   });
+  // ---- compare ----
+  var TD = {trips: {}};
+  try { TD = JSON.parse(document.getElementById('tripdata').textContent); } catch (e) {}
+  var CMP_CAP = 4;      // keep in sync with Python CMP_CAP / thead tooltip
+  var WIN_GAP = 1.0;    // methodology noise floor — see COMPARE_SPEC.md amendment 2
+  var picks = [];
+  try {
+    picks = (JSON.parse(localStorage.getItem('fwi-compare') || '[]') || [])
+      .filter(function(n, i, a){ return TD.trips && TD.trips[n] && a.indexOf(n) === i; })
+      .slice(0, CMP_CAP);
+  } catch (e) {}
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){
+    return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]; }); }
+  function savePicks(){ try { localStorage.setItem('fwi-compare', JSON.stringify(picks)); } catch (e) {} }
+  function paintPicks(){
+    document.querySelectorAll('.cmp-pick').forEach(function(cb){
+      cb.checked = picks.indexOf(cb.dataset.name) >= 0;
+    });
+    document.getElementById('cmp-n').textContent = picks.length;
+    document.getElementById('cmp-open').style.display = picks.length >= 2 ? '' : 'none';
+    document.getElementById('cmp-clear').style.display = picks.length ? '' : 'none';
+  }
+  document.addEventListener('change', function(ev){
+    var cb = ev.target && ev.target.classList && ev.target.classList.contains('cmp-pick') ? ev.target : null;
+    if (!cb) return;
+    var name = cb.dataset.name, i = picks.indexOf(name);
+    if (cb.checked && i < 0) {
+      if (picks.length >= CMP_CAP) { cb.checked = false; return; }
+      picks.push(name);
+    } else if (!cb.checked && i >= 0) picks.splice(i, 1);
+    savePicks(); paintPicks();
+  });
+  document.getElementById('cmp-clear').addEventListener('click', function(){
+    picks = []; savePicks(); paintPicks();
+  });
+  var dlg = document.getElementById('cmpdlg');
+  function monthsUntil(months){
+    var now = new Date().getMonth() + 1, best = 12;
+    months.forEach(function(mm){ var d = (mm - now + 12) % 12; if (d < best) best = d; });
+    return best;
+  }
+  function buildCompare(){
+    var act = document.querySelector('.mode.active');
+    var akey = act ? act.getAttribute('data-mode') : 'family';
+    var dimsSorted = TD.dims.slice().sort(function(a, b){
+      return (TD.weights[akey][b] || 0) - (TD.weights[akey][a] || 0); });
+    var win = {};
+    dimsSorted.forEach(function(d){
+      var vals = picks.map(function(n){ return TD.trips[n].scores[d]; })
+        .sort(function(a, b){ return b - a; });
+      if (vals.length > 1 && vals[0] - vals[1] >= WIN_GAP) win[d] = vals[0];
+    });
+    var poolsOff = act && act.getAttribute('data-pools') === 'off';
+    function gateMark(t, d){
+      // mirror the visible table: pool rows show no gate verdict while pools are off
+      if (poolsOff && t.pool) return '\u2014 <span title="Toggle wave pools on to rank this row">(pools off)</span>';
+      return d.ok ? '\u2713' : '<span title="' + esc(d.why) + '">\u2717</span>';
+    }
+    var cols = picks.map(function(n){
+      var t = TD.trips[n], a = t.divs[akey];
+      var mu = monthsUntil(t.months);
+      var facts = esc(t.country) + ' \u00b7 ' + esc(t.window) +
+        (mu ? ' (opens in ~' + mu + 'mo)' : ' (in window now)') + '<br>' +
+        esc(t.cost_band) + ' \u00b7 min ' + t.min_days + 'd \u00b7 ' +
+        t.water_f[0] + '\u2013' + t.water_f[1] + '\u00b0F \u00b7 ' + esc(t.wetsuit) +
+        '<br>' + esc(t.travel_note) +
+        (t.cluster ? '<br><em>cluster: ' + esc(t.cluster) + '</em>' : '') +
+        (t.pool ? '<br><em>wave pool</em>'
+                : '<br><a href="' + t.forecast + '" target="_blank" rel="noopener">forecast \u2197</a>');
+      var divrows = Object.keys(t.divs).map(function(k){
+        var d = t.divs[k];
+        return '<div class="' + (k === akey ? 'act' : '') + '"><span>' + esc(TD.modelabels[k]) + '</span>' +
+          '<span class="mono">' + d.comp + ' \u00b7 #' + d.rank + ' (' + d.band[0] + '\u2013' + d.band[1] + ') ' +
+          gateMark(t, d) + '</span></div>';
+      }).join('');
+      var bars = dimsSorted.map(function(d){
+        var v = t.scores[d], w = win[d] !== undefined && v === win[d];
+        return '<span class="dl' + (w ? ' win' : '') + '">' + esc(TD.labels[d]) + '</span>' +
+          '<span class="db"><i' + (w ? ' class="win"' : '') + ' style="width:' + (v * 10) + '%"></i></span>' +
+          '<span class="dv mono">' + v + '</span>';
+      }).join('');
+      return '<div class="cmpcol"><h3>' + esc(n) + '</h3>' +
+        '<div class="cmpverdict"><span class="cv mono">' + a.comp + '</span>' +
+        '<span class="cr">#' + a.rank + ' in ' + esc(TD.modelabels[akey]) +
+        ' \u00b7 band ' + a.band[0] + '\u2013' + a.band[1] +
+        ' \u00b7 gate ' + (poolsOff && t.pool ? '\u2014 (pools off)'
+                             : (a.ok ? '\u2713' : '\u2717 ' + esc(a.why))) + '</span></div>' +
+        '<div class="cmpfacts">' + facts + '</div>' +
+        '<div class="cmpdivs">' + divrows + '</div>' +
+        '<div class="cdims"><div class="dims">' + bars + '</div></div>' +
+        '<div class="cmpnote"><strong>Booking:</strong> ' + esc(t.booking) + ' ' + esc(t.note) + '</div></div>';
+    }).join('');
+    var counts = {};
+    picks.forEach(function(n){ var c = TD.trips[n].cluster; if (c) counts[c] = (counts[c] || 0) + 1; });
+    var dups = Object.keys(counts).filter(function(c){ return counts[c] > 1; });
+    document.getElementById('cmpbanner').innerHTML = dups.length
+      ? '<div class="flagbox"><strong>Same-trip warning (' + esc(dups.join(', ')) + '):</strong> ' +
+        'these rows are day-trip-range siblings \u2014 you are largely comparing one trip with itself.</div>'
+      : '';
+    document.getElementById('cmpbody').innerHTML = cols;
+  }
+  document.getElementById('cmp-open').addEventListener('click', function(){
+    if (picks.length < 2) return;
+    buildCompare();
+    dlg.showModal();
+  });
+  document.getElementById('cmp-close').addEventListener('click', function(){ dlg.close(); });
+  dlg.addEventListener('click', function(ev){ if (ev.target === dlg) dlg.close(); });
+
   var m = null, p = null;
   try { m = localStorage.getItem('fwi-mode'); p = localStorage.getItem('fwi-pools'); } catch (e) {}
   if (!document.querySelector('.mode[data-mode="' + m + '"]')) m = 'family';
   apply(m, p === 'on');
+  paintPicks();
 })();
 </script>
 """
@@ -334,14 +503,9 @@ def render_mode(key, mode, trips, dims, pools_on):
     copy = MODE_COPY[key]
 
     def gate(t):
-        if not all(t["scores"][d] >= m for d, m in gates):
+        if not gate_check(key, mode, t)[0]:
             return False
-        if t.get("pool"):
-            if not pools_on:
-                return False
-            if key == "family" and not t.get("resort_pool"):
-                return False  # family rule: a pool counts only when it's on a resort
-        return True
+        return pools_on or not t.get("pool")
 
     gate_desc = " and ".join(f'{DIM_LABELS[d][0].lower()} score ≥ {m:g}' for d, m in gates)
     if key == "family":
@@ -360,7 +524,7 @@ def render_mode(key, mode, trips, dims, pools_on):
     <div class="stat"><div class="n mono">{n}</div><div class="l">Trips scored</div></div>
     <div class="stat"><div class="n mono">{len(eligible)}</div><div class="l">Pass {copy["gate_col"].lower()} gate</div></div>
     <div class="stat"><div class="n mono">{s_count}</div><div class="l">S-tier (80+)</div></div>
-    <div class="stat"><div class="n">{e(top["name"].split("(")[0].split("—")[0].strip())}</div><div class="l">No. 1 · {comp[top["name"]]}</div></div>
+    <div class="stat"><div class="n">{e(short_name(top["name"]))}</div><div class="l">No. 1 · {comp[top["name"]]}</div></div>
   </div>"""
 
     cards = []
@@ -372,7 +536,8 @@ def render_mode(key, mode, trips, dims, pools_on):
 <p class="note">{e(t["note"])} <em>Booking: {e(t["booking"])}.</em></p>
 </article>""")
 
-    thead = ("<tr><th>#</th><th>Trip</th><th>Window</th><th>Tier</th>"
+    thead = ('<tr><th class="cmpc" title="Select up to 4 trips to compare"></th>'
+             "<th>#</th><th>Trip</th><th>Window</th><th>Tier</th>"
              f'<th title="{e(copy["gate_ok_title"])} ({gate_desc})">{copy["gate_col"]}</th>'
              '<th title="All-in $/person/week incl. BOS flights: $ &lt;2.5k · $$ 2.5–4k · $$$ 4–6.5k · $$$$ &gt;6.5k">Cost</th>'
              '<th class=num title="Minimum viable trip length after two-way transit and jet lag">Min d</th>'
@@ -397,9 +562,13 @@ def render_mode(key, mode, trips, dims, pools_on):
             f'data-travel="{t["scores"]["travel"]:g}" data-waterlo="{t["water_f"][0]}" '
             f'data-region="{e(t["region"])}" data-months=",{",".join(map(str, t["months"]))}," '
             f'data-gate="{1 if gate(t) else 0}">'
+            f'<td class="cmpc"><input type="checkbox" class="cmp-pick" data-name="{e(t["name"])}" '
+            f'aria-label="Compare {e(t["name"])}"></td>'
             f'<td class="mono">{i}</td>'
             f'<td class="trip">{e(t["name"])}<div class="sub">{e(t["country"])} — {e(t["travel_note"])}'
-            + (f' · <em>{e(t["cluster"])}</em>' if t.get("cluster") else '') + '</div></td>'
+            + (f' · <em>{e(t["cluster"])}</em>' if t.get("cluster") else '')
+            + (f' · <a href="{forecast_url(t)}" target="_blank" rel="noopener">forecast ↗</a>'
+               if forecast_url(t) else '') + '</div></td>'
             f'<td>{e(t["window"])}</td><td><span class="chip {tr}">{tr}</span></td>'
             f'<td>{g}</td><td class="mono">{e(t["cost_band"])}</td>'
             f'<td class="num mono">{t["min_days"]}</td><td class="book">{e(t["booking"])}</td>'
@@ -483,6 +652,45 @@ def main():
     wk_rank = ranks["Waikiki (Oahu) — winter"]
     waco = max(comp[t["name"]] for t in trips if t.get("pool"))
 
+    # Compare blob: per-trip record + per-division stats, same math as the tables
+    mode_stats = {}
+    for k, m in modes.items():
+        w = m["weights"]
+        order = sorted(trips, key=lambda t: -composite(t["scores"], w))
+        mode_stats[k] = ({t["name"]: round(composite(t["scores"], w), 1) for t in trips},
+                         {t["name"]: i + 1 for i, t in enumerate(order)},
+                         sensitivity_bands(trips, w), m)
+
+    cmp_trips = {}
+    for t in trips:
+        divs = {}
+        for k, (mc, mr, mb, m) in mode_stats.items():
+            gok, why = gate_check(k, m, t)
+            divs[k] = {"comp": mc[t["name"]], "rank": mr[t["name"]],
+                       "band": mb[t["name"]], "ok": gok, "why": why}
+        cmp_trips[t["name"]] = {
+            "scores": t["scores"], "divs": divs, "country": t["country"],
+            "window": t["window"], "months": t["months"], "cost_band": t["cost_band"],
+            "min_days": t["min_days"], "booking": t["booking"], "water_f": t["water_f"],
+            "wetsuit": t["wetsuit"], "travel_note": t["travel_note"],
+            "cluster": t.get("cluster", ""), "pool": bool(t.get("pool")),
+            "forecast": forecast_url(t), "note": t["note"]}
+    blob_json = json.dumps(
+        {"weights": {k: m["weights"] for k, m in modes.items()},
+         "labels": {d: DIM_LABELS[d][0] for d in dims},
+         "modelabels": {k: m["label"] for k, m in modes.items()},
+         "dims": dims, "trips": cmp_trips},
+        ensure_ascii=False).replace("</", "<\\/") \
+        .replace("\u2028", "\\u2028").replace("\u2029", "\\u2029")  # prevent </script> breakout
+    cmp_dialog = """<dialog id="cmpdlg" aria-label="Trip comparison">
+ <div class="cmpinner">
+  <div class="cmphead"><h2>Compare</h2>
+    <button id="cmp-close" type="button" aria-label="Close comparison">×</button></div>
+  <div id="cmpbanner"></div>
+  <div class="cmpcols" id="cmpbody"></div>
+ </div>
+</dialog>"""
+
     # Triple-column weights grid (family / boys / strike)
     boys_w, strike_w = modes["boys"]["weights"], modes["strike"]["weights"]
     wrows = ['<div class="wrow"><div class="whead">Dimension</div><div class="whead">Family</div>'
@@ -558,6 +766,8 @@ def main():
     <label>Month<select id="f-month"><option value="">Any</option>{month_opts}</select></label>
     <label>Region<select id="f-region"><option value="">Any</option>{region_opts}</select></label>
     <label class="fchk"><input type="checkbox" id="f-gate"> passes this division's gate</label>
+    <button id="cmp-open" type="button" class="cmpbtn" style="display:none">Compare (<span id="cmp-n">0</span>)</button>
+    <button id="cmp-clear" type="button" style="display:none">clear picks</button>
     <button id="f-reset" type="button">reset</button>
     <span class="fcount" id="f-count"></span>
   </div>
@@ -609,10 +819,12 @@ def main():
 (<span class="mono">METHODOLOGY.md · data/trips.json · score.py</span>) · scores are early-2026 expert priors;
 verify advisories, seasons and operators before booking.</footer>
 
+{cmp_dialog}
 </div>
+<script type="application/json" id="tripdata">{blob_json}</script>
 {JS}"""
     out = ROOT / "report.html"
-    out.write_text(html_doc)
+    out.write_text(html_doc, encoding="utf-8")
     print(f"Wrote {out} ({len(html_doc):,} bytes)")
 
 
