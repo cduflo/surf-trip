@@ -36,7 +36,14 @@ roster changed.
 
 ## Candidates (intake list — score at next audit)
 
-*(empty — add candidates here with a one-line reason and date)*
+- 2026-08-17: Atlantic Park / Wavegarden Cove (Virginia Beach, VA) — 46-module wave pool + on-site hotel, opened Aug 2025, strongest strike-division fit found this cycle (domestic, no passport) [https://wavegarden.com/north-americas-first-wavegarden-cove-opens-at-atlantic-park-in-virginia-beach/]
+- 2026-08-17: Cabo Real Surf Club (Los Cabos, Mexico) — gated residential community anchored by North America's first Endless Surf basin, opening 2026 [https://www.surfer.com/news/inside-cabo-real-surf-club-mexicos-first-luxury-wave-pool-community]
+- 2026-08-17: DSRT Surf (Palm Desert, CA) — 52-module Wavegarden Cove + 139-room hotel, opening summer 2026, same archetype as Palm Springs Surf Club [https://wavegarden.com/6-new-wavegarden-world-class-surf-destinations-on-the-horizon/]
+- 2026-08-17: Surfers Cove (Óbidos, Portugal) — Portugal's first Wavegarden Cove, between Ericeira and Nazaré, bookings opened July 2026 [https://www.idealista.pt/en/news/lifestyle-in-portugal/2026/07/17/76622-portugal-s-first-wave-pool-now-open-for-bookings]
+- 2026-08-17: NIHI Rote (Rote Island, Indonesia) — sister property to NIHI Sumba, opens May 2026, same blind-spot pattern that produced the v11 Puro Surf/NIHI Sumba adds [https://www.surfer.com/culture/nihi-rote-indonesia-surf-resort-opening]
+- 2026-08-17: The Point Surf Park (Fellsmere, FL) — Endless Surf pool with concurrent beginner/advanced basin, targeting 2026 [https://endlesssurf.com/2025/05/14/the-point-surf-park-breaks-ground-in-florida-powered-by-the-usas-first-endless-surf-lagoon/]
+- 2026-08-17: Hotel Fermata (Santa Teresa, Costa Rica) — 35-room beachfront hotel on La Lora break, opened Dec 2025, lower-confidence source, verify before scoring [hospitality trade coverage — verify directly]
+- 2026-08-17: Lamangata Luxury Surf Resort (Dominical, Costa Rica) — all-inclusive boutique resort on an already-scored coastline [https://www.surfer.com/culture/lamangata-luxury-surf-resort-costa-rica]
 
 ## Automation (enabled 2026-08-17 — findings only)
 
