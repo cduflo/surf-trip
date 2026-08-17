@@ -38,9 +38,11 @@ roster changed.
 
 *(empty — add candidates here with a one-line reason and date)*
 
-## Automation option (not enabled)
+## Automation (enabled 2026-08-17 — findings only)
 
-The semi-annual re-audit is a repeatable multi-agent job and could run as a scheduled cloud
-routine that opens its findings as a report for approval before any dataset change. Deliberately
-not enabled: audits change scores, and score changes should stay human-approved. Revisit if the
-manual cadence slips.
+A monthly cloud routine ("Wave Index monthly discovery scan", 1st of each month 08:00 UTC) runs
+the discovery half automatically: hunts new property-level entrants/wave pools, checks operator
+closures for the top ~40 rows, and re-checks advisories for safety ≤ 7 rows — then reports and
+appends candidates to the list above on a `maint/scan-YYYY-MM` branch (never main). The line that
+stays human: **the routine never touches scores or trips.json** — candidates are scored at the
+semi-annual audit after review. Manage the routine at claude.ai/code/routines.
