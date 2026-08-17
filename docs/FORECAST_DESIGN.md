@@ -42,6 +42,16 @@ inside SurfBot's 10-day horizon — the free tier is sufficient.
   view. Design-review amendment: links are **Surfline search URLs** (query = the trip's primary spot name),
   not hand-guessed deep links — a search cannot point at the wrong spot, and fabricated slugs rot. Curated
   spot-IDs arrive with Phase 2's SurfBot mapping. Pools never link.
+- **Phase 1.5 — STRIKE RADAR (config exported; SurfBot consumer pending):** discovery-mode monitoring —
+  instead of the user picking spots to watch, SurfBot watches the whole strike-eligible portfolio and
+  surfaces whatever lights up. `gen_radar.py` exports `data/strike_radar.json`: the 22 cluster-deduped
+  spots passing the strike gate, each with its season window (only in-window spots are polled), a
+  Surfline search query, `min_lead_days` derived from launch latency (an alert for a swell arriving
+  sooner than you can is noise — Rincón alerts at 2 days out, Chicama only at 4+), a GOOD-rating floor
+  (strike bar = worth a flight, not a drive), and a default size floor with per-spot overrides on the
+  SurfBot side. Delivery: one daily radar digest with per-spot per-swell cooldowns, not a firehose.
+  SurfBot reuses its existing hourly/daylight qualification machinery; the radar list is config, not
+  per-user watches, so the 5-watch cap is untouched.
 - **Phase 1 (SurfBot-side):** a `/strike <place> [minft] [rating]` command — a **standing,
   threshold-driven watch** (unlike `/watch`, which is date-bounded and thresholdless): alert only
   when a qualifying daylight window appears inside the 10-day horizon, with improving/holding

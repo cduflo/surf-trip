@@ -9,6 +9,7 @@ untiered calibration rows when off, fully ranked when on; family division requir
 - `data/trips.json` — the dataset (9 scores per trip + notes)
 - `score.py` — composite scores, tiers, ±25% weight-sensitivity bands, month calendar → `RANKINGS.md`, `rankings.csv`
 - `gen_report.py` — builds `report.html` (the published artifact) from the dataset
+- `gen_radar.py` — exports `data/strike_radar.json`, the strike-eligible portfolio for SurfBot's radar
 
 Regenerate everything after editing scores or weights:
 

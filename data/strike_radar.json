@@ -1,0 +1,365 @@
+{
+ "_doc": "Strike-radar portfolio for SurfBot. Regenerate with gen_radar.py; do not hand-edit. Spot-id resolution and per-spot threshold overrides live on the SurfBot side.",
+ "gate": {
+  "advanced": 7,
+  "strikeability": 7
+ },
+ "spots": [
+  {
+   "trip": "Rincón",
+   "query": "Rincón",
+   "months": [
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "strike_composite": 78.9,
+   "min_lead_days": 2,
+   "min_rating": "GOOD",
+   "min_height_ft": 4,
+   "cluster": "",
+   "notes": "Easy; winter 3–6mo"
+  },
+  {
+   "trip": "Soup Bowl (Barbados) — autumn strike",
+   "query": "Soup Bowl",
+   "months": [
+    8,
+    9,
+    10
+   ],
+   "strike_composite": 78.0,
+   "min_lead_days": 2,
+   "min_rating": "GOOD",
+   "min_height_ft": 4,
+   "cluster": "Barbados pair",
+   "notes": "Walk-in; watch the hurricane models"
+  },
+  {
+   "trip": "São Miguel (Azores)",
+   "query": "São Miguel",
+   "months": [
+    9,
+    10
+   ],
+   "strike_composite": 77.4,
+   "min_lead_days": 2,
+   "min_rating": "GOOD",
+   "min_height_ft": 4,
+   "cluster": "",
+   "notes": "Easy; 4.5h direct"
+  },
+  {
+   "trip": "Madeira (Jardim do Mar)",
+   "query": "Madeira",
+   "months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "strike_composite": 76.8,
+   "min_lead_days": 3,
+   "min_rating": "GOOD",
+   "min_height_ft": 4,
+   "cluster": "",
+   "notes": "Easy; village lodging"
+  },
+  {
+   "trip": "Chicama + Pacasmayo",
+   "query": "Chicama + Pacasmayo",
+   "months": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "strike_composite": 76.8,
+   "min_lead_days": 4,
+   "min_rating": "GOOD",
+   "min_height_ft": 4,
+   "cluster": "",
+   "notes": "Easy; hotel packages"
+  },
+  {
+   "trip": "Nova Scotia (Lawrencetown)",
+   "query": "Nova Scotia",
+   "months": [
+    8,
+    9,
+    10
+   ],
+   "strike_composite": 76.0,
+   "min_lead_days": 2,
+   "min_rating": "GOOD",
+   "min_height_ft": 4,
+   "cluster": "",
+   "notes": "Easy"
+  },
+  {
+   "trip": "Outer Banks (Cape Hatteras)",
+   "query": "Outer Banks",
+   "months": [
+    8,
+    9,
+    10
+   ],
+   "strike_composite": 75.8,
+   "min_lead_days": 2,
+   "min_rating": "GOOD",
+   "min_height_ft": 4,
+   "cluster": "",
+   "notes": "House rentals easy"
+  },
+  {
+   "trip": "Zicatela (Puerto Escondido proper)",
+   "query": "Zicatela",
+   "months": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "strike_composite": 75.7,
+   "min_lead_days": 3,
+   "min_rating": "GOOD",
+   "min_height_ft": 4,
+   "cluster": "Puerto Escondido pair",
+   "notes": "Easy; hotels on the strip"
+  },
+  {
+   "trip": "El Zonte + El Tunco (La Libertad)",
+   "query": "El Zonte + El Tunco",
+   "months": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "strike_composite": 75.4,
+   "min_lead_days": 3,
+   "min_rating": "GOOD",
+   "min_height_ft": 4,
+   "cluster": "",
+   "notes": "Easy; near walk-in"
+  },
+  {
+   "trip": "Peniche + Baleal",
+   "query": "Peniche + Baleal",
+   "months": [
+    9,
+    10
+   ],
+   "strike_composite": 75.4,
+   "min_lead_days": 2,
+   "min_rating": "GOOD",
+   "min_height_ft": 4,
+   "cluster": "Silver Coast pair",
+   "notes": "Camps plentiful"
+  },
+  {
+   "trip": "Bundoran + Sligo",
+   "query": "Bundoran + Sligo",
+   "months": [
+    9,
+    10
+   ],
+   "strike_composite": 75.0,
+   "min_lead_days": 3,
+   "min_rating": "GOOD",
+   "min_height_ft": 4,
+   "cluster": "",
+   "notes": "Easy"
+  },
+  {
+   "trip": "Hossegor + Capbreton",
+   "query": "Hossegor + Capbreton",
+   "months": [
+    9,
+    10
+   ],
+   "strike_composite": 74.3,
+   "min_lead_days": 3,
+   "min_rating": "GOOD",
+   "min_height_ft": 4,
+   "cluster": "",
+   "notes": "Sept lodging books early"
+  },
+  {
+   "trip": "Fuerteventura",
+   "query": "Fuerteventura",
+   "months": [
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "strike_composite": 72.6,
+   "min_lead_days": 3,
+   "min_rating": "GOOD",
+   "min_height_ft": 4,
+   "cluster": "",
+   "notes": "Easy; many camps"
+  },
+  {
+   "trip": "Famara (Lanzarote)",
+   "query": "Famara",
+   "months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "strike_composite": 72.2,
+   "min_lead_days": 3,
+   "min_rating": "GOOD",
+   "min_height_ft": 4,
+   "cluster": "",
+   "notes": "Easy; school capital"
+  },
+  {
+   "trip": "Taghazout + Tamraght",
+   "query": "Taghazout + Tamraght",
+   "months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "strike_composite": 71.9,
+   "min_lead_days": 3,
+   "min_rating": "GOOD",
+   "min_height_ft": 4,
+   "cluster": "Agadir coast pair",
+   "notes": "Camps 1–3mo"
+  },
+  {
+   "trip": "Sagres / Algarve",
+   "query": "Sagres / Algarve",
+   "months": [
+    9,
+    10,
+    11
+   ],
+   "strike_composite": 71.4,
+   "min_lead_days": 3,
+   "min_rating": "GOOD",
+   "min_height_ft": 4,
+   "cluster": "",
+   "notes": "Easy"
+  },
+  {
+   "trip": "Scorpion Bay (San Juanico)",
+   "query": "Scorpion Bay",
+   "months": [
+    6,
+    7,
+    8,
+    9
+   ],
+   "strike_composite": 71.0,
+   "min_lead_days": 4,
+   "min_rating": "GOOD",
+   "min_height_ft": 4,
+   "cluster": "",
+   "notes": "Full DIY expedition"
+  },
+  {
+   "trip": "San Onofre + Doheny (San Clemente)",
+   "query": "San Onofre + Doheny",
+   "months": [
+    6,
+    7,
+    8,
+    9
+   ],
+   "strike_composite": 71.0,
+   "min_lead_days": 3,
+   "min_rating": "GOOD",
+   "min_height_ft": 4,
+   "cluster": "",
+   "notes": "Easy; state-park passes; camps and rentals"
+  },
+  {
+   "trip": "Galicia (Pantín / Razo)",
+   "query": "Galicia",
+   "months": [
+    9,
+    10
+   ],
+   "strike_composite": 70.5,
+   "min_lead_days": 3,
+   "min_rating": "GOOD",
+   "min_height_ft": 4,
+   "cluster": "",
+   "notes": "Self-assemble; easy"
+  },
+  {
+   "trip": "La Saladita + Troncones",
+   "query": "La Saladita + Troncones",
+   "months": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "strike_composite": 70.0,
+   "min_lead_days": 3,
+   "min_rating": "GOOD",
+   "min_height_ft": 4,
+   "cluster": "",
+   "notes": "Beach houses 3–6mo"
+  },
+  {
+   "trip": "North Shore (Oahu) — winter base",
+   "query": "North Shore",
+   "months": [
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "strike_composite": 69.2,
+   "min_lead_days": 4,
+   "min_rating": "GOOD",
+   "min_height_ft": 4,
+   "cluster": "Oahu trio",
+   "notes": "Vacation rentals; winter books early"
+  },
+  {
+   "trip": "Pavones",
+   "query": "Pavones",
+   "months": [
+    6,
+    7,
+    8
+   ],
+   "strike_composite": 68.9,
+   "min_lead_days": 4,
+   "min_rating": "GOOD",
+   "min_height_ft": 4,
+   "cluster": "",
+   "notes": "DIY; limited lodging"
+  }
+ ]
+}
