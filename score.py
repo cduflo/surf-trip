@@ -85,7 +85,7 @@ def main():
         w.writerow(["rank", "trip", "country", "region", "window", "composite", "tier",
                     "family_ok", "boys_composite", "boys_rank", "boys_ok",
                     "strike_composite", "strike_rank", "strike_ok", "pool",
-                    "cost_band", "min_days", "booking",
+                    "cost_band", "min_days", "booking", "water_f_lo", "water_f_hi", "wetsuit",
                     "rank_lo", "rank_hi"] + dims + ["travel_note", "note"])
         for i, t in enumerate(trips, 1):
             lo, hi = bands[t["name"]]
@@ -97,7 +97,8 @@ def main():
                         strike_comp[t["name"]], strike_rank[t["name"]],
                         "yes" if strike_gate(t) else "no",
                         "yes" if t.get("pool") else "no",
-                        t["cost_band"], t["min_days"], t["booking"], lo, hi]
+                        t["cost_band"], t["min_days"], t["booking"],
+                        t["water_f"][0], t["water_f"][1], t["wetsuit"], lo, hi]
                        + [t["scores"][d] for d in dims] + [t["travel_note"], t["note"]])
 
     # Markdown

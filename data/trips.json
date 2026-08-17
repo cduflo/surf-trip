@@ -53,7 +53,12 @@
    },
    "cost_band": "$$",
    "min_days": 6,
-   "booking": "Easy 3–6mo; Surf Simply ~1yr out"
+   "booking": "Easy 3–6mo; Surf Simply ~1yr out",
+   "water_f": [
+    82,
+    86
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Playa Guiones (Nosara) — green season",
@@ -84,7 +89,12 @@
    },
    "cost_band": "$$",
    "min_days": 6,
-   "booking": "Easy; green-season discounts"
+   "booking": "Easy; green-season discounts",
+   "water_f": [
+    82,
+    86
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Santa Teresa / Mal País",
@@ -115,7 +125,12 @@
    "guide_v1": 7,
    "cost_band": "$$",
    "min_days": 7,
-   "booking": "Easy"
+   "booking": "Easy",
+   "water_f": [
+    82,
+    86
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Tamarindo + Playa Grande",
@@ -146,7 +161,12 @@
    "guide_v1": 7.5,
    "cost_band": "$$",
    "min_days": 5,
-   "booking": "Easy; book flights early for school weeks"
+   "booking": "Easy; book flights early for school weeks",
+   "water_f": [
+    80,
+    85
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Pavones",
@@ -175,7 +195,12 @@
    "guide_v1": 5.5,
    "cost_band": "$$",
    "min_days": 8,
-   "booking": "DIY; limited lodging"
+   "booking": "DIY; limited lodging",
+   "water_f": [
+    82,
+    86
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Playa Venao",
@@ -208,7 +233,12 @@
    "guide_v1": 7,
    "cost_band": "$$",
    "min_days": 6,
-   "booking": "Easy"
+   "booking": "Easy",
+   "water_f": [
+    80,
+    84
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Santa Catalina",
@@ -239,7 +269,12 @@
    "guide_v1": 6.5,
    "cost_band": "$",
    "min_days": 7,
-   "booking": "Easy; basic lodging"
+   "booking": "Easy; basic lodging",
+   "water_f": [
+    80,
+    84
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Bocas del Toro",
@@ -269,7 +304,12 @@
    "guide_v1": 7.5,
    "cost_band": "$$",
    "min_days": 7,
-   "booking": "Easy"
+   "booking": "Easy",
+   "water_f": [
+    81,
+    84
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "El Zonte + El Tunco (La Libertad)",
@@ -303,7 +343,12 @@
    "guide_v1": 8.5,
    "cost_band": "$",
    "min_days": 5,
-   "booking": "Easy; near walk-in"
+   "booking": "Easy; near walk-in",
+   "water_f": [
+    82,
+    86
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Las Flores + Punta Mango (boat resort)",
@@ -338,7 +383,12 @@
    },
    "cost_band": "$$",
    "min_days": 6,
-   "booking": "One resort; ~6mo for peak weeks"
+   "booking": "One resort; ~6mo for peak weeks",
+   "water_f": [
+    82,
+    86
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Playa Colorado / Hacienda Iguana",
@@ -374,7 +424,12 @@
    "cost_band": "$$",
    "min_days": 7,
    "booking": "VRBO via managers 6–12mo; self-assemble guide/panga",
-   "cluster": "SW Nicaragua corridor"
+   "cluster": "SW Nicaragua corridor",
+   "water_f": [
+    74,
+    82
+   ],
+   "wetsuit": "trunks (spring top in upwelling spells)"
   },
   {
    "name": "Popoyo",
@@ -407,7 +462,12 @@
    "cost_band": "$",
    "min_days": 6,
    "booking": "Lodges 3–6mo",
-   "cluster": "SW Nicaragua corridor"
+   "cluster": "SW Nicaragua corridor",
+   "water_f": [
+    74,
+    82
+   ],
+   "wetsuit": "trunks (spring top in upwelling spells)"
   },
   {
    "name": "Playa Maderas (San Juan del Sur)",
@@ -440,7 +500,12 @@
    "cost_band": "$",
    "min_days": 5,
    "booking": "Easy",
-   "cluster": "SW Nicaragua corridor"
+   "cluster": "SW Nicaragua corridor",
+   "water_f": [
+    74,
+    82
+   ],
+   "wetsuit": "trunks (spring top in upwelling spells)"
   },
   {
    "name": "El Paredón",
@@ -473,7 +538,12 @@
    "guide_v1": 6.5,
    "cost_band": "$",
    "min_days": 5,
-   "booking": "Easy"
+   "booking": "Easy",
+   "water_f": [
+    83,
+    86
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Punta Mita + Sayulita",
@@ -505,7 +575,12 @@
    "cost_band": "$$$",
    "min_days": 5,
    "booking": "Resorts easy; on-site surf clubs",
-   "cluster": "Punta Mita pair"
+   "cluster": "Punta Mita pair",
+   "water_f": [
+    72,
+    77
+   ],
+   "wetsuit": "trunks or springsuit"
   },
   {
    "name": "La Saladita + Troncones",
@@ -537,7 +612,12 @@
    "guide_v1": 7,
    "cost_band": "$",
    "min_days": 6,
-   "booking": "Beach houses 3–6mo"
+   "booking": "Beach houses 3–6mo",
+   "water_f": [
+    82,
+    86
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Salina Cruz guided camps (Oaxaca)",
@@ -569,7 +649,12 @@
    "guide_v1": 9.5,
    "cost_band": "$$",
    "min_days": 6,
-   "booking": "Camps 3–6mo; bring boards"
+   "booking": "Camps 3–6mo; bring boards",
+   "water_f": [
+    82,
+    86
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Puerto Escondido (La Punta base)",
@@ -602,7 +687,12 @@
    "cost_band": "$",
    "min_days": 6,
    "booking": "Easy",
-   "cluster": "Puerto Escondido pair"
+   "cluster": "Puerto Escondido pair",
+   "water_f": [
+    82,
+    86
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Los Cerritos / Todos Santos (Baja)",
@@ -633,7 +723,12 @@
    "guide_v1": 6.5,
    "cost_band": "$$",
    "min_days": 5,
-   "booking": "Easy"
+   "booking": "Easy",
+   "water_f": [
+    66,
+    72
+   ],
+   "wetsuit": "springsuit or 3/2"
   },
   {
    "name": "Scorpion Bay (San Juanico)",
@@ -663,7 +758,12 @@
    "guide_v1": 5,
    "cost_band": "$",
    "min_days": 8,
-   "booking": "Full DIY expedition"
+   "booking": "Full DIY expedition",
+   "water_f": [
+    70,
+    78
+   ],
+   "wetsuit": "trunks or springsuit"
   },
   {
    "name": "Costa Azul (San José del Cabo)",
@@ -695,7 +795,12 @@
    "guide_v1": 7,
    "cost_band": "$$$",
    "min_days": 5,
-   "booking": "Easy resort booking"
+   "booking": "Easy resort booking",
+   "water_f": [
+    78,
+    84
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Rincón",
@@ -726,7 +831,12 @@
    "guide_v1": 6,
    "cost_band": "$$",
    "min_days": 4,
-   "booking": "Easy; winter 3–6mo"
+   "booking": "Easy; winter 3–6mo",
+   "water_f": [
+    78,
+    81
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Playa Encuentro (Cabarete)",
@@ -756,7 +866,12 @@
    "guide_v1": 8,
    "cost_band": "$",
    "min_days": 5,
-   "booking": "Easy; many camps"
+   "booking": "Easy; many camps",
+   "water_f": [
+    79,
+    82
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Barbados (Freights + Soup Bowl)",
@@ -788,7 +903,12 @@
    "cost_band": "$$$",
    "min_days": 5,
    "booking": "Easy; winter hotels early",
-   "cluster": "Barbados pair"
+   "cluster": "Barbados pair",
+   "water_f": [
+    79,
+    83
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Chicama + Pacasmayo",
@@ -820,7 +940,12 @@
    "guide_v1": 7.5,
    "cost_band": "$",
    "min_days": 7,
-   "booking": "Easy; hotel packages"
+   "booking": "Easy; hotel packages",
+   "water_f": [
+    60,
+    66
+   ],
+   "wetsuit": "3/2 (4/3 Jul–Aug)"
   },
   {
    "name": "Lobitos + Máncora (north Peru)",
@@ -853,7 +978,12 @@
    "guide_v1": 6.5,
    "cost_band": "$",
    "min_days": 7,
-   "booking": "DIY-ish"
+   "booking": "DIY-ish",
+   "water_f": [
+    66,
+    74
+   ],
+   "wetsuit": "2mm or 3/2"
   },
   {
    "name": "Ayampe + Montañita",
@@ -884,7 +1014,12 @@
    "guide_v1": 6.5,
    "cost_band": "$",
    "min_days": 7,
-   "booking": "Easy"
+   "booking": "Easy",
+   "water_f": [
+    75,
+    80
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "San Cristóbal (Galápagos)",
@@ -915,7 +1050,12 @@
    "guide_v1": 7,
    "cost_band": "$$$$",
    "min_days": 8,
-   "booking": "Flights+permits 4–6mo"
+   "booking": "Flights+permits 4–6mo",
+   "water_f": [
+    72,
+    77
+   ],
+   "wetsuit": "springsuit"
   },
   {
    "name": "Florianópolis",
@@ -947,7 +1087,12 @@
    "guide_v1": 6,
    "cost_band": "$$",
    "min_days": 8,
-   "booking": "Easy"
+   "booking": "Easy",
+   "water_f": [
+    62,
+    70
+   ],
+   "wetsuit": "3/2"
   },
   {
    "name": "Itacaré (Bahia)",
@@ -977,7 +1122,12 @@
    "guide_v1": 6.5,
    "cost_band": "$$",
    "min_days": 8,
-   "booking": "Easy"
+   "booking": "Easy",
+   "water_f": [
+    80,
+    84
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Fernando de Noronha",
@@ -1007,7 +1157,12 @@
    "guide_v1": 6.5,
    "cost_band": "$$$$",
    "min_days": 8,
-   "booking": "Capped island; permits+flights 4–6mo"
+   "booking": "Capped island; permits+flights 4–6mo",
+   "water_f": [
+    79,
+    82
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Pichilemu / Punta de Lobos",
@@ -1038,7 +1193,12 @@
    "guide_v1": 6,
    "cost_band": "$$",
    "min_days": 8,
-   "booking": "Easy"
+   "booking": "Easy",
+   "water_f": [
+    55,
+    60
+   ],
+   "wetsuit": "4/3 + booties (hood common)"
   },
   {
    "name": "Ericeira",
@@ -1067,7 +1227,12 @@
    "cost_band": "$$",
    "min_days": 6,
    "booking": "Easy; Sept ~3mo",
-   "cluster": "Silver Coast pair"
+   "cluster": "Silver Coast pair",
+   "water_f": [
+    63,
+    67
+   ],
+   "wetsuit": "3/2"
   },
   {
    "name": "Peniche + Baleal",
@@ -1096,7 +1261,12 @@
    "cost_band": "$",
    "min_days": 6,
    "booking": "Camps plentiful",
-   "cluster": "Silver Coast pair"
+   "cluster": "Silver Coast pair",
+   "water_f": [
+    63,
+    67
+   ],
+   "wetsuit": "3/2"
   },
   {
    "name": "Sagres / Algarve",
@@ -1125,7 +1295,12 @@
    "guide_v1": 8,
    "cost_band": "$$",
    "min_days": 6,
-   "booking": "Easy"
+   "booking": "Easy",
+   "water_f": [
+    64,
+    68
+   ],
+   "wetsuit": "3/2"
   },
   {
    "name": "Hossegor + Capbreton",
@@ -1153,7 +1328,12 @@
    "guide_v1": 7,
    "cost_band": "$$",
    "min_days": 6,
-   "booking": "Sept lodging books early"
+   "booking": "Sept lodging books early",
+   "water_f": [
+    64,
+    68
+   ],
+   "wetsuit": "3/2"
   },
   {
    "name": "Zarautz + San Sebastián",
@@ -1181,7 +1361,12 @@
    "guide_v1": 7.5,
    "cost_band": "$$",
    "min_days": 6,
-   "booking": "Easy"
+   "booking": "Easy",
+   "water_f": [
+    65,
+    68
+   ],
+   "wetsuit": "3/2"
   },
   {
    "name": "Fuerteventura",
@@ -1212,7 +1397,12 @@
    "guide_v1": 7.5,
    "cost_band": "$$",
    "min_days": 6,
-   "booking": "Easy; many camps"
+   "booking": "Easy; many camps",
+   "water_f": [
+    66,
+    70
+   ],
+   "wetsuit": "3/2 (spring by Mar)"
   },
   {
    "name": "Famara (Lanzarote)",
@@ -1244,7 +1434,12 @@
    "guide_v1": 7.5,
    "cost_band": "$",
    "min_days": 6,
-   "booking": "Easy; school capital"
+   "booking": "Easy; school capital",
+   "water_f": [
+    66,
+    70
+   ],
+   "wetsuit": "3/2 (spring by Mar)"
   },
   {
    "name": "São Miguel (Azores)",
@@ -1272,7 +1467,12 @@
    "guide_v1": 6.5,
    "cost_band": "$",
    "min_days": 5,
-   "booking": "Easy; 4.5h direct"
+   "booking": "Easy; 4.5h direct",
+   "water_f": [
+    71,
+    74
+   ],
+   "wetsuit": "springsuit or 2mm"
   },
   {
    "name": "Taghazout + Tamraght",
@@ -1305,7 +1505,12 @@
    "cost_band": "$",
    "min_days": 6,
    "booking": "Camps 1–3mo",
-   "cluster": "Agadir coast pair"
+   "cluster": "Agadir coast pair",
+   "water_f": [
+    62,
+    68
+   ],
+   "wetsuit": "3/2 (4/3 midwinter for some)"
   },
   {
    "name": "Imsouane",
@@ -1338,7 +1543,12 @@
    "cost_band": "$",
    "min_days": 6,
    "booking": "Easy",
-   "cluster": "Agadir coast pair"
+   "cluster": "Agadir coast pair",
+   "water_f": [
+    62,
+    68
+   ],
+   "wetsuit": "3/2"
   },
   {
    "name": "Bundoran + Sligo",
@@ -1366,7 +1576,12 @@
    "guide_v1": 7.5,
    "cost_band": "$$",
    "min_days": 5,
-   "booking": "Easy"
+   "booking": "Easy",
+   "water_f": [
+    55,
+    58
+   ],
+   "wetsuit": "4/3 + booties (hood by Oct)"
   },
   {
    "name": "Jeffreys Bay",
@@ -1395,7 +1610,12 @@
    "guide_v1": 6.5,
    "cost_band": "$$$",
    "min_days": 9,
-   "booking": "Lodging easy; long-haul flights"
+   "booking": "Lodging easy; long-haul flights",
+   "water_f": [
+    57,
+    63
+   ],
+   "wetsuit": "4/3 (+ booties for wind)"
   },
   {
    "name": "Muizenberg (Cape Town)",
@@ -1426,7 +1646,12 @@
    "guide_v1": 7.5,
    "cost_band": "$$$",
    "min_days": 9,
-   "booking": "Easy"
+   "booking": "Easy",
+   "water_f": [
+    59,
+    64
+   ],
+   "wetsuit": "3/2–4/3"
   },
   {
    "name": "North Malé surf resort (Pasta Point/Sultans)",
@@ -1462,7 +1687,12 @@
    },
    "cost_band": "$$$",
    "min_days": 8,
-   "booking": "~30-surfer allocation; 9–12mo; 7-night min"
+   "booking": "~30-surfer allocation; 9–12mo; 7-night min",
+   "water_f": [
+    84,
+    86
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Central/South atolls resort (Laamu, Six Senses area)",
@@ -1495,7 +1725,12 @@
    "guide_v1": 9.5,
    "cost_band": "$$$$",
    "min_days": 8,
-   "booking": "Villa capacity; 9–12mo; 7-night min"
+   "booking": "Villa capacity; 9–12mo; 7-night min",
+   "water_f": [
+    84,
+    86
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Weligama–Ahangama south coast",
@@ -1526,7 +1761,12 @@
    "guide_v1": 7.5,
    "cost_band": "$$",
    "min_days": 9,
-   "booking": "Easy"
+   "booking": "Easy",
+   "water_f": [
+    82,
+    84
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Arugam Bay",
@@ -1557,7 +1797,12 @@
    "guide_v1": 7.5,
    "cost_band": "$$",
    "min_days": 9,
-   "booking": "Easy"
+   "booking": "Easy",
+   "water_f": [
+    82,
+    84
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Uluwatu + Bingin (Bukit)",
@@ -1588,7 +1833,12 @@
    "guide_v1": 7,
    "cost_band": "$$",
    "min_days": 9,
-   "booking": "Easy"
+   "booking": "Easy",
+   "water_f": [
+    75,
+    80
+   ],
+   "wetsuit": "trunks (vest for dawn upwelling)"
   },
   {
    "name": "Nusa Lembongan",
@@ -1619,7 +1869,12 @@
    "guide_v1": 7.5,
    "cost_band": "$$",
    "min_days": 9,
-   "booking": "Easy"
+   "booking": "Easy",
+   "water_f": [
+    78,
+    82
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Gerupuk + Ekas bays (South Lombok)",
@@ -1650,7 +1905,12 @@
    "guide_v1": 9,
    "cost_band": "$$",
    "min_days": 9,
-   "booking": "Camps 3–6mo"
+   "booking": "Camps 3–6mo",
+   "water_f": [
+    78,
+    82
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Lakey Peak (Sumbawa)",
@@ -1681,7 +1941,12 @@
    "guide_v1": 6.5,
    "cost_band": "$$",
    "min_days": 10,
-   "booking": "Losmen walk-in; bring boards"
+   "booking": "Losmen walk-in; bring boards",
+   "water_f": [
+    77,
+    81
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Mentawai land resort (Kandui/HT's zone)",
@@ -1719,7 +1984,12 @@
    "cost_band": "$$$$",
    "min_days": 10,
    "booking": "Resorts 9–12mo; fixed transfers; some exclude under-12s",
-   "cluster": "Mentawai zone"
+   "cluster": "Mentawai zone",
+   "water_f": [
+    82,
+    85
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Telo Islands (Resort Latitude Zero)",
@@ -1752,7 +2022,12 @@
    "guide_v1": 10,
    "cost_band": "$$$$",
    "min_days": 12,
-   "booking": "Fixed 10–12nt charter rotations ex-SIN; 12mo+"
+   "booking": "Fixed 10–12nt charter rotations ex-SIN; 12mo+",
+   "water_f": [
+    82,
+    85
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Simeulue Island (Aceh)",
@@ -1786,7 +2061,12 @@
    "guide_v1": 8,
    "cost_band": "$$",
    "min_days": 10,
-   "booking": "Small resorts ~6mo"
+   "booking": "Small resorts ~6mo",
+   "water_f": [
+    83,
+    86
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Nemberala (Rote)",
@@ -1821,7 +2101,12 @@
    },
    "cost_band": "$$",
    "min_days": 10,
-   "booking": "Lodges ~6mo"
+   "booking": "Lodges ~6mo",
+   "water_f": [
+    78,
+    82
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Siargao (Cloud 9 + boat breaks)",
@@ -1851,7 +2136,12 @@
    "guide_v1": 8.5,
    "cost_band": "$$",
    "min_days": 9,
-   "booking": "Easy"
+   "booking": "Easy",
+   "water_f": [
+    82,
+    85
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Namotu / Tavarua island resorts",
@@ -1884,7 +2174,12 @@
    "guide_v1": 10,
    "cost_band": "$$$$",
    "min_days": 8,
-   "booking": "Named family weeks only (min age otherwise); 12–18mo"
+   "booking": "Named family weeks only (min age otherwise); 12–18mo",
+   "water_f": [
+    76,
+    82
+   ],
+   "wetsuit": "trunks (spring top Jul–Aug)"
   },
   {
    "name": "Coral Coast (Matanivusi / Sigatoka)",
@@ -1917,7 +2212,12 @@
    "guide_v1": 9,
    "cost_band": "$$$",
    "min_days": 8,
-   "booking": "Small eco-resorts 6–9mo"
+   "booking": "Small eco-resorts 6–9mo",
+   "water_f": [
+    76,
+    82
+   ],
+   "wetsuit": "trunks (spring top Jul–Aug)"
   },
   {
    "name": "Salani / Aganoa (Upolu & Savai'i)",
@@ -1953,7 +2253,12 @@
    },
    "cost_band": "$$$",
    "min_days": 9,
-   "booking": "Small lodges; min-stays; 6–9mo"
+   "booking": "Small lodges; min-stays; 6–9mo",
+   "water_f": [
+    78,
+    82
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Ha'atafu (Tongatapu)",
@@ -1985,7 +2290,12 @@
    "guide_v1": 8.5,
    "cost_band": "$$$",
    "min_days": 9,
-   "booking": "Tiny capacity; 6–9mo"
+   "booking": "Tiny capacity; 6–9mo",
+   "water_f": [
+    74,
+    79
+   ],
+   "wetsuit": "trunks or spring top"
   },
   {
    "name": "Nusa Island Retreat (Kavieng)",
@@ -2017,7 +2327,12 @@
    "guide_v1": 9,
    "cost_band": "$$$$",
    "min_days": 10,
-   "booking": "Tiny capacity; 9–12mo; hard itinerary"
+   "booking": "Tiny capacity; 9–12mo; hard itinerary",
+   "water_f": [
+    84,
+    86
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Pohnpei (P-Pass)",
@@ -2049,7 +2364,12 @@
    "guide_v1": 8.5,
    "cost_band": "$$$$",
    "min_days": 10,
-   "booking": "Small operation; 6–12mo"
+   "booking": "Small operation; 6–12mo",
+   "water_f": [
+    82,
+    84
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Waikiki (Oahu) — winter",
@@ -2089,7 +2409,12 @@
     "consistency": 9,
     "advanced": 6
    },
-   "cluster": "Oahu trio"
+   "cluster": "Oahu trio",
+   "water_f": [
+    75,
+    77
+   ],
+   "wetsuit": "trunks (some wear spring tops)"
   },
   {
    "name": "Hanalei Bay (Kauai)",
@@ -2121,7 +2446,12 @@
    "cost_band": "$$$",
    "min_days": 6,
    "booking": "Easy; winter lodging pricey",
-   "cluster": "Kauai pair"
+   "cluster": "Kauai pair",
+   "water_f": [
+    75,
+    78
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Papara + Moorea (Tahiti)",
@@ -2153,7 +2483,12 @@
    "guide_v1": 7.5,
    "cost_band": "$$$$",
    "min_days": 8,
-   "booking": "Resorts easy; surf guides limited"
+   "booking": "Resorts easy; surf guides limited",
+   "water_f": [
+    79,
+    82
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Raglan",
@@ -2183,7 +2518,12 @@
    "guide_v1": 7,
    "cost_band": "$$$",
    "min_days": 10,
-   "booking": "Easy"
+   "booking": "Easy",
+   "water_f": [
+    62,
+    66
+   ],
+   "wetsuit": "3/2 (spring midsummer)"
   },
   {
    "name": "Noosa",
@@ -2212,7 +2552,12 @@
    "guide_v1": 7,
    "cost_band": "$$$",
    "min_days": 10,
-   "booking": "Easy"
+   "booking": "Easy",
+   "water_f": [
+    77,
+    81
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Nihi Sumba (Occy's Left)",
@@ -2243,7 +2588,12 @@
    "cost_band": "$$$$",
    "min_days": 10,
    "booking": "Books 6–12mo; wave capped at ~10 surfers/day; from ~$1.5k/night",
-   "note": "The brief's platonic ideal, priced accordingly: a formal daily cap on a world-class left, resort-exclusive access, full surf program, and an infinity pool directly over the wave. Beginner terrain is coaching-dependent — sits just under the family gate."
+   "note": "The brief's platonic ideal, priced accordingly: a formal daily cap on a world-class left, resort-exclusive access, full surf program, and an infinity pool directly over the wave. Beginner terrain is coaching-dependent — sits just under the family gate.",
+   "water_f": [
+    79,
+    83
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Rancho Santana",
@@ -2275,7 +2625,12 @@
    "min_days": 6,
    "booking": "Resort easy 3–6mo; on-site Surf Club",
    "note": "The turnkey answer on the SW Nicaragua corridor the index already loves: five private-access beaches, on-site Surf Club (quiver, coaches, daily program), pools and ranch — beginner sand at Los Perros, Panga Drops/Colorado in guided range.",
-   "cluster": "SW Nicaragua corridor"
+   "cluster": "SW Nicaragua corridor",
+   "water_f": [
+    74,
+    82
+   ],
+   "wetsuit": "trunks (spring top in upwelling spells)"
   },
   {
    "name": "Mizata Resort (western La Libertad)",
@@ -2308,7 +2663,12 @@
    "cost_band": "$$",
    "min_days": 5,
    "booking": "Small resort; 3–6mo",
-   "note": "A near-private cove-and-point 45 min west of the El Tunco crowds, with the pool literally overlooking the break, on-site boards and coaching, and the same 9-consistency S-swell window as the rest of the coast."
+   "note": "A near-private cove-and-point 45 min west of the El Tunco crowds, with the pool literally overlooking the break, on-site boards and coaching, and the same 9-consistency S-swell window as the rest of the coast.",
+   "water_f": [
+    82,
+    86
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Miramar / Aserradores (The Boom)",
@@ -2339,7 +2699,12 @@
    "cost_band": "$$",
    "min_days": 6,
    "booking": "All-inclusive camps 3–6mo",
-   "note": "Same offshore machine as Popoyo, far emptier: The Boom's world-class A-frame for the chargers, mellower inside banks for improvers, and camps that run boards, boats, and the daily call."
+   "note": "Same offshore machine as Popoyo, far emptier: The Boom's world-class A-frame for the chargers, mellower inside banks for improvers, and camps that run boards, boats, and the daily call.",
+   "water_f": [
+    78,
+    84
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Banyak Islands (Treasure Island)",
@@ -2371,7 +2736,12 @@
    "cost_band": "$$$",
    "min_days": 10,
    "booking": "Small resorts 6–9mo",
-   "note": "The budget Telos: tiny island resorts, boat-served zone, near-empty lineups, and Gunturs — a long forgiving right that's one of Sumatra's best learner-to-intermediate waves — on the doorstep."
+   "note": "The budget Telos: tiny island resorts, boat-served zone, near-empty lineups, and Gunturs — a long forgiving right that's one of Sumatra's best learner-to-intermediate waves — on the doorstep.",
+   "water_f": [
+    83,
+    86
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Cabo Ledo",
@@ -2402,7 +2772,12 @@
    "cost_band": "$$",
    "min_days": 8,
    "booking": "Surf lodges bookable; Luanda transit; e-visa",
-   "note": "The audit's biggest coastline find: a near-Chicama-consistency 300m mellow left, effectively empty, with all-inclusive surf lodges — one directly fronting the point. Beginner and expert ride the same wave. Luanda logistics and thin medical are the caps."
+   "note": "The audit's biggest coastline find: a near-Chicama-consistency 300m mellow left, effectively empty, with all-inclusive surf lodges — one directly fronting the point. Beginner and expert ride the same wave. Luanda logistics and thin medical are the caps.",
+   "water_f": [
+    68,
+    74
+   ],
+   "wetsuit": "springsuit or 2mm"
   },
   {
    "name": "Dakhla",
@@ -2434,7 +2809,12 @@
    "cost_band": "$$",
    "min_days": 6,
    "booking": "Purpose-built resorts easy ~3mo",
-   "note": "Desert surf resorts steps from near-empty right points, with a 40km flat lagoon as the built-in kids' guarantee no other Africa trip has. Wind is the tax — mornings work."
+   "note": "Desert surf resorts steps from near-empty right points, with a 40km flat lagoon as the built-in kids' guarantee no other Africa trip has. Wind is the tax — mornings work.",
+   "water_f": [
+    64,
+    69
+   ],
+   "wetsuit": "3/2"
   },
   {
    "name": "San Onofre + Doheny (San Clemente)",
@@ -2463,7 +2843,12 @@
    "cost_band": "$$",
    "min_days": 4,
    "booking": "Easy; state-park passes; camps and rentals",
-   "note": "The canonical US family-longboard trip: Old Man's rollers, Doheny for the kids, Trestles in walking range for the chargers. Everything easy, everyone there — the Waikiki crowd logic applies in full."
+   "note": "The canonical US family-longboard trip: Old Man's rollers, Doheny for the kids, Trestles in walking range for the chargers. Everything easy, everyone there — the Waikiki crowd logic applies in full.",
+   "water_f": [
+    64,
+    70
+   ],
+   "wetsuit": "springsuit (trunks Aug–Sep)"
   },
   {
    "name": "Papatura Island Retreat",
@@ -2495,7 +2880,12 @@
    "cost_band": "$$$",
    "min_days": 9,
    "booking": "Family-run; small capacity; 6–9mo",
-   "note": "Family-run island surf resort with daily boats to uncrowded fun reefs — the only family-gate-passing trip in the entire Nov–Apr remote-Pacific window, which the calendar otherwise cedes to experts-first Kavieng and Pohnpei."
+   "note": "Family-run island surf resort with daily boats to uncrowded fun reefs — the only family-gate-passing trip in the entire Nov–Apr remote-Pacific window, which the calendar otherwise cedes to experts-first Kavieng and Pohnpei.",
+   "water_f": [
+    84,
+    86
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Ngor + Yoff (Dakar)",
@@ -2525,7 +2915,12 @@
    "cost_band": "$$",
    "min_days": 6,
    "booking": "Island surf camps easy",
-   "note": "Two-coast peninsula — swell always hitting one side — with Ngor Right of Endless Summer fame, established island camps doing boards and guiding, and Yoff sand for learners."
+   "note": "Two-coast peninsula — swell always hitting one side — with Ngor Right of Endless Summer fame, established island camps doing boards and guiding, and Yoff sand for learners.",
+   "water_f": [
+    68,
+    75
+   ],
+   "wetsuit": "springsuit (2mm midwinter)"
   },
   {
    "name": "Waikiki (Oahu) — summer",
@@ -2557,7 +2952,12 @@
    "min_days": 5,
    "booking": "Easy; no passport",
    "note": "The better family window the winter row obscured: south-shore swell season, Queens and Canoes at their most consistent, and a flat, snorkel-safe North Shore. Beach-boy turnkey at its purest; the crowd is the whole tax.",
-   "cluster": "Oahu trio"
+   "cluster": "Oahu trio",
+   "water_f": [
+    78,
+    80
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Tamarindo + Playa Grande — green season",
@@ -2586,7 +2986,12 @@
    "cost_band": "$$",
    "min_days": 5,
    "booking": "Easy; green-season rates",
-   "note": "The Nosara-split logic applied to its neighbor: peak S-swell, thinner crowds, cheaper rooms, school-summer timing. Mornings stay learner-friendly; afternoon rain."
+   "note": "The Nosara-split logic applied to its neighbor: peak S-swell, thinner crowds, cheaper rooms, school-summer timing. Mornings stay learner-friendly; afternoon rain.",
+   "water_f": [
+    82,
+    86
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Santa Teresa — green season",
@@ -2615,7 +3020,12 @@
    "cost_band": "$$",
    "min_days": 7,
    "booking": "Easy; green-season rates",
-   "note": "Same beach breaks, more swell, meaningfully fewer people than the listed Dec–Apr window."
+   "note": "Same beach breaks, more swell, meaningfully fewer people than the listed Dec–Apr window.",
+   "water_f": [
+    82,
+    86
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Namotu / Tavarua — off-season",
@@ -2645,7 +3055,12 @@
    "cost_band": "$$$$",
    "min_days": 8,
    "booking": "Easier availability than peak; cyclone-season risk",
-   "note": "The #1 trip's quiet half: cyclone-season swell roulette trims consistency, but the boats, kids' programs, and Swimming Pools all still run, availability opens up, and prices drop a band. Fills the thin Nov–Mar calendar."
+   "note": "The #1 trip's quiet half: cyclone-season swell roulette trims consistency, but the boats, kids' programs, and Swimming Pools all still run, availability opens up, and prices drop a band. Fills the thin Nov–Mar calendar.",
+   "water_f": [
+    82,
+    84
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "El Zonte + Sunzal — small season",
@@ -2674,7 +3089,12 @@
    "cost_band": "$",
    "min_days": 5,
    "booking": "Easy; near walk-in",
-   "note": "The beginner-optimal El Salvador window: waist-to-head points, offshore mornings, Sunzal at its most learnable, and the crowds gone with the big swells."
+   "note": "The beginner-optimal El Salvador window: waist-to-head points, offshore mornings, Sunzal at its most learnable, and the crowds gone with the big swells.",
+   "water_f": [
+    82,
+    85
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Peniche + Baleal — early summer",
@@ -2702,7 +3122,12 @@
    "min_days": 6,
    "booking": "Camps plentiful; pre-crowd",
    "note": "Pre-crowd Baleal: small consistent windswell on the learner lagoons, long days, half the September lineup. Lower ceiling than the autumn row — a gentler version of the same trip.",
-   "cluster": "Silver Coast pair"
+   "cluster": "Silver Coast pair",
+   "water_f": [
+    59,
+    63
+   ],
+   "wetsuit": "4/3 (hardy: 3/2)"
   },
   {
    "name": "Waco Surf (Texas)",
@@ -2741,7 +3166,12 @@
    "booking": "Book sessions online; private hire available",
    "note": "The flagship US pool: scheduled perfect waves, lifeguards, on-site casitas and a lazy river — a genuine resort, which is what qualifies it for the family division when pools are toggled on. Its score also remains the model's calibration diagnostic: it outscores every ocean trip.",
    "pool": true,
-   "resort_pool": true
+   "resort_pool": true,
+   "water_f": [
+    50,
+    88
+   ],
+   "wetsuit": "seasonal: trunks (May–Sep) to 4/3 (winter)"
   },
   {
    "name": "Mentawai boat charter",
@@ -2774,7 +3204,12 @@
    "min_days": 11,
    "booking": "Full-boat charters ex-Padang 9–12mo out",
    "note": "The boys-trip archetype the family lens excluded: a liveaboard chasing the best wave in the archipelago every single day. Wave count no land base can match; cabins, not villas; malaria belt and half-day medevac.",
-   "cluster": "Mentawai zone"
+   "cluster": "Mentawai zone",
+   "water_f": [
+    82,
+    85
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "G-Land (Grajagan)",
@@ -2804,7 +3239,12 @@
    "cost_band": "$$",
    "min_days": 8,
    "booking": "Jungle camps (Joyo's, Bobby's) 3–6mo",
-   "note": "Seven-mile jungle left with all-inclusive camps at the wave. Canonical advanced trip; zero learner terrain — added for universe completeness after being excluded on family grounds."
+   "note": "Seven-mile jungle left with all-inclusive camps at the wave. Canonical advanced trip; zero learner terrain — added for universe completeness after being excluded on family grounds.",
+   "water_f": [
+    75,
+    79
+   ],
+   "wetsuit": "trunks (vest at dawn)"
   },
   {
    "name": "Krui (Ujung Bocur, South Sumatra)",
@@ -2836,7 +3276,12 @@
    "cost_band": "$",
    "min_days": 10,
    "booking": "Losmen and small camps; near walk-in",
-   "note": "Sumatra's mainland conveyor: a dozen quality lefts and rights around a sleepy town at backpacker prices. Long overland haul; thin medical."
+   "note": "Sumatra's mainland conveyor: a dozen quality lefts and rights around a sleepy town at backpacker prices. Long overland haul; thin medical.",
+   "water_f": [
+    81,
+    84
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "West Sumbawa (Scar Reef / Yoyo's)",
@@ -2866,7 +3311,12 @@
    "cost_band": "$$",
    "min_days": 10,
    "booking": "Camps ~6mo",
-   "note": "The other, better-served half of Sumbawa the list had skipped: Scar Reef and Supersuck for the chargers, Jelenga inside for the rusty."
+   "note": "The other, better-served half of Sumbawa the list had skipped: Scar Reef and Supersuck for the chargers, Jelenga inside for the rusty.",
+   "water_f": [
+    77,
+    81
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Nias (Lagundri Bay)",
@@ -2896,7 +3346,12 @@
    "cost_band": "$",
    "min_days": 10,
    "booking": "Losmen walk-in; flights via Medan",
-   "note": "One of the world's great rights, machine-consistent — and a 60-head circus on every swell since the seabed uplift. The famous wave does not fix waves-per-person."
+   "note": "One of the world's great rights, machine-consistent — and a 60-head circus on every swell since the seabed uplift. The famous wave does not fix waves-per-person.",
+   "water_f": [
+    82,
+    85
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Beran Island (Ailinglaplap)",
@@ -2928,7 +3383,12 @@
    "cost_band": "$$$$",
    "min_days": 10,
    "booking": "Tiny capacity; 9–12mo; fragile itinerary",
-   "note": "The third member of the capped remote NW-Pacific class (with Kavieng and P-Pass): private-atoll operation, guest-capped, boats and boards provided, empty reef passes. The hardest journey on the list."
+   "note": "The third member of the capped remote NW-Pacific class (with Kavieng and P-Pass): private-atoll operation, guest-capped, boats and boards provided, empty reef passes. The hardest journey on the list.",
+   "water_f": [
+    82,
+    84
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "North Shore (Oahu) — winter base",
@@ -2959,7 +3419,12 @@
    "min_days": 6,
    "booking": "Vacation rentals; winter books early",
    "note": "The boys-mode Oahu row the family lens excluded: based at the Seven Mile Miracle, dawn-patrolling Haleiwa and Chun's with the world's best out at Pipe. Realized wave count is honest — the deepest pecking order on earth caps it.",
-   "cluster": "Oahu trio"
+   "cluster": "Oahu trio",
+   "water_f": [
+    75,
+    77
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Zicatela (Puerto Escondido proper)",
@@ -2991,7 +3456,12 @@
    "min_days": 6,
    "booking": "Easy; hotels on the strip",
    "note": "The Mexican Pipeline as a base, not a spectacle: the existing row is La Punta-configured for families; this is the row for a crew that came to ride Zicatela itself.",
-   "cluster": "Puerto Escondido pair"
+   "cluster": "Puerto Escondido pair",
+   "water_f": [
+    82,
+    86
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Cocoa Beach (Space Coast)",
@@ -3021,7 +3491,12 @@
    "cost_band": "$",
    "min_days": 4,
    "booking": "Easy; drive-up",
-   "note": "The shortest warm-water learner trip from New England — small, mushy, crowded, and shark-nippy, but 3 hours door to airport and surf schools everywhere. Shown, as the audit demanded, rather than silently absent."
+   "note": "The shortest warm-water learner trip from New England — small, mushy, crowded, and shark-nippy, but 3 hours door to airport and surf schools everywhere. Shown, as the audit demanded, rather than silently absent.",
+   "water_f": [
+    79,
+    84
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Outer Banks (Cape Hatteras)",
@@ -3049,7 +3524,12 @@
    "cost_band": "$$",
    "min_days": 5,
    "booking": "House rentals easy",
-   "note": "The East Coast's best sandbars, drivable, with hurricane-season swell — and the two things the brief punishes: a week can skunk, and chasing the right bank IS the OBX game."
+   "note": "The East Coast's best sandbars, drivable, with hurricane-season swell — and the two things the brief punishes: a week can skunk, and chasing the right bank IS the OBX game.",
+   "water_f": [
+    68,
+    78
+   ],
+   "wetsuit": "trunks Aug → 3/2 by late Oct"
   },
   {
    "name": "La Jolla Shores + San Diego",
@@ -3076,7 +3556,12 @@
    "cost_band": "$$",
    "min_days": 4,
    "booking": "Easy",
-   "note": "The mainland's gentlest learner beach plus reef options up the coast. US-easy everything; the crowd is the price."
+   "note": "The mainland's gentlest learner beach plus reef options up the coast. US-easy everything; the crowd is the price.",
+   "water_f": [
+    68,
+    72
+   ],
+   "wetsuit": "springsuit or trunks"
   },
   {
    "name": "Nova Scotia (Lawrencetown)",
@@ -3104,7 +3589,12 @@
    "cost_band": "$",
    "min_days": 4,
    "booking": "Easy",
-   "note": "Hurricane-groomed points 90 minutes' flight from Boston, nearly empty, in 4/3 water. The cold-water short-haul row the bias audit said was missing."
+   "note": "Hurricane-groomed points 90 minutes' flight from Boston, nearly empty, in 4/3 water. The cold-water short-haul row the bias audit said was missing.",
+   "water_f": [
+    58,
+    65
+   ],
+   "wetsuit": "3/2 Aug → 4/3 by Oct"
   },
   {
    "name": "Cornwall (Newquay–St Ives)",
@@ -3133,7 +3623,12 @@
    "cost_band": "$$",
    "min_days": 5,
    "booking": "Schools and camps plentiful; school-holiday crowds",
-   "note": "The densest wetsuits-included family-surf-school industry on earth, in a lovely holiday coast — with UK summer crowds and UK summer swell."
+   "note": "The densest wetsuits-included family-surf-school industry on earth, in a lovely holiday coast — with UK summer crowds and UK summer swell.",
+   "water_f": [
+    58,
+    64
+   ],
+   "wetsuit": "3/2 (many wear 4/3)"
   },
   {
    "name": "Poipu (Kauai south shore)",
@@ -3165,7 +3660,12 @@
    "min_days": 6,
    "booking": "Easy; resort-dense",
    "note": "The summer-Hawaii family trip, distinct from winter Hanalei: reliable south swell rollers, resort infrastructure, learner-perfect inside.",
-   "cluster": "Kauai pair"
+   "cluster": "Kauai pair",
+   "water_f": [
+    77,
+    80
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Maui west side (Lahaina–Launiupoko)",
@@ -3195,7 +3695,12 @@
    "cost_band": "$$$",
    "min_days": 6,
    "booking": "Easy",
-   "note": "Gentle winter rollers at Launiupoko and Puamana for the family, Honolua Bay's world-class right up the road when the north swell lands."
+   "note": "Gentle winter rollers at Launiupoko and Puamana for the family, Honolua Bay's world-class right up the road when the north swell lands.",
+   "water_f": [
+    75,
+    78
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Madeira (Jardim do Mar)",
@@ -3226,7 +3731,12 @@
    "cost_band": "$$",
    "min_days": 6,
    "booking": "Easy; village lodging",
-   "note": "World-class empty points on a safe, easy-to-reach island — with boulder entries and no sand anywhere. An experts-first row, same treatment as J-Bay."
+   "note": "World-class empty points on a safe, easy-to-reach island — with boulder entries and no sand anywhere. An experts-first row, same treatment as J-Bay.",
+   "water_f": [
+    66,
+    71
+   ],
+   "wetsuit": "3/2 or springsuit"
   },
   {
    "name": "Galicia (Pantín / Razo)",
@@ -3253,7 +3763,12 @@
    "cost_band": "$",
    "min_days": 6,
    "booking": "Self-assemble; easy",
-   "note": "Genuinely uncrowded, consistent Atlantic beach breaks with European safety — and no camp ecosystem, so you assemble the trip yourself, which this index prices."
+   "note": "Genuinely uncrowded, consistent Atlantic beach breaks with European safety — and no camp ecosystem, so you assemble the trip yourself, which this index prices.",
+   "water_f": [
+    61,
+    65
+   ],
+   "wetsuit": "4/3 (or warm 3/2)"
   },
   {
    "name": "Guadeloupe + Martinique",
@@ -3283,7 +3798,12 @@
    "cost_band": "$$",
    "min_days": 6,
    "booking": "Easy; French carriers",
-   "note": "Steady trade windswell reefs and a proper French-island family holiday. Quality ceiling and turnkey are the caps — the near-nonstop Caribbean depth row."
+   "note": "Steady trade windswell reefs and a proper French-island family holiday. Quality ceiling and turnkey are the caps — the near-nonstop Caribbean depth row.",
+   "water_f": [
+    79,
+    83
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Dominical + Uvita",
@@ -3314,7 +3834,12 @@
    "cost_band": "$$",
    "min_days": 6,
    "booking": "Easy",
-   "note": "The consistent central-Pacific window the CR coverage was missing. Punchy beach break with real rips — beginner score capped accordingly."
+   "note": "The consistent central-Pacific window the CR coverage was missing. Punchy beach break with real rips — beginner score capped accordingly.",
+   "water_f": [
+    82,
+    86
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Puerto Viejo (Playa Cocles)",
@@ -3342,7 +3867,12 @@
    "cost_band": "$",
    "min_days": 6,
    "booking": "Easy",
-   "note": "The Caribbean side the 100%-Pacific CR coverage skipped: Salsa Brava for the chargers, Cocles sand for learners, a 3-month window and Limón-province edge."
+   "note": "The Caribbean side the 100%-Pacific CR coverage skipped: Salsa Brava for the chargers, Cocles sand for learners, a 3-month window and Limón-province edge.",
+   "water_f": [
+    81,
+    84
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Morro Negrito (Chiriquí islands)",
@@ -3374,7 +3904,12 @@
    "cost_band": "$$",
    "min_days": 7,
    "booking": "One island camp; ~6mo",
-   "note": "Private-island boat camp with near-empty waves — rustic, experts-leaning, the budget Pacific-Panama answer to the island-camp class."
+   "note": "Private-island boat camp with near-empty waves — rustic, experts-leaning, the budget Pacific-Panama answer to the island-camp class.",
+   "water_f": [
+    80,
+    84
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Miyazaki (Kyushu)",
@@ -3402,7 +3937,12 @@
    "cost_band": "$$$",
    "min_days": 8,
    "booking": "Easy; typhoon roulette",
-   "note": "Japan's most consistent coast in typhoon season: fun beach breaks, immaculate logistics, onsen recovery — and a swell lottery the consistency weight rightly punishes."
+   "note": "Japan's most consistent coast in typhoon season: fun beach breaks, immaculate logistics, onsen recovery — and a swell lottery the consistency weight rightly punishes.",
+   "water_f": [
+    75,
+    81
+   ],
+   "wetsuit": "trunks (spring by Oct)"
   },
   {
    "name": "Taitung / Dulan",
@@ -3433,7 +3973,12 @@
    "cost_band": "$$",
    "min_days": 8,
    "booking": "Easy",
-   "note": "NE-monsoon windswell points on a friendly, cheap, safe coast. A pleasant B-trip shown for completeness — the audit's verdict stands."
+   "note": "NE-monsoon windswell points on a friendly, cheap, safe coast. A pleasant B-trip shown for completeness — the audit's verdict stands.",
+   "water_f": [
+    72,
+    79
+   ],
+   "wetsuit": "springsuit (2mm midwinter)"
   },
   {
    "name": "Punta Mita — summer",
@@ -3466,7 +4011,12 @@
    "min_days": 5,
    "booking": "Resorts easy; on-site surf clubs",
    "note": "The listed winter row's consistency 7 was the small-season number: summer S-swell is Mita's real season, with the same panga-and-resort turnkey.",
-   "cluster": "Punta Mita pair"
+   "cluster": "Punta Mita pair",
+   "water_f": [
+    80,
+    85
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Popoyo — dry season",
@@ -3496,7 +4046,12 @@
    "min_days": 6,
    "booking": "Lodges easy",
    "note": "The offshore machine runs all year; Dec–Mar trades size for friendliness — smaller, cleaner, more learnable, and the calendar's thin months get a $ option.",
-   "cluster": "SW Nicaragua corridor"
+   "cluster": "SW Nicaragua corridor",
+   "water_f": [
+    72,
+    79
+   ],
+   "wetsuit": "trunks or springsuit (offshore upwelling)"
   },
   {
    "name": "Skeleton Bay (Namibia)",
@@ -3527,7 +4082,12 @@
    "cost_band": "$$$",
    "min_days": 5,
    "booking": "Strike only: fly when the chart confirms; some years it never breaks",
-   "note": "The longest sand-bottom barrel on earth, breaking a handful of days a year off one specific storm track. Pure strike asset: worthless to book ahead (consistency 3), priceless when the chart lights up — visible ~5 days out, which is exactly enough."
+   "note": "The longest sand-bottom barrel on earth, breaking a handful of days a year off one specific storm track. Pure strike asset: worthless to book ahead (consistency 3), priceless when the chart lights up — visible ~5 days out, which is exactly enough.",
+   "water_f": [
+    55,
+    60
+   ],
+   "wetsuit": "4/3 + booties + hood"
   },
   {
    "name": "Soup Bowl (Barbados) — autumn strike",
@@ -3556,7 +4116,12 @@
    "min_days": 4,
    "booking": "Walk-in; watch the hurricane models",
    "note": "Soup Bowl's actual prime — hurricane swells with 3-5 days of forecast lead, a nonstop flight, and half-price hotels. Rejected as a book-ahead row in v4 (consistency lottery); re-admitted as the strike division's East Coast classic.",
-   "cluster": "Barbados pair"
+   "cluster": "Barbados pair",
+   "water_f": [
+    83,
+    85
+   ],
+   "wetsuit": "trunks"
   },
   {
    "name": "Palm Springs Surf Club (California)",
@@ -3594,7 +4159,12 @@
    "min_days": 2,
    "booking": "Book sessions online",
    "note": "Day-club pool with a real range from learner rollers to slabby wedges. No on-site resort — hotels are next door, which is exactly why the family division doesn't headline it.",
-   "pool": true
+   "pool": true,
+   "water_f": [
+    58,
+    85
+   ],
+   "wetsuit": "seasonal: trunks (summer) to 3/2 (winter)"
   },
   {
    "name": "Surf Ranch (Lemoore)",
@@ -3633,7 +4203,12 @@
    "booking": "Private hire via broker/invite; long waits",
    "note": "The best artificial wave on earth, run like a private club: your group alone, a wave count no ocean lineup allows, on-site cabins. Scarcity is the catch — strikeability 4 because you book it like a resort, not a swell.",
    "pool": true,
-   "resort_pool": true
+   "resort_pool": true,
+   "water_f": [
+    55,
+    75
+   ],
+   "wetsuit": "3/2 typical (4/3 winter)"
   },
   {
    "name": "The Wave (Bristol)",
@@ -3672,7 +4247,12 @@
    "booking": "Sessions online; on-site lodges",
    "note": "The UK's flagship pool with on-site surf lodges — a genuine stay-and-surf property, so it qualifies for the family division under the resort rule.",
    "pool": true,
-   "resort_pool": true
+   "resort_pool": true,
+   "water_f": [
+    50,
+    63
+   ],
+   "wetsuit": "4/3 most of year (5/4 winter)"
   },
   {
    "name": "Alaïa Bay (Sion)",
@@ -3710,7 +4290,12 @@
    "min_days": 2,
    "booking": "Sessions online",
    "note": "Alpine pool an hour from Geneva — surf in the morning, mountains in the afternoon. No on-site lodging.",
-   "pool": true
+   "pool": true,
+   "water_f": [
+    52,
+    75
+   ],
+   "wetsuit": "seasonal: 2mm (summer) to 5/4 (winter)"
   },
   {
    "name": "O2 SurfTown (Munich)",
@@ -3748,7 +4333,12 @@
    "min_days": 2,
    "booking": "Sessions online",
    "note": "Europe's newest large pool, one nonstop from Boston. City hotels, no resort.",
-   "pool": true
+   "pool": true,
+   "water_f": [
+    52,
+    75
+   ],
+   "wetsuit": "seasonal: 2mm (summer) to 5/4 (winter)"
   },
   {
    "name": "URBNSURF (Melbourne)",
@@ -3786,7 +4376,12 @@
    "min_days": 3,
    "booking": "Sessions online",
    "note": "The southern hemisphere's flagship pool — included for fleet completeness; the flight alone disqualifies it as a pool trip from New England.",
-   "pool": true
+   "pool": true,
+   "water_f": [
+    54,
+    71
+   ],
+   "wetsuit": "3/2 (4/3 winter)"
   },
   {
    "name": "Wave Park (Siheung)",
@@ -3824,7 +4419,12 @@
    "min_days": 3,
    "booking": "Sessions online; busy weekends",
    "note": "The world's largest wave pool by area, outside Seoul. Fleet completeness row.",
-   "pool": true
+   "pool": true,
+   "water_f": [
+    50,
+    78
+   ],
+   "wetsuit": "seasonal: trunks (summer) to 5/4 (winter)"
   },
   {
    "name": "Revel Surf (Mesa)",
@@ -3862,7 +4462,12 @@
    "min_days": 2,
    "booking": "Sessions online",
    "note": "Arizona's dual-tech pool — cheap sessions, easy nonstop to Phoenix. Hotels nearby, no resort.",
-   "pool": true
+   "pool": true,
+   "water_f": [
+    58,
+    88
+   ],
+   "wetsuit": "seasonal: trunks (Apr–Oct) to 3/2 (winter)"
   }
  ],
  "modes": {

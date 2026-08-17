@@ -328,7 +328,7 @@ def render_mode(key, mode, trips, dims, pools_on):
     for i, t in enumerate(eligible[:10], 1):
         cards.append(f"""<article class="card">
 <div class="top"><span class="rk mono">{i}</span><h3>{e(t["name"])}</h3><span class="score mono">{comp[t["name"]]}</span></div>
-<div class="meta"><span>{e(t["country"])}</span><span>·</span><span>{e(t["window"])}</span><span>·</span><span>{e(t["cost_band"])}</span><span>·</span><span>min {t["min_days"]}d</span><span>·</span><span>{e(t["travel_note"])}</span></div>
+<div class="meta"><span>{e(t["country"])}</span><span>·</span><span>{e(t["window"])}</span><span>·</span><span>{e(t["cost_band"])}</span><span>·</span><span>min {t["min_days"]}d</span><span>·</span><span>{t["water_f"][0]}–{t["water_f"][1]}°F · {e(t["wetsuit"])}</span><span>·</span><span>{e(t["travel_note"])}</span></div>
 <div class="dims">{dim_rows(t["scores"])}</div>
 <p class="note">{e(t["note"])} <em>Booking: {e(t["booking"])}.</em></p>
 </article>""")
@@ -337,7 +337,9 @@ def render_mode(key, mode, trips, dims, pools_on):
              f'<th title="{e(copy["gate_ok_title"])} ({gate_desc})">{copy["gate_col"]}</th>'
              '<th title="All-in $/person/week incl. BOS flights: $ &lt;2.5k · $$ 2.5–4k · $$$ 4–6.5k · $$$$ &gt;6.5k">Cost</th>'
              '<th class=num title="Minimum viable trip length after two-way transit and jet lag">Min d</th>'
-             "<th>Booking</th><th class=num>Score</th><th class=num>Band</th>"
+             "<th>Booking</th>"
+             '<th title="In-window sea temperature and the wetsuit it demands">Water</th>'
+             "<th class=num>Score</th><th class=num>Band</th>"
              + "".join(f'<th class=num title="{e(DIM_LABELS[d][1])}">{DIM_LABELS[d][0]}</th>' for d in dims)
              + "</tr>")
     rows = []
@@ -358,6 +360,7 @@ def render_mode(key, mode, trips, dims, pools_on):
             f'<td>{e(t["window"])}</td><td><span class="chip {tr}">{tr}</span></td>'
             f'<td>{g}</td><td class="mono">{e(t["cost_band"])}</td>'
             f'<td class="num mono">{t["min_days"]}</td><td class="book">{e(t["booking"])}</td>'
+            f'<td class="book"><span class="mono">{t["water_f"][0]}–{t["water_f"][1]}°F</span> · {e(t["wetsuit"])}</td>'
             f'<td class="num mono">{c}{bar(c/10)}</td>'
             f'<td class="num mono band">{lo}–{hi}</td>{cells}</tr>')
 
