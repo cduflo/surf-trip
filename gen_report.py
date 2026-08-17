@@ -244,6 +244,17 @@ ul.tight li{margin:.3em 0}
 .arche .card p{font-size:.9rem;color:var(--ink-2);margin:.2em 0}
 footer{margin-top:80px;padding-top:20px;border-top:1px solid var(--line);
   font-size:.8rem;color:var(--ink-3)}
+.filters{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-top:18px;
+  background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 18px}
+.filters label{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);
+  font-weight:700;display:flex;flex-direction:column;gap:4px}
+.filters select{font:inherit;font-size:.85rem;color:var(--ink);background:var(--bg);
+  border:1px solid var(--line);border-radius:5px;padding:5px 8px;cursor:pointer}
+.filters select:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.filters .fchk{flex-direction:row;align-items:center;gap:6px;cursor:pointer;align-self:flex-end;padding-bottom:6px}
+.filters .fcount{margin-left:auto;font-size:.8rem;color:var(--ink-2);align-self:flex-end;padding-bottom:6px}
+.filters button{font:inherit;font-size:.8rem;color:var(--accent-deep);background:none;border:none;
+  cursor:pointer;text-decoration:underline;align-self:flex-end;padding-bottom:6px}
 """
 
 JS = """
@@ -252,6 +263,28 @@ JS = """
   var sel = document.getElementById('modesel');
   var chk = document.getElementById('poolchk');
   if (!sel || !chk) return;
+  var F = ['f-cost', 'f-travel', 'f-days', 'f-water', 'f-month', 'f-region', 'f-gate']
+    .map(function(id){ return document.getElementById(id); });
+  function applyFilters(){
+    var cost = +F[0].value, trav = +F[1].value, days = +F[2].value, water = +F[3].value;
+    var month = F[4].value, region = F[5].value, gateOnly = F[6].checked;
+    document.querySelectorAll('.mode tbody tr').forEach(function(row){
+      var d = row.dataset, ok = true;
+      if (cost && +d.cost > cost) ok = false;
+      if (trav && +d.travel < trav) ok = false;
+      if (days && +d.days > days) ok = false;
+      if (water && +d.waterlo < water) ok = false;
+      if (month && d.months.indexOf(',' + month + ',') < 0) ok = false;
+      if (region && d.region !== region) ok = false;
+      if (gateOnly && d.gate !== '1') ok = false;
+      row.style.display = ok ? '' : 'none';
+    });
+    var act = document.querySelector('.mode.active'), n = 0, tot = 0;
+    if (act) act.querySelectorAll('tbody tr').forEach(function(r){
+      tot++; if (r.style.display !== 'none') n++;
+    });
+    document.getElementById('f-count').textContent = n + ' of ' + tot + ' trips shown';
+  }
   function apply(m, p){
     var ps = p ? 'on' : 'off';
     document.querySelectorAll('.mode').forEach(function(el){
@@ -260,9 +293,15 @@ JS = """
     });
     sel.value = m; chk.checked = p;
     try { localStorage.setItem('fwi-mode', m); localStorage.setItem('fwi-pools', ps); } catch (e) {}
+    applyFilters();
   }
   sel.addEventListener('change', function(){ apply(sel.value, chk.checked); });
   chk.addEventListener('change', function(){ apply(sel.value, chk.checked); });
+  F.forEach(function(el){ el.addEventListener('change', applyFilters); });
+  document.getElementById('f-reset').addEventListener('click', function(){
+    F.forEach(function(el){ if (el.type === 'checkbox') el.checked = false; else el.value = el.options[0].value; });
+    applyFilters();
+  });
   var m = null, p = null;
   try { m = localStorage.getItem('fwi-mode'); p = localStorage.getItem('fwi-pools'); } catch (e) {}
   if (!document.querySelector('.mode[data-mode="' + m + '"]')) m = 'family';
@@ -354,7 +393,11 @@ def render_mode(key, mode, trips, dims, pools_on):
                  else f'<span class="gate-no" title="{e(copy["gate_no_title"])}">✗</span>')
         cells = "".join(f'<td class="num mono">{t["scores"][d]:g}</td>' for d in dims)
         rows.append(
-            f'<tr><td class="mono">{i}</td>'
+            f'<tr data-cost="{len(t["cost_band"])}" data-days="{t["min_days"]}" '
+            f'data-travel="{t["scores"]["travel"]:g}" data-waterlo="{t["water_f"][0]}" '
+            f'data-region="{e(t["region"])}" data-months=",{",".join(map(str, t["months"]))}," '
+            f'data-gate="{1 if gate(t) else 0}">'
+            f'<td class="mono">{i}</td>'
             f'<td class="trip">{e(t["name"])}<div class="sub">{e(t["country"])} — {e(t["travel_note"])}'
             + (f' · <em>{e(t["cluster"])}</em>' if t.get("cluster") else '') + '</div></td>'
             f'<td>{e(t["window"])}</td><td><span class="chip {tr}">{tr}</span></td>'
@@ -455,6 +498,9 @@ def main():
             f'<div class="wcell alt2"><span class="wbar" style="width:{sw*7}px"></span><span class="wnum mono">{sw:g}</span></div></div>')
 
     mode_opts = "".join(f'<option value="{k}">{e(m["label"])}</option>' for k, m in modes.items())
+    month_opts = "".join(f'<option value="{i}">{MONTHS[i-1]}</option>' for i in range(1, 13))
+    region_opts = "".join(f'<option value="{e(r)}">{e(r)}</option>'
+                          for r in sorted({t["region"] for t in trips}))
     mode_blocks = "\n".join(render_mode(k, m, trips, dims, pools_on)
                             for k, m in modes.items() for pools_on in (False, True))
 
@@ -493,6 +539,28 @@ def main():
   reflect early-2026 conditions — re-check advisories before booking. Full anchors and the v1→v7 changelog
   (incl. rejected proposals) live in <span class="mono">METHODOLOGY.md</span>; rerun
   <span class="mono">score.py</span> + <span class="mono">gen_report.py</span> to regenerate everything here.</div>
+</section>
+
+<section>
+  <h2>Filter the tables</h2>
+  <p class="prose">Filters apply to every division's full table (the top-ten cards and calendar stay
+  unfiltered). Rank numbers keep their gaps so you can see what a filter costs you.</p>
+  <div class="filters">
+    <label>Budget<select id="f-cost"><option value="0">Any</option><option value="1">$ only</option>
+      <option value="2">Up to $$</option><option value="3">Up to $$$</option></select></label>
+    <label>Travel<select id="f-travel"><option value="0">Any</option>
+      <option value="7.5">Short haul / nonstop</option><option value="5.5">≤ 1 easy connection</option>
+      <option value="3">No expeditions (under ~20h)</option></select></label>
+    <label>Max days I have<select id="f-days"><option value="0">Any</option><option value="4">≤ 4</option>
+      <option value="6">≤ 6</option><option value="8">≤ 8</option><option value="10">≤ 10</option></select></label>
+    <label>Rubber<select id="f-water"><option value="0">Any</option>
+      <option value="75">Trunks only (≥75°F)</option><option value="66">Springsuit or warmer (≥66°F)</option></select></label>
+    <label>Month<select id="f-month"><option value="">Any</option>{month_opts}</select></label>
+    <label>Region<select id="f-region"><option value="">Any</option>{region_opts}</select></label>
+    <label class="fchk"><input type="checkbox" id="f-gate"> passes this division's gate</label>
+    <button id="f-reset" type="button">reset</button>
+    <span class="fcount" id="f-count"></span>
+  </div>
 </section>
 
 {mode_blocks}
