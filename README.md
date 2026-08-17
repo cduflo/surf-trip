@@ -1,6 +1,6 @@
 # surf-trip — The Family Wave Index
 
-Scored ranking of 121 surf trips (destination + season window) from New England, rendered as
+Scored ranking of 122 surf trips (destination + season window) from New England, rendered as
 three divisions behind a dropdown — family (beginner-gated), solo/boys (advanced-gated), and
 strike mission (fly on the forecast; strikeability-gated) — plus a wave-pool toggle (9 pools;
 untiered calibration rows when off, fully ranked when on; family division requires resort pools).
@@ -10,6 +10,7 @@ untiered calibration rows when off, fully ranked when on; family division requir
 - `score.py` — composite scores, tiers, ±25% weight-sensitivity bands, month calendar → `RANKINGS.md`, `rankings.csv`
 - `gen_report.py` — builds `report.html` (the published artifact) from the dataset
 - `gen_radar.py` — exports `data/strike_radar.json`, the strike-eligible portfolio for SurfBot's radar
+- `docs/MAINTENANCE.md` — refresh cadence (semi-annual coverage audits, decay passes) + candidate intake
 
 Regenerate everything after editing scores or weights:
 

@@ -348,7 +348,8 @@
     82,
     86
    ],
-   "wetsuit": "trunks"
+   "wetsuit": "trunks",
+   "cluster": "La Libertad corridor"
   },
   {
    "name": "Las Flores + Punta Mango (boat resort)",
@@ -3094,7 +3095,8 @@
     82,
     85
    ],
-   "wetsuit": "trunks"
+   "wetsuit": "trunks",
+   "cluster": "La Libertad corridor"
   },
   {
    "name": "Peniche + Baleal — early summer",
@@ -4468,6 +4470,45 @@
     88
    ],
    "wetsuit": "seasonal: trunks (Apr–Oct) to 3/2 (winter)"
+  },
+  {
+   "name": "Puro Surf (El Palmarcito)",
+   "country": "El Salvador",
+   "region": "Central America",
+   "window": "Mar–Oct",
+   "months": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "travel_note": "One-stop to SAL + 40min drive",
+   "scores": {
+    "consistency": 9,
+    "crowd": 6.5,
+    "quality": 7.5,
+    "beginner": 7.5,
+    "advanced": 8,
+    "safety": 7.5,
+    "turnkey": 9,
+    "lodging": 8.5,
+    "travel": 7,
+    "strikeability": 5.5
+   },
+   "cost_band": "$$$",
+   "min_days": 5,
+   "booking": "Hotel + academy; 3–6mo",
+   "water_f": [
+    82,
+    86
+   ],
+   "wetsuit": "trunks",
+   "cluster": "La Libertad corridor",
+   "note": "The academy model at its peak: a performance surf school (video analysis, structured coaching, quiver included) wrapped in a boutique hotel whose pool overlooks the El Palmarcito point, with Sunzal-to-Punta-Roca in guided range. The most professionalized coaching product in the hemisphere — a property-level entrant the coastline row couldn't see, added v11."
   }
  ],
  "modes": {
