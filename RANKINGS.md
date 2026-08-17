@@ -13,7 +13,7 @@ Cost = all-in $/person/week incl. BOS flights ($ <2.5k · $$ 2.5–4k · $$$ 4�
 | 4 | Telo Islands (Resort Latitude Zero) | Indonesia | Apr–Oct | 85.9 | S | ✓ | $$$$ | 12 | Fixed 10–12nt charter rotations ex-SIN; 12mo+ | 3–5 |
 | 5 | Palm Springs Surf Club (California) | USA (California) | Year-round | 85.7 | S | ✓ | $$ | 2 | Book sessions online | 3–5 |
 | 6 | Central/South atolls resort (Laamu, Six Senses area) | Maldives | Apr–Oct | 84.7 | S | ✓ | $$$$ | 8 | Villa capacity; 9–12mo; 7-night min | 6–8 |
-| 7 | The Wave (Bristol) | United Kingdom | Year-round | 84.4 | S | ✓ | $$ | 2 | Sessions online; on-site lodges | 6–8 |
+| 7 | The Wave (Bristol) | United Kingdom | Year-round | 84.4 | S | ✓ | $$ | 2 | Sessions online; on-site lodges; ownership changed 2025 after administration — reconfirm bookings | 6–8 |
 | 8 | Las Flores + Punta Mango (boat resort) | El Salvador | Apr–Sep | 84.3 | S | ✓ | $$ | 6 | One resort; ~6mo for peak weeks | 6–9 |
 | 9 | Revel Surf (Mesa) | USA (Arizona) | Year-round | 83.9 | S | ✓ | $ | 2 | Sessions online | 8–10 |
 | 10 | North Malé surf resort (Pasta Point/Sultans) | Maldives | Apr–Oct | 82.7 | S | ✗ | $$$ | 8 | ~30-surfer allocation; 9–12mo; 7-night min | 9–12 |
@@ -38,34 +38,34 @@ Cost = all-in $/person/week incl. BOS flights ($ <2.5k · $$ 2.5–4k · $$$ 4�
 | 29 | El Zonte + El Tunco (La Libertad) | El Salvador | Mar–Oct | 77.2 | A | ✓ | $ | 5 | Easy; near walk-in | 25–34 |
 | 30 | Famara (Lanzarote) | Spain (Canary Is.) | Oct–Mar | 77.2 | A | ✓ | $ | 6 | Easy; school capital | 26–35 |
 | 31 | Salani / Aganoa (Upolu & Savai'i) | Samoa | Apr–Oct | 77.2 | A | ✗ | $$$ | 9 | Small lodges; min-stays; 6–9mo | 23–35 |
-| 32 | Mentawai land resort (Kandui/HT's zone) | Indonesia | Apr–Oct | 76.8 | A | ✗ | $$$$ | 10 | Resorts 9–12mo; fixed transfers; some exclude under-12s | 25–39 |
+| 32 | Mentawai land resort (Kandui/HT's zone) | Indonesia | Apr–Oct | 76.8 | A | ✗ | $$$$ | 10 | Resorts 9–12mo; fixed transfers; some exclude under-12s | 25–38 |
 | 33 | Hanalei Bay (Kauai) | USA (Hawaii) | Nov–Mar | 76.8 | A | ✓ | $$$ | 6 | Easy; winter lodging pricey | 30–37 |
 | 34 | Peniche + Baleal | Portugal | Sep–Oct | 76.6 | A | ✓ | $ | 6 | Camps plentiful | 31–39 |
 | 35 | Miramar / Aserradores (The Boom) | Nicaragua | Apr–Sep | 76.5 | A | ✓ | $$ | 6 | All-inclusive camps 3–6mo | 33–39 |
-| 36 | Simeulue Island (Aceh) | Indonesia | Mar–Oct | 76.2 | A | ✓ | $$ | 10 | Small resorts ~6mo | 32–42 |
-| 37 | Barbados (Freights + Soup Bowl) | Barbados | Nov–Mar | 76.1 | A | ✓ | $$$ | 5 | Easy; winter hotels early | 34–41 |
-| 38 | Fuerteventura | Spain (Canary Is.) | Nov–Mar | 76.1 | A | ✓ | $$ | 6 | Easy; many camps | 33–41 |
-| 39 | Nusa Island Retreat (Kavieng) | Papua New Guinea | Nov–Apr | 76.0 | A | ✗ | $$$$ | 10 | Tiny capacity; 9–12mo; hard itinerary | 31–45 |
-| 40 | La Saladita + Troncones | Mexico | Apr–Sep | 75.8 | A | ✓ | $ | 6 | Beach houses 3–6mo | 33–43 |
-| 41 | Taghazout + Tamraght | Morocco | Oct–Mar | 75.5 | A | ✓ | $ | 6 | Camps 1–3mo | 37–44 |
-| 42 | Banyak Islands (Treasure Island) | Indonesia | Apr–Oct | 75.4 | A | ✓ | $$$ | 10 | Small resorts 6–9mo | 36–47 |
-| 43 | Playa Colorado / Hacienda Iguana | Nicaragua | Apr–Sep | 75.0 | A | ✓ | $$ | 7 | VRBO via managers 6–12mo; self-assemble guide/panga | 39–49 |
-| 44 | Tamarindo + Playa Grande — green season | Costa Rica | May–Aug | 75.0 | A | ✓ | $$ | 5 | Easy; green-season rates | 41–48 |
-| 45 | Punta Mita — summer | Mexico | Apr–Oct | 74.7 | B | ✓ | $$$ | 5 | Resorts easy; on-site surf clubs | 43–49 |
-| 46 | Ha'atafu (Tongatapu) | Tonga | May–Oct | 74.4 | B | ✗ | $$$ | 9 | Tiny capacity; 6–9mo | 43–53 |
-| 47 | Playa Venao | Panama | Apr–Oct | 74.3 | B | ✓ | $$ | 6 | Easy | 45–50 |
-| 48 | Waikiki (Oahu) — summer | USA (Hawaii) | Apr–Sep | 74.3 | B | ✓ | $$$ | 5 | Easy; no passport | 40–57 |
-| 49 | Cabo Ledo | Angola | May–Oct | 73.8 | B | ✓ | $$ | 8 | Surf lodges bookable; Luanda transit; e-visa | 46–56 |
+| 36 | Simeulue Island (Aceh) | Indonesia | Mar–Oct | 76.2 | A | ✓ | $$ | 10 | Small resorts ~6mo | 32–41 |
+| 37 | Barbados (Freights + Soup Bowl) | Barbados | Nov–Mar | 76.1 | A | ✓ | $$$ | 5 | Easy; winter hotels early | 33–40 |
+| 38 | Fuerteventura | Spain (Canary Is.) | Nov–Mar | 76.1 | A | ✓ | $$ | 6 | Easy; many camps | 33–40 |
+| 39 | Nusa Island Retreat (Kavieng) | Papua New Guinea | Nov–Apr | 76.0 | A | ✗ | $$$$ | 10 | Tiny capacity; 9–12mo; hard itinerary | 31–44 |
+| 40 | Taghazout + Tamraght | Morocco | Oct–Mar | 75.5 | A | ✓ | $ | 6 | Camps 1–3mo | 37–43 |
+| 41 | Banyak Islands (Treasure Island) | Indonesia | Apr–Oct | 75.4 | A | ✓ | $$$ | 10 | Small resorts 6–9mo | 36–46 |
+| 42 | Playa Colorado / Hacienda Iguana | Nicaragua | Apr–Sep | 75.0 | A | ✓ | $$ | 7 | VRBO via managers 6–12mo; self-assemble guide/panga | 39–49 |
+| 43 | Tamarindo + Playa Grande — green season | Costa Rica | May–Aug | 75.0 | A | ✓ | $$ | 5 | Easy; green-season rates | 40–47 |
+| 44 | Punta Mita — summer | Mexico | Apr–Oct | 74.7 | B | ✓ | $$$ | 5 | Resorts easy; on-site surf clubs | 42–49 |
+| 45 | Ha'atafu (Tongatapu) | Tonga | May–Oct | 74.4 | B | ✗ | $$$ | 9 | Tiny capacity; 6–9mo | 42–53 |
+| 46 | Playa Venao | Panama | Apr–Oct | 74.3 | B | ✓ | $$ | 6 | Easy | 44–49 |
+| 47 | Waikiki (Oahu) — summer | USA (Hawaii) | Apr–Sep | 74.3 | B | ✓ | $$$ | 5 | Easy; no passport | 39–57 |
+| 48 | La Saladita + Troncones | Mexico | Apr–Sep | 74.2 | B | ✓ | $ | 6 | Beach houses 3–6mo | 44–52 |
+| 49 | Cabo Ledo | Angola | May–Oct | 73.8 | B | ✓ | $$ | 8 | Surf lodges bookable; Luanda transit; e-visa | 45–56 |
 | 50 | El Zonte + Sunzal — small season | El Salvador | Nov–Feb | 73.8 | B | ✓ | $ | 5 | Easy; near walk-in | 48–53 |
-| 51 | Peniche + Baleal — early summer | Portugal | May–Jun | 73.8 | B | ✓ | $ | 6 | Camps plentiful; pre-crowd | 47–56 |
-| 52 | Beran Island (Ailinglaplap) | Marshall Islands | Oct–Apr | 73.8 | B | ✗ | $$$$ | 10 | Tiny capacity; 9–12mo; fragile itinerary | 45–67 |
+| 51 | Peniche + Baleal — early summer | Portugal | May–Jun | 73.8 | B | ✓ | $ | 6 | Camps plentiful; pre-crowd | 46–56 |
+| 52 | Beran Island (Ailinglaplap) | Marshall Islands | Oct–Apr | 73.8 | B | ✗ | $$$$ | 10 | Tiny capacity; 9–12mo; fragile itinerary | 44–67 |
 | 53 | Sagres / Algarve | Portugal | Sep–Nov | 73.7 | B | ✓ | $$ | 6 | Easy | 49–55 |
 | 54 | Bundoran + Sligo | Ireland | Sep–Oct | 73.5 | B | ✓ | $$ | 5 | Easy | 49–57 |
 | 55 | Dakhla | Western Sahara (Morocco-adm.) | Oct–Apr | 73.3 | B | ✓ | $$ | 6 | Purpose-built resorts easy ~3mo | 51–60 |
-| 56 | San Onofre + Doheny (San Clemente) | USA (California) | Jun–Sep | 73.2 | B | ✓ | $$ | 4 | Easy; state-park passes; camps and rentals | 46–66 |
+| 56 | San Onofre + Doheny (San Clemente) | USA (California) | Jun–Sep | 73.2 | B | ✓ | $$ | 4 | Easy; state-park passes; camps and rentals | 45–66 |
 | 57 | Ericeira | Portugal | Sep–Oct | 73.0 | B | ✓ | $$ | 6 | Easy; Sept ~3mo | 51–62 |
 | 58 | Popoyo — dry season | Nicaragua | Dec–Mar | 73.0 | B | ✓ | $ | 6 | Lodges easy | 54–61 |
-| 59 | Pohnpei (P-Pass) | Micronesia (FSM) | Oct–Mar | 72.9 | B | ✗ | $$$$ | 10 | Small operation; 6–12mo | 48–71 |
+| 59 | Pohnpei (P-Pass) | Micronesia (FSM) | Oct–Mar | 72.9 | B | ✗ | $$$$ | 10 | Small operation; 6–12mo | 47–71 |
 | 60 | Papara + Moorea (Tahiti) | French Polynesia | May–Oct | 72.8 | B | ✗ | $$$$ | 8 | Resorts easy; surf guides limited | 56–65 |
 | 61 | Raglan | New Zealand | Dec–Mar | 72.5 | B | ✓ | $$$ | 10 | Easy | 57–66 |
 | 62 | Santa Teresa — green season | Costa Rica | May–Aug | 72.5 | B | ✓ | $$ | 7 | Easy; green-season rates | 56–68 |

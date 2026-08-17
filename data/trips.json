@@ -603,13 +603,13 @@
     "quality": 7,
     "beginner": 9.5,
     "advanced": 7,
-    "safety": 7,
+    "safety": 5.5,
     "lodging": 7.5,
     "travel": 6.5,
     "turnkey": 8,
     "strikeability": 7
    },
-   "note": "Saladita: an endless waist-high left made for learning and longboarding. Troncones/The Ranch up the road for punchy waves. Beach-house rentals with pools.",
+   "note": "Saladita: an endless waist-high left made for learning and longboarding. Troncones/The Ranch up the road for punchy waves. Beach-house rentals with pools. Advisory caveat (2026-08 scan): Guerrero is a standing US State Dept Level 4 'Do Not Travel' state — the Zihuatanejo tourist corridor functions normally in practice, but thin medical plus the harshest advisory category cost it the score cut from 7 to 5.5.",
    "guide_v1": 7,
    "cost_band": "$",
    "min_days": 6,
@@ -618,7 +618,10 @@
     82,
     86
    ],
-   "wetsuit": "trunks"
+   "wetsuit": "trunks",
+   "v11_scores": {
+    "safety": 7
+   }
   },
   {
    "name": "Salina Cruz guided camps (Oaxaca)",
@@ -4246,7 +4249,7 @@
    },
    "cost_band": "$$",
    "min_days": 2,
-   "booking": "Sessions online; on-site lodges",
+   "booking": "Sessions online; on-site lodges; ownership changed 2025 after administration — reconfirm bookings",
    "note": "The UK's flagship pool with on-site surf lodges — a genuine stay-and-surf property, so it qualifies for the family division under the resort rule.",
    "pool": true,
    "resort_pool": true,

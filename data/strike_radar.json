@@ -312,24 +312,6 @@
    "notes": "Self-assemble; easy"
   },
   {
-   "trip": "La Saladita + Troncones",
-   "query": "La Saladita + Troncones",
-   "months": [
-    4,
-    5,
-    6,
-    7,
-    8,
-    9
-   ],
-   "strike_composite": 70.0,
-   "min_lead_days": 3,
-   "min_rating": "GOOD",
-   "min_height_ft": 4,
-   "cluster": "",
-   "notes": "Beach houses 3–6mo"
-  },
-  {
    "trip": "North Shore (Oahu) — winter base",
    "query": "North Shore",
    "months": [
@@ -345,6 +327,24 @@
    "min_height_ft": 4,
    "cluster": "Oahu trio",
    "notes": "Vacation rentals; winter books early"
+  },
+  {
+   "trip": "La Saladita + Troncones",
+   "query": "La Saladita + Troncones",
+   "months": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "strike_composite": 68.9,
+   "min_lead_days": 3,
+   "min_rating": "GOOD",
+   "min_height_ft": 4,
+   "cluster": "",
+   "notes": "Beach houses 3–6mo"
   },
   {
    "trip": "Pavones",
