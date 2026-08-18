@@ -275,6 +275,7 @@ ul.tight li{margin:.3em 0}
 .arche .card p{font-size:.9rem;color:var(--ink-2);margin:.2em 0}
 footer{margin-top:80px;padding-top:20px;border-top:1px solid var(--line);
   font-size:.8rem;color:var(--ink-3)}
+.filterslot .filters{margin-bottom:-6px}
 .filters{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-top:18px;
   background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 18px}
 .filters label{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);
@@ -351,6 +352,8 @@ JS = """
         el.getAttribute('data-mode') === m && el.getAttribute('data-pools') === ps);
     });
     sel.value = m; chk.checked = p;
+    var slot = document.querySelector('.mode.active .filterslot');
+    if (slot) slot.appendChild(document.getElementById('fbar'));
     try { localStorage.setItem('fwi-mode', m); localStorage.setItem('fwi-pools', ps); } catch (e) {}
     applyFilters();
   }
@@ -602,7 +605,10 @@ def render_mode(key, mode, trips, dims, pools_on):
 <section>
   <h2>All {n} trips — {mode["label"].lower()} weighting</h2>
   <p class="prose">Band = where the trip's rank lands when any one weight is perturbed ±25% —
-  a tight band means the rank is robust. {copy["gate_col"]} = this division's gate ({gate_desc}).</p>
+  a tight band means the rank is robust. {copy["gate_col"]} = this division's gate ({gate_desc}).
+  Filters below apply to <strong>this table only</strong> — the top-ten cards and calendar always show the
+  model's unfiltered opinion. Rank numbers keep their gaps so you can see what a filter costs you.</p>
+  <div class="filterslot"></div>
   <div class="tablewrap"><table>
     <thead>{thead}</thead>
     <tbody>{"".join(rows)}</tbody>
@@ -749,11 +755,8 @@ def main():
   <span class="mono">score.py</span> + <span class="mono">gen_report.py</span> to regenerate everything here.</div>
 </section>
 
-<section>
-  <h2>Filter the tables</h2>
-  <p class="prose">Filters apply to every division's full table (the top-ten cards and calendar stay
-  unfiltered). Rank numbers keep their gaps so you can see what a filter costs you.</p>
-  <div class="filters">
+<div id="filterhome" hidden>
+  <div class="filters" id="fbar">
     <label>Budget<select id="f-cost"><option value="0">Any</option><option value="1">$ only</option>
       <option value="2">Up to $$</option><option value="3">Up to $$$</option></select></label>
     <label>Travel<select id="f-travel"><option value="0">Any</option>
@@ -771,7 +774,7 @@ def main():
     <button id="f-reset" type="button">reset</button>
     <span class="fcount" id="f-count"></span>
   </div>
-</section>
+</div>
 
 {mode_blocks}
 
