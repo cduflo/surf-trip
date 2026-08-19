@@ -1,6 +1,6 @@
 # surf-trip — The Family Wave Index
 
-Scored ranking of 122 surf trips (destination + season window) from New England, rendered as
+Scored ranking of 123 surf trips (destination + season window) from New England, rendered as
 three divisions behind a dropdown — family (beginner-gated), solo/boys (advanced-gated), and
 strike mission (fly on the forecast; strikeability-gated) — plus a wave-pool toggle (9 pools;
 untiered calibration rows when off, fully ranked when on; family division requires resort pools).

@@ -16,7 +16,9 @@ row — proved the v4 blind spot recurs on its own schedule.
 
 ## The cadence
 
-1. **Semi-annual (Feb + Aug): coverage re-audit.** Re-run the v4 adversarial pattern — 3 regional
+1. **Semi-annual (Feb + Aug): coverage re-audit.** *(Feb 2027 audit: include a one-time exhaustive
+   property sweep of already-covered corridors — Amaru proved pre-existing properties hide from both
+   the audits and the scan's 12-month recency filter.)* Re-run the v4 adversarial pattern — 3 regional
    gap-hunters + 1 construction skeptic, prompts recorded in METHODOLOGY v4 — with an explicit
    brief to hunt **property-level entrants** (new resorts/academies/pools) and closures, not just
    coastlines. Score survivors, add rows, record confirmed-correct exclusions in the changelog so

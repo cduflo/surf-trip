@@ -2708,7 +2708,8 @@
     78,
     84
    ],
-   "wetsuit": "trunks"
+   "wetsuit": "trunks",
+   "cluster": "NW Nicaragua corridor"
   },
   {
    "name": "Banyak Islands (Treasure Island)",
@@ -4512,6 +4513,43 @@
    "wetsuit": "trunks",
    "cluster": "La Libertad corridor",
    "note": "The academy model at its peak: a performance surf school (video analysis, structured coaching, quiver included) wrapped in a boutique hotel whose pool overlooks the El Palmarcito point, with Sunzal-to-Punta-Roca in guided range. The most professionalized coaching product in the hemisphere — a property-level entrant the coastline row couldn't see, added v11."
+  },
+  {
+   "name": "Amaru (Aposentillo / The Boom)",
+   "country": "Nicaragua",
+   "region": "Central America",
+   "window": "Apr–Sep",
+   "months": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "travel_note": "One-stop to MGA + 3h drive",
+   "scores": {
+    "consistency": 9.5,
+    "crowd": 8,
+    "quality": 7.5,
+    "beginner": 6.5,
+    "advanced": 8.5,
+    "safety": 6.5,
+    "turnkey": 9,
+    "lodging": 8,
+    "travel": 5,
+    "strikeability": 5
+   },
+   "cost_band": "$$$",
+   "min_days": 6,
+   "booking": "All-inclusive resort (13 rooms); retreat calendar; 3–6mo",
+   "water_f": [
+    78,
+    84
+   ],
+   "wetsuit": "trunks",
+   "cluster": "NW Nicaragua corridor",
+   "note": "The property-level product on the NW corridor the Miramar camps row generalizes: a 13-room all-inclusive surf-and-wellness resort five minutes' walk from The Boom's A-frames, with coaching, guided program, and gentle inside waves for the improvers. Same offshore machine, same emptiness, resort wrapper. Added v13 — the third property the coastline rows hid (after Puro Surf and Rancho Santana), this one surfaced by the owner, not the audits."
   }
  ],
  "modes": {
