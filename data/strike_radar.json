@@ -6,6 +6,20 @@
  },
  "spots": [
   {
+   "trip": "Santa Bárbara Eco-Beach Resort",
+   "query": "Santa Bárbara Eco-Beach Resort",
+   "months": [
+    9,
+    10
+   ],
+   "strike_composite": 79.7,
+   "min_lead_days": 2,
+   "min_rating": "GOOD",
+   "min_height_ft": 4,
+   "cluster": "São Miguel pair",
+   "notes": "Villa resort + on-site school; 3–6mo"
+  },
+  {
    "trip": "Rincón",
    "query": "Rincón",
    "months": [
@@ -36,20 +50,6 @@
    "min_height_ft": 4,
    "cluster": "Barbados pair",
    "notes": "Walk-in; watch the hurricane models"
-  },
-  {
-   "trip": "São Miguel (Azores)",
-   "query": "São Miguel",
-   "months": [
-    9,
-    10
-   ],
-   "strike_composite": 77.4,
-   "min_lead_days": 2,
-   "min_rating": "GOOD",
-   "min_height_ft": 4,
-   "cluster": "",
-   "notes": "Easy; 4.5h direct"
   },
   {
    "trip": "Madeira (Jardim do Mar)",
@@ -136,6 +136,20 @@
    "notes": "Easy; hotels on the strip"
   },
   {
+   "trip": "Noah Surf House (Santa Cruz)",
+   "query": "Noah Surf House",
+   "months": [
+    9,
+    10
+   ],
+   "strike_composite": 75.6,
+   "min_lead_days": 2,
+   "min_rating": "GOOD",
+   "min_height_ft": 4,
+   "cluster": "Silver Coast pair",
+   "notes": "8 rooms + 13 bungalows; 7-night packages"
+  },
+  {
    "trip": "El Zonte + El Tunco (La Libertad)",
    "query": "El Zonte + El Tunco",
    "months": [
@@ -154,20 +168,6 @@
    "min_height_ft": 4,
    "cluster": "La Libertad corridor",
    "notes": "Easy; near walk-in"
-  },
-  {
-   "trip": "Peniche + Baleal",
-   "query": "Peniche + Baleal",
-   "months": [
-    9,
-    10
-   ],
-   "strike_composite": 75.4,
-   "min_lead_days": 2,
-   "min_rating": "GOOD",
-   "min_height_ft": 4,
-   "cluster": "Silver Coast pair",
-   "notes": "Camps plentiful"
   },
   {
    "trip": "Bundoran + Sligo",
@@ -251,6 +251,22 @@
    "notes": "Camps 1–3mo"
   },
   {
+   "trip": "Scorpion Bay (San Juanico)",
+   "query": "Scorpion Bay",
+   "months": [
+    6,
+    7,
+    8,
+    9
+   ],
+   "strike_composite": 71.5,
+   "min_lead_days": 4,
+   "min_rating": "GOOD",
+   "min_height_ft": 4,
+   "cluster": "",
+   "notes": "Scorpion Bay Hotel operating (online booking, restaurant, rentals); trip remains a swell-chase expedition"
+  },
+  {
    "trip": "Sagres / Algarve",
    "query": "Sagres / Algarve",
    "months": [
@@ -266,20 +282,18 @@
    "notes": "Easy"
   },
   {
-   "trip": "Scorpion Bay (San Juanico)",
-   "query": "Scorpion Bay",
+   "trip": "Galicia (Pantín / Razo)",
+   "query": "Galicia",
    "months": [
-    6,
-    7,
-    8,
-    9
+    9,
+    10
    ],
-   "strike_composite": 71.0,
-   "min_lead_days": 4,
+   "strike_composite": 71.2,
+   "min_lead_days": 3,
    "min_rating": "GOOD",
    "min_height_ft": 4,
    "cluster": "",
-   "notes": "Full DIY expedition"
+   "notes": "Self-assemble; easy"
   },
   {
    "trip": "San Onofre + Doheny (San Clemente)",
@@ -298,20 +312,6 @@
    "notes": "Easy; state-park passes; camps and rentals"
   },
   {
-   "trip": "Galicia (Pantín / Razo)",
-   "query": "Galicia",
-   "months": [
-    9,
-    10
-   ],
-   "strike_composite": 70.5,
-   "min_lead_days": 3,
-   "min_rating": "GOOD",
-   "min_height_ft": 4,
-   "cluster": "",
-   "notes": "Self-assemble; easy"
-  },
-  {
    "trip": "North Shore (Oahu) — winter base",
    "query": "North Shore",
    "months": [
@@ -325,7 +325,7 @@
    "min_lead_days": 4,
    "min_rating": "GOOD",
    "min_height_ft": 4,
-   "cluster": "Oahu trio",
+   "cluster": "Oahu group",
    "notes": "Vacation rentals; winter books early"
   },
   {

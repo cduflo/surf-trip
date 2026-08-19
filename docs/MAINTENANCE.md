@@ -16,9 +16,10 @@ row — proved the v4 blind spot recurs on its own schedule.
 
 ## The cadence
 
-1. **Semi-annual (Feb + Aug): coverage re-audit.** *(Feb 2027 audit: include a one-time exhaustive
-   property sweep of already-covered corridors — Amaru proved pre-existing properties hide from both
-   the audits and the scan's 12-month recency filter.)* Re-run the v4 adversarial pattern — 3 regional
+1. **Semi-annual (Feb + Aug): coverage re-audit.** *(One-time exhaustive property sweep of covered
+   corridors: **DONE 2026-08-19** — 5 regional web-verified sweeps, ~90 properties dispositioned,
+   18 rows added, 3 rows corrected, 2 closures confirmed; see METHODOLOGY v14. From here the monthly
+   recency scan covers new entrants.)* Re-run the v4 adversarial pattern — 3 regional
    gap-hunters + 1 construction skeptic, prompts recorded in METHODOLOGY v4 — with an explicit
    brief to hunt **property-level entrants** (new resorts/academies/pools) and closures, not just
    coastlines. Score survivors, add rows, record confirmed-correct exclusions in the changelog so
@@ -37,6 +38,13 @@ changelog entry → republish the artifact → copy `strike_radar.json` to SurfB
 roster changed.
 
 ## Candidates (intake list — score at next audit)
+
+- 2026-08-19: Majestic Surf Resort (Krui, Sumatra) — infinity-pool resort facing Ujung Bocur, opening summer 2026; score once proven operating [https://majesticsurfresort.com/]
+- 2026-08-19: Soul & Surf Algarve (Burgau, Portugal) — brand's relocated all-inclusive retreat, opened Apr 2026; new location unproven [https://www.soulandsurf.com/retreats/portugal/]
+- 2026-08-19: Mandla Resort (El Transito, Nicaragua) — coaching resort on an UNCOVERED coastline between the NW and SW corridors (zone question, not property add)
+- 2026-08-19: Sansara Surf & Yoga (Playa Cambutal, Panama) — resort-grade on an uncovered coastline (zone question)
+- 2026-08-19: Surf Synergy (Jacó/Herradura, Costa Rica) — luxury training resort on an uncovered corridor (zone question)
+- 2026-08-19: Deep-south Maldives (Gaafu — Ayada et al.) — least-crowded Maldives zone has no row (zone question)
 
 - 2026-08-17: Atlantic Park / Wavegarden Cove (Virginia Beach, VA) — 46-module wave pool + on-site hotel, opened Aug 2025, strongest strike-division fit found this cycle (domestic, no passport) [https://wavegarden.com/north-americas-first-wavegarden-cove-opens-at-atlantic-park-in-virginia-beach/]
 - 2026-08-17: Cabo Real Surf Club (Los Cabos, Mexico) — gated residential community anchored by North America's first Endless Surf basin, opening 2026 [https://www.surfer.com/news/inside-cabo-real-surf-club-mexicos-first-luxury-wave-pool-community]

@@ -309,7 +309,8 @@
     81,
     84
    ],
-   "wetsuit": "trunks"
+   "wetsuit": "trunks",
+   "cluster": "Bocas pair"
   },
   {
    "name": "El Zonte + El Tunco (La Libertad)",
@@ -649,7 +650,7 @@
     "turnkey": 8,
     "strikeability": 6.5
    },
-   "note": "The 4x4-guide model at its best: sand-bottom right points (Punta Conejo etc.) picked by wind/tide each morning, lineups effectively gated by access. World-class waves; thin beginner options.",
+   "note": "The 4x4-guide model at its best: sand-bottom right points (Punta Conejo etc.) picked by wind/tide each morning, lineups effectively gated by access. World-class waves; thin beginner options. Risk flag (2026-08): the port-expansion breakwater is a documented threat to Punta Conejo — wave functioning per 2026 reviews; review this corridor if construction advances.",
    "guide_v1": 9.5,
    "cost_band": "$$",
    "min_days": 6,
@@ -658,7 +659,8 @@
     82,
     86
    ],
-   "wetsuit": "trunks"
+   "wetsuit": "trunks",
+   "cluster": "Salina Cruz corridor"
   },
   {
    "name": "Puerto Escondido (La Punta base)",
@@ -753,7 +755,7 @@
     "beginner": 6.5,
     "advanced": 8,
     "safety": 7,
-    "lodging": 4.5,
+    "lodging": 6,
     "travel": 3.5,
     "turnkey": 2.5,
     "strikeability": 7.5
@@ -762,12 +764,15 @@
    "guide_v1": 5,
    "cost_band": "$",
    "min_days": 8,
-   "booking": "Full DIY expedition",
+   "booking": "Scorpion Bay Hotel operating (online booking, restaurant, rentals); trip remains a swell-chase expedition",
    "water_f": [
     70,
     78
    ],
-   "wetsuit": "trunks or springsuit"
+   "wetsuit": "trunks or springsuit",
+   "v13_scores": {
+    "lodging": 4.5
+   }
   },
   {
    "name": "Costa Azul (San José del Cabo)",
@@ -1131,7 +1136,8 @@
     80,
     84
    ],
-   "wetsuit": "trunks"
+   "wetsuit": "trunks",
+   "cluster": "Itacaré pair"
   },
   {
    "name": "Fernando de Noronha",
@@ -1202,7 +1208,8 @@
     55,
     60
    ],
-   "wetsuit": "4/3 + booties (hood common)"
+   "wetsuit": "4/3 + booties (hood common)",
+   "cluster": "Punta de Lobos pair"
   },
   {
    "name": "Ericeira",
@@ -1476,7 +1483,8 @@
     71,
     74
    ],
-   "wetsuit": "springsuit or 2mm"
+   "wetsuit": "springsuit or 2mm",
+   "cluster": "São Miguel pair"
   },
   {
    "name": "Taghazout + Tamraght",
@@ -1914,7 +1922,8 @@
     78,
     82
    ],
-   "wetsuit": "trunks"
+   "wetsuit": "trunks",
+   "cluster": "South Lombok pair"
   },
   {
    "name": "Lakey Peak (Sumbawa)",
@@ -2285,21 +2294,25 @@
     "beginner": 5,
     "advanced": 8,
     "safety": 8.5,
-    "lodging": 7,
+    "lodging": 5,
     "travel": 1.5,
-    "turnkey": 8.5,
+    "turnkey": 4.5,
     "strikeability": 2.5
    },
-   "note": "A handful of guests, a reef out front, whales breaching behind the lineup Jul–Oct. Shallow reef surfing only; the whale-swim is the family hook.",
+   "note": "Score correction (2026-08 property sweep): the resort this row's turnkey/lodging were premised on was destroyed by the Hunga Tonga tsunami and is confirmed ceased. The reef and the whales remain; the turnkey trip as modeled does not, until a new operator is verified.",
    "guide_v1": 8.5,
    "cost_band": "$$$",
    "min_days": 9,
-   "booking": "Tiny capacity; 6–9mo",
+   "booking": "PRIMARY OPERATOR CEASED — Ha'atafu Beach Resort destroyed by the Jan 2022 tsunami, listed ceased as of 2025; verify any operator before planning",
    "water_f": [
     74,
     79
    ],
-   "wetsuit": "trunks or spring top"
+   "wetsuit": "trunks or spring top",
+   "v13_scores": {
+    "turnkey": 8.5,
+    "lodging": 7
+   }
   },
   {
    "name": "Nusa Island Retreat (Kavieng)",
@@ -2413,7 +2426,7 @@
     "consistency": 9,
     "advanced": 6
    },
-   "cluster": "Oahu trio",
+   "cluster": "Oahu group",
    "water_f": [
     75,
     77
@@ -2957,7 +2970,7 @@
    "min_days": 5,
    "booking": "Easy; no passport",
    "note": "The better family window the winter row obscured: south-shore swell season, Queens and Canoes at their most consistent, and a flat, snorkel-safe North Shore. Beach-boy turnkey at its purest; the crowd is the whole tax.",
-   "cluster": "Oahu trio",
+   "cluster": "Oahu group",
    "water_f": [
     78,
     80
@@ -3322,7 +3335,8 @@
     77,
     81
    ],
-   "wetsuit": "trunks"
+   "wetsuit": "trunks",
+   "cluster": "West Sumbawa pair"
   },
   {
    "name": "Nias (Lagundri Bay)",
@@ -3357,7 +3371,8 @@
     82,
     85
    ],
-   "wetsuit": "trunks"
+   "wetsuit": "trunks",
+   "cluster": "Lagundri Bay pair"
   },
   {
    "name": "Beran Island (Ailinglaplap)",
@@ -3425,7 +3440,7 @@
    "min_days": 6,
    "booking": "Vacation rentals; winter books early",
    "note": "The boys-mode Oahu row the family lens excluded: based at the Seven Mile Miracle, dawn-patrolling Haleiwa and Chun's with the world's best out at Pipe. Realized wave count is honest — the deepest pecking order on earth caps it.",
-   "cluster": "Oahu trio",
+   "cluster": "Oahu group",
    "water_f": [
     75,
     77
@@ -3761,7 +3776,7 @@
     "beginner": 7,
     "advanced": 7,
     "safety": 9.5,
-    "turnkey": 5,
+    "turnkey": 6,
     "lodging": 6.5,
     "travel": 5.5,
     "strikeability": 7.5
@@ -3769,12 +3784,15 @@
    "cost_band": "$",
    "min_days": 6,
    "booking": "Self-assemble; easy",
-   "note": "Genuinely uncrowded, consistent Atlantic beach breaks with European safety — and no camp ecosystem, so you assemble the trip yourself, which this index prices.",
+   "note": "Genuinely uncrowded, consistent Atlantic beach breaks with European safety. Note correction (2026-08 sweep): a real camp ecosystem exists (Artsurfcamp at Razo runs full coached weeks), so the old 'self-assemble only' verdict was stale — turnkey raised 5 → 6; still no resort-grade property.",
    "water_f": [
     61,
     65
    ],
-   "wetsuit": "4/3 (or warm 3/2)"
+   "wetsuit": "4/3 (or warm 3/2)",
+   "v13_scores": {
+    "turnkey": 5
+   }
   },
   {
    "name": "Guadeloupe + Martinique",
@@ -3809,7 +3827,8 @@
     79,
     83
    ],
-   "wetsuit": "trunks"
+   "wetsuit": "trunks",
+   "cluster": "Guadeloupe pair"
   },
   {
    "name": "Dominical + Uvita",
@@ -3845,7 +3864,8 @@
     82,
     86
    ],
-   "wetsuit": "trunks"
+   "wetsuit": "trunks",
+   "cluster": "Dominical pair"
   },
   {
    "name": "Puerto Viejo (Playa Cocles)",
@@ -4550,6 +4570,657 @@
    "wetsuit": "trunks",
    "cluster": "NW Nicaragua corridor",
    "note": "The property-level product on the NW corridor the Miramar camps row generalizes: a 13-room all-inclusive surf-and-wellness resort five minutes' walk from The Boom's A-frames, with coaching, guided program, and gentle inside waves for the improvers. Same offshore machine, same emptiness, resort wrapper. Added v13 — the third property the coastline rows hid (after Puro Surf and Rancho Santana), this one surfaced by the owner, not the audits."
+  },
+  {
+   "name": "Mukul / Guacalito de la Isla",
+   "country": "Nicaragua",
+   "region": "Central America",
+   "window": "Apr–Sep",
+   "months": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "travel_note": "One-stop to MGA + 2.5h drive",
+   "scores": {
+    "consistency": 9.5,
+    "crowd": 8,
+    "quality": 8,
+    "beginner": 7.5,
+    "advanced": 8.5,
+    "safety": 7,
+    "turnkey": 9.5,
+    "lodging": 10,
+    "travel": 6,
+    "strikeability": 4.5
+   },
+   "cost_band": "$$$$",
+   "min_days": 6,
+   "booking": "Members-club resort (reopened 2024); Tropicsurf on-site; 6–9mo",
+   "water_f": [
+    74,
+    82
+   ],
+   "wetsuit": "trunks (spring top in upwelling spells)",
+   "note": "Closed 2018, reopened Jan 2024 as Nicaragua's flagship: 12 beachfront villas + 23 bohíos, Tropicsurf resident full-time (10-level coaching, guided boats to 17 breaks), and a private left point with no public road access. The corridor's consistency with Nihi-grade lodging — and a beginner program the boat resorts can't match.",
+   "cluster": "SW Nicaragua corridor"
+  },
+  {
+   "name": "Malibu Popoyo",
+   "country": "Nicaragua",
+   "region": "Central America",
+   "window": "Apr–Sep",
+   "months": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "travel_note": "One-stop to MGA + 2.5h drive",
+   "scores": {
+    "consistency": 9.5,
+    "crowd": 6.5,
+    "quality": 8.5,
+    "beginner": 7.5,
+    "advanced": 9,
+    "safety": 6.5,
+    "turnkey": 9.5,
+    "lodging": 9,
+    "travel": 6,
+    "strikeability": 5
+   },
+   "cost_band": "$$$$",
+   "min_days": 6,
+   "booking": "12-room design all-inclusive; ~6mo",
+   "water_f": [
+    74,
+    82
+   ],
+   "wetsuit": "trunks (spring top in upwelling spells)",
+   "note": "The Amaru archetype on the SW corridor: 12 design-grade rooms, all-inclusive coaching for every level, and unlimited 4x4 guiding to 10+ breaks on a row whose $ lodges assume you sort yourself out.",
+   "cluster": "SW Nicaragua corridor"
+  },
+  {
+   "name": "Kalon Surf (Dominicalito)",
+   "country": "Costa Rica",
+   "region": "Central America",
+   "window": "Apr–Sep",
+   "months": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "travel_note": "BOS→SJO + included SUV transfer",
+   "scores": {
+    "consistency": 9,
+    "crowd": 5.5,
+    "quality": 7.5,
+    "beginner": 8.5,
+    "advanced": 7.5,
+    "safety": 7.5,
+    "turnkey": 9.5,
+    "lodging": 9,
+    "travel": 7,
+    "strikeability": 4.5
+   },
+   "cost_band": "$$$$",
+   "min_days": 7,
+   "booking": "7-night fixed weeks; 3–6mo",
+   "water_f": [
+    82,
+    86
+   ],
+   "wetsuit": "trunks",
+   "note": "A Puro-Surf-grade luxury academy above Dominicalito: 3:1 coach ratio, daily video analysis, chef dining, door-to-door SJO transfer — and supervised coaching directly fixes the rip problem that caps the coastline row's beginner score.",
+   "cluster": "Dominical pair"
+  },
+  {
+   "name": "Red Frog Bungalows (Bastimentos)",
+   "country": "Panama",
+   "region": "Central America",
+   "window": "Dec–Mar",
+   "months": [
+    12,
+    1,
+    2,
+    3
+   ],
+   "travel_note": "BOS→PTY + hop + boat",
+   "scores": {
+    "consistency": 6,
+    "crowd": 7.5,
+    "quality": 7.5,
+    "beginner": 6,
+    "advanced": 8.5,
+    "safety": 7,
+    "turnkey": 9,
+    "lodging": 8,
+    "travel": 5.5,
+    "strikeability": 4
+   },
+   "cost_band": "$$$",
+   "min_days": 7,
+   "booking": "All-inclusive, ~10 surfers, own boat fleet; ~6mo",
+   "water_f": [
+    81,
+    84
+   ],
+   "wetsuit": "trunks",
+   "note": "The Las Flores resort-and-panga model on the Caribbean: max ~10 surfers, daily boat calls to 15 waves within 20 minutes (Silverbacks in range) on a row that assumes DIY boat-hiring. Swell-dependence is unchanged — the window still decides the trip.",
+   "cluster": "Bocas pair"
+  },
+  {
+   "name": "K59 Surf Resort",
+   "country": "El Salvador",
+   "region": "Central America",
+   "window": "Mar–Oct",
+   "months": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "travel_note": "One-stop to SAL + 1h drive",
+   "scores": {
+    "consistency": 9,
+    "crowd": 8,
+    "quality": 8,
+    "beginner": 6,
+    "advanced": 8.5,
+    "safety": 7.5,
+    "turnkey": 8.5,
+    "lodging": 7.5,
+    "travel": 7,
+    "strikeability": 6.5
+   },
+   "cost_band": "$",
+   "min_days": 5,
+   "booking": "Gated point community; surf house from ~$99/night all-in",
+   "water_f": [
+    82,
+    86
+   ],
+   "wetsuit": "trunks",
+   "note": "The Rancho Santana pattern at $ prices: a quality cobblestone right inside a gated community with limited public access — one of the country's least-crowded good waves — with a beachfront surf house and personal chef.",
+   "cluster": "La Libertad corridor"
+  },
+  {
+   "name": "Punta Conejo Resort (Salina Cruz)",
+   "country": "Mexico",
+   "region": "Mexico",
+   "window": "Apr–Sep",
+   "months": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "travel_note": "Two-leg to HUX/SCX + resort pickup",
+   "scores": {
+    "consistency": 9,
+    "crowd": 8.5,
+    "quality": 9.5,
+    "beginner": 4.5,
+    "advanced": 10,
+    "safety": 7,
+    "turnkey": 9,
+    "lodging": 8,
+    "travel": 5,
+    "strikeability": 6.5
+   },
+   "cost_band": "$$$",
+   "min_days": 6,
+   "booking": "Oceanfront all-inclusive on the points; 3–6mo",
+   "water_f": [
+    82,
+    86
+   ],
+   "wetsuit": "trunks",
+   "note": "The only oceanfront all-inclusive ON the Salina Cruz points (Punta Conejo a 5-min walk), private 4x4 guides, full board — the corridor's camp row upgraded to the Amaru pattern. Risk flag: the Salina Cruz port-expansion breakwater is a documented threat to Punta Conejo itself (wave functioning per 2026 reviews; the guide model covers the whole corridor if it degrades).",
+   "cluster": "Salina Cruz corridor"
+  },
+  {
+   "name": "UCPA Surf House Le Moule",
+   "country": "France (Caribbean)",
+   "region": "Caribbean",
+   "window": "Nov–Mar",
+   "months": [
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "travel_note": "BOS via SJU/MIA → PTP ~8h",
+   "scores": {
+    "consistency": 6.5,
+    "crowd": 6.5,
+    "quality": 6,
+    "beginner": 8,
+    "advanced": 6.5,
+    "safety": 7.5,
+    "turnkey": 8,
+    "lodging": 6.5,
+    "travel": 7.5,
+    "strikeability": 6
+   },
+   "cost_band": "$",
+   "min_days": 6,
+   "booking": "Fixed-week institutional packages (UCPA)",
+   "water_f": [
+    79,
+    83
+   ],
+   "wetsuit": "trunks",
+   "note": "Fixes the Guadeloupe row's own named cap: an institutional week with 10 coached sessions, gear, and spot rotation included, at sports-association prices. Lodging is hostel-grade — that's the trade.",
+   "cluster": "Guadeloupe pair"
+  },
+  {
+   "name": "Macaronis Resort (North Pagai)",
+   "country": "Indonesia",
+   "region": "Indo-Pacific",
+   "window": "Apr–Oct",
+   "months": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "travel_note": "BOS→PDG ~28h + 4h boat",
+   "scores": {
+    "consistency": 9.5,
+    "crowd": 7.5,
+    "quality": 9.5,
+    "beginner": 5.5,
+    "advanced": 9.5,
+    "safety": 6.5,
+    "turnkey": 9.5,
+    "lodging": 8.5,
+    "travel": 1,
+    "strikeability": 1.5
+   },
+   "cost_band": "$$$$",
+   "min_days": 10,
+   "booking": "Resort 9–12mo; kids-free Decembers",
+   "water_f": [
+    82,
+    85
+   ],
+   "wetsuit": "trunks",
+   "note": "A different Mentawai zone from the Kandui/HT's row — southern Pagais — with the wave (Macaronis, the world's funnest left) breaking in front of the resort: no daily-boat dependency, pool, kids-under-18-free Decembers, women's clinics. The v4 near-duplicate verdict was wrong; this is the Rancho Santana pattern at Mentawai scale.",
+   "cluster": "Mentawai zone"
+  },
+  {
+   "name": "Kandooma Surf Wing (South Malé)",
+   "country": "Maldives",
+   "region": "Indian Ocean",
+   "window": "Apr–Oct",
+   "months": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "travel_note": "BOS→MLE ~20h + 40min speedboat",
+   "scores": {
+    "consistency": 9,
+    "crowd": 8,
+    "quality": 8.5,
+    "beginner": 6,
+    "advanced": 8.5,
+    "safety": 9.5,
+    "turnkey": 9.5,
+    "lodging": 9,
+    "travel": 3,
+    "strikeability": 2.5
+   },
+   "cost_band": "$$$",
+   "min_days": 7,
+   "booking": "Perfect Wave exclusive rights; guest-capped wave; 6–9mo",
+   "water_f": [
+    84,
+    86
+   ],
+   "wetsuit": "trunks",
+   "note": "The family-priced Pasta Point analog on an atoll the index didn't cover: exclusive rights to all surf at the resort, Kandooma Right guest-capped, kids-stay-free — a genuine right-hander counterpart to North Malé's lefts at a lower price band."
+  },
+  {
+   "name": "Heaven on the Planet (Ekas)",
+   "country": "Indonesia",
+   "region": "Indo-Pacific",
+   "window": "May–Sep",
+   "months": [
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "travel_note": "BOS→LOP ~26h + 1.5h drive/boat",
+   "scores": {
+    "consistency": 9,
+    "crowd": 8.5,
+    "quality": 8,
+    "beginner": 7.5,
+    "advanced": 8,
+    "safety": 7.5,
+    "turnkey": 9,
+    "lodging": 8.5,
+    "travel": 2.5,
+    "strikeability": 3
+   },
+   "cost_band": "$$$",
+   "min_days": 8,
+   "booking": "Clifftop villa resort; ~6mo",
+   "water_f": [
+    78,
+    82
+   ],
+   "wetsuit": "trunks",
+   "note": "The empty far side of the South Lombok row: 17 clifftop hectares over Inside/Outside Ekas with instructors, infinity pool, and babysitting — the Gerupuk conveyor's crowd tax mostly disappears across the bay.",
+   "cluster": "South Lombok pair"
+  },
+  {
+   "name": "Whales & Waves (Kertasari)",
+   "country": "Indonesia",
+   "region": "Indo-Pacific",
+   "window": "May–Sep",
+   "months": [
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "travel_note": "BOS→LOP/SWQ + ferry ~30h",
+   "scores": {
+    "consistency": 8,
+    "crowd": 9.5,
+    "quality": 7.5,
+    "beginner": 7,
+    "advanced": 7.5,
+    "safety": 6.5,
+    "turnkey": 8.5,
+    "lodging": 7.5,
+    "travel": 1.5,
+    "strikeability": 3
+   },
+   "cost_band": "$$",
+   "min_days": 8,
+   "booking": "Only lodge in the zone; boat program; ~6mo",
+   "water_f": [
+    77,
+    81
+   ],
+   "wetsuit": "trunks",
+   "note": "NW Sumbawa's other coastline: the only place to stay in the zone, boat program to near-empty waves, mellow long lefts for improvers — the crowd score the SW-corner row can't offer.",
+   "cluster": "West Sumbawa pair"
+  },
+  {
+   "name": "KabuNohi Sorake (Nias)",
+   "country": "Indonesia",
+   "region": "Indo-Pacific",
+   "window": "May–Sep",
+   "months": [
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "travel_note": "BOS→Medan→GNS ~30h",
+   "scores": {
+    "consistency": 9,
+    "crowd": 4,
+    "quality": 10,
+    "beginner": 5.5,
+    "advanced": 10,
+    "safety": 7,
+    "turnkey": 8,
+    "lodging": 8,
+    "travel": 1.5,
+    "strikeability": 4
+   },
+   "cost_band": "$$$",
+   "min_days": 9,
+   "booking": "16-guest resort at the point; ~6mo",
+   "water_f": [
+    82,
+    85
+   ],
+   "wetsuit": "trunks",
+   "note": "The first upscale resort at Lagundri: 16 guests, beachfront at the point, tailored transfers and guiding on a row that assumes losmen walk-ins. Honesty preserved: no property fixes the Point's 60-head circus — crowd stays 4.",
+   "cluster": "Lagundri Bay pair"
+  },
+  {
+   "name": "Noah Surf House (Santa Cruz)",
+   "country": "Portugal",
+   "region": "Europe/Atlantic",
+   "window": "Sep–Oct",
+   "months": [
+    9,
+    10
+   ],
+   "travel_note": "Nonstop BOS→LIS + 45min",
+   "scores": {
+    "consistency": 8,
+    "crowd": 6.5,
+    "quality": 7,
+    "beginner": 8,
+    "advanced": 7,
+    "safety": 9.5,
+    "turnkey": 9,
+    "lodging": 9,
+    "travel": 8,
+    "strikeability": 7.5
+   },
+   "cost_band": "$$$",
+   "min_days": 6,
+   "booking": "8 rooms + 13 bungalows; 7-night packages",
+   "water_f": [
+    63,
+    67
+   ],
+   "wetsuit": "3/2",
+   "note": "The Silver Coast's resort-grade family property on the quiet stretch between the Ericeira and Peniche rows: on-sand bungalows, accredited on-site school, everything included (yoga, skate park, bikes, heated pool) — where both sibling rows assume camps and town lodging.",
+   "cluster": "Silver Coast pair"
+  },
+  {
+   "name": "Santa Bárbara Eco-Beach Resort",
+   "country": "Portugal (Azores)",
+   "region": "Europe/Atlantic",
+   "window": "Sep–Oct",
+   "months": [
+    9,
+    10
+   ],
+   "travel_note": "Nonstop BOS→PDL 4.5h + 30min",
+   "scores": {
+    "consistency": 7,
+    "crowd": 7.5,
+    "quality": 7,
+    "beginner": 7.5,
+    "advanced": 7.5,
+    "safety": 9.5,
+    "turnkey": 8,
+    "lodging": 8.5,
+    "travel": 9,
+    "strikeability": 8.5
+   },
+   "cost_band": "$$$",
+   "min_days": 5,
+   "booking": "Villa resort + on-site school; 3–6mo",
+   "water_f": [
+    71,
+    74
+   ],
+   "wetsuit": "springsuit or 2mm",
+   "note": "Surfer-founded villa resort directly on Santa Bárbara beach with its own school and beach club — it deletes the Azores row's DIY tax on the shortest real surf flight from Boston. Arguably the best short-haul family property in the index.",
+   "cluster": "São Miguel pair"
+  },
+  {
+   "name": "Paradis Plage (Imi Ouaddar)",
+   "country": "Morocco",
+   "region": "Africa",
+   "window": "Oct–Mar",
+   "months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "travel_note": "BOS→LIS/CDG + AGA hop + 30min",
+   "scores": {
+    "consistency": 8,
+    "crowd": 6,
+    "quality": 6.5,
+    "beginner": 8.5,
+    "advanced": 7.5,
+    "safety": 7.5,
+    "turnkey": 9,
+    "lodging": 9,
+    "travel": 5.5,
+    "strikeability": 6.5
+   },
+   "cost_band": "$$",
+   "min_days": 6,
+   "booking": "Beachfront resort; closed 12 Nov–17 Dec 2026 for renovation",
+   "water_f": [
+    62,
+    68
+   ],
+   "wetsuit": "3/2",
+   "note": "The Agadir corridor's only true beachfront family resort: own gentle house break with on-site school, pools, spa, 9km north of the Taghazout crush. Quality trades down — the famous points are a guided drive away.",
+   "cluster": "Agadir coast pair"
+  },
+  {
+   "name": "Ritz-Carlton Turtle Bay (Oahu)",
+   "country": "USA (Hawaii)",
+   "region": "Pacific/USA",
+   "window": "Nov–Mar",
+   "months": [
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "travel_note": "BOS→HNL ~11-12h + 1h, no passport",
+   "scores": {
+    "consistency": 9,
+    "crowd": 5.5,
+    "quality": 7.5,
+    "beginner": 7.5,
+    "advanced": 7,
+    "safety": 9.5,
+    "turnkey": 8.5,
+    "lodging": 9.5,
+    "travel": 5,
+    "strikeability": 6.5
+   },
+   "cost_band": "$$$$",
+   "min_days": 6,
+   "booking": "Resort easy; Jamie O'Brien Surf Experience on-site",
+   "water_f": [
+    75,
+    77
+   ],
+   "wetsuit": "trunks",
+   "note": "Hawaii's only surf school with two commercially private breaks, an exclusive on-site pro program (private, keiki, adaptive), resort-grade everything — the family-viable North Shore trip the DIY winter-base row can't be. Its waves honestly aren't the Seven Mile Miracle; the score says so.",
+   "cluster": "Oahu group"
+  },
+  {
+   "name": "Hotel Alaia (Punta de Lobos)",
+   "country": "Chile",
+   "region": "South America",
+   "window": "Nov–Mar",
+   "months": [
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "travel_note": "BOS→SCL + 3.5h drive",
+   "scores": {
+    "consistency": 8.5,
+    "crowd": 6,
+    "quality": 8.5,
+    "beginner": 7,
+    "advanced": 9,
+    "safety": 8,
+    "turnkey": 8,
+    "lodging": 8.5,
+    "travel": 4,
+    "strikeability": 6
+   },
+   "cost_band": "$$$",
+   "min_days": 7,
+   "booking": "12-room boutique; guest-exclusive surf school",
+   "water_f": [
+    55,
+    60
+   ],
+   "wetsuit": "4/3 + booties (hood common)",
+   "note": "Twelve rooms in the dunes at Punta de Lobos with a guest-exclusive school, spa, and hot tubs — the turnkey answer on a row scored as hardy-DIY. The rubber requirement is unchanged; the thinking is what disappears.",
+   "cluster": "Punta de Lobos pair"
+  },
+  {
+   "name": "Txai Itacaré",
+   "country": "Brazil",
+   "region": "South America",
+   "window": "Dec–Mar",
+   "months": [
+    12,
+    1,
+    2,
+    3
+   ],
+   "travel_note": "BOS→GRU→IOS + 45min",
+   "scores": {
+    "consistency": 7,
+    "crowd": 8,
+    "quality": 6,
+    "beginner": 8.5,
+    "advanced": 5.5,
+    "safety": 7.5,
+    "turnkey": 8,
+    "lodging": 9.5,
+    "travel": 4,
+    "strikeability": 5.5
+   },
+   "cost_band": "$$$$",
+   "min_days": 7,
+   "booking": "Relais & Châteaux; lessons arranged; 3–6mo",
+   "water_f": [
+    80,
+    84
+   ],
+   "wetsuit": "trunks",
+   "note": "Ninety-two hectares fronting 5km of near-deserted Itacarezinho beach — resort-grade lodging and a private-feeling learner beach where the town row assumes pousada-DIY.",
+   "cluster": "Itacaré pair"
   }
  ],
  "modes": {
